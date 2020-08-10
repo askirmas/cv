@@ -16,6 +16,12 @@ a {
   display: inline-block;
 }
 
+code {
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 4px;
+  padding: 4px;
+}
+
 .Main {
   padding: 2 * $padding;
   overflow: hidden;

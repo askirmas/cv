@@ -3,14 +3,6 @@
 , "quarks"
 ;
 
-@mixin array-terms($arr...) {
-  $i: 0;
-  @each $word in $arr {
-    &#{$i} { @extend %Term--#{$word}; }
-    $i: $i + 1;
-  }
-}
-
 $terms-most: (
   $term--XP,
   $term--TDD,
@@ -174,11 +166,13 @@ $font-bold: 600;
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Implemented IDE-like website"); }
-        &1 { @include goal-content("Customers portal (full-stack)"); }
-        &2 { @include goal-content("Created styling system for the company"); }
-        &3 { @include goal-content("Built company’s internal infrastructure"); }
-        &4 { @include goal-content("Updated repositories structure for better usability"); }
+        @include array-goals(
+          "Implemented IDE-like website",
+          "Customers portal (full-stack)",
+          "Created styling system for the company",
+          "Built company’s internal infrastructure",
+          "Updated repositories structure for better usability"
+        );
       }
     }
   }
@@ -193,12 +187,14 @@ $font-bold: 600;
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Communicating with outsources, supports, consulting affiliates"); }
-        &1 { @include goal-content("Support and fast solving common operational issues"); }
-        &2 { @include goal-content("Continuous deployment"); }
-        &3 { @include goal-content("Software integrations with delegated configurations"); }
-        &4 { @include goal-content("Legacy code solving"); }
-        &5 { @include goal-content("Built websites and landing pages"); }
+        @include array-goals(
+          "Communicating with outsources, supports, consulting affiliates",
+          "Support and fast solving common operational issues",
+          "Continuous deployment",
+          "Software integrations with delegated configurations",
+          "Legacy code solving",
+          "Built websites and landing pages"
+        );
       }
     }
   }
@@ -213,10 +209,12 @@ $font-bold: 600;
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Web client for media viewing with mobile optimizations"); }
-        &1 { @include goal-content("Extended Compiler, Type system, Running platform and Build system of Proprietary programming language"); }
-        &2 { @include goal-content("Backend service for PDF resources conversion and storage"); }
-        &3 { @include goal-content("Implemented algorithm of specifications learning from examples for Programming by example system"); }
+        @include array-goals(
+          "Web client for media viewing with mobile optimizations",
+          "Extended Compiler, Type system, Running platform and Build system of Proprietary programming language",
+          "Backend service for PDF resources conversion and storage",
+          "Implemented algorithm of specifications learning from examples for Programming by example system"
+        );
       }
     }
   }
@@ -231,7 +229,9 @@ $font-bold: 600;
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Created internal timelog system"); }
+        @include array-goals(
+          "Created internal timelog system"
+        );
       }
     }
   }
@@ -246,9 +246,11 @@ $font-bold: 600;
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Managing branch, hiring, and training staff"); }
-        &1 { @include goal-content("eLearning production"); }
-        &2 { @include goal-content("Researched automation of video and text processing"); }
+        @include array-goals(
+          "Managing branch, hiring, and training staff",
+          "eLearning production",
+          "Researched automation of video and text processing"
+        );
       }
     }
   }

@@ -25,3 +25,26 @@
     @content;
   };
 }
+
+@mixin content-image($url) {
+  @include content-key("") {
+    background-image: url($url);
+    @content;
+  }
+}
+
+@mixin array-terms($arr...) {
+  $i: 0;
+  @each $word in $arr {
+    &#{$i} { @extend %Term--#{$word}; }
+    $i: $i + 1;
+  }
+}
+
+@mixin array-goals($arr...) {
+  $i: 0;
+  @each $word in $arr {
+    &#{$i} { @include goal-content($word); }
+    $i: $i + 1;
+  }
+}
