@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Andrii Kirmas CV",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build",
+    "build": "npm run compile/sass && npm run compile/pdf",
     "compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
     "md": "ts-node cli/md.ts",
     "md@dev": "nodemon",
@@ -25,6 +26,7 @@
     "jest": "^26.2.2",
     "material-components-web": "^7.0.0",
     "nodemon": "^2.0.4",
+    "np": "^6.4.0",
     "puppeteer": "^5.2.1",
     "sass": "^1.26.10",
     "ts-jest": "^26.1.4",
@@ -33,5 +35,8 @@
   },
   "engines": {
     "node": ">=12"
+  },
+  "dependencies": {
+    "git-hooks-wrapper": "^0.7.1"
   }
 }
