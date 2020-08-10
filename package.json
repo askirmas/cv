@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Andrii Kirmas CV",
   "scripts": {
-    "test": "npm run build",
+    "test": "npm run compile/sass",
     "build": "npm run compile/sass && npm run compile/pdf",
     "compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
     "md": "ts-node cli/md.ts",
