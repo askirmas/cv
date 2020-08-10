@@ -13,7 +13,10 @@
     "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "compile/pdf": "node cli/pdf.js"
   },
-  "keywords": [],
+  "keywords": [
+    "Andrii Kirmas",
+    "CV"
+  ],
   "author": {
     "name": "Andrii Kirmas",
     "email": "kirmas@phystech.edu",
@@ -38,5 +41,18 @@
   },
   "dependencies": {
     "git-hooks-wrapper": "^0.7.1"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "np": {
+    "yarn": false
+  },
+  "files": [
+    "index.html",
+    "Andrii_Kirmas.html",
+    "Andrii_Kirmas.pdf",
+    "Andrii_Kirmas.css",
+    "style.css"
+  ]
 }
