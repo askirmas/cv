@@ -61,12 +61,24 @@ a {
     &links {
       white-space: initial;
       width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
     }
     &title {
       flex: 1;
       min-width: min-content;
     }
   }
+}
+
+.links_group {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .Objectives { grid-area: Objectives;}

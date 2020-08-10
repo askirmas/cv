@@ -1,2 +1,3 @@
+- `npm install @kirmas/cv`
 - https://askirmas.github.io/cv/
 - https://askirmas.github.io/cv/Andrii_Kirmas.pdf

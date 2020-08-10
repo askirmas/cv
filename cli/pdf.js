@@ -8,7 +8,7 @@ async function main() {
   , browser = await puppeteer.launch()
   , page = await browser.newPage()
   
-    await page.goto(`file://${cwd}/Andrii_Kirmas.html`, {
+    await page.goto(`file://${cwd}/index.html`, {
       waitUntil: "networkidle2"
     })
     await page.setViewport({ width: 1680, height: 1050 })
@@ -17,7 +17,7 @@ async function main() {
       format: "A4",
       printBackground: true,
       pageRanges: '1',
-      scale: 0.75
+      scale: 0.70
     })
     await browser.close()
 }
