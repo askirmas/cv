@@ -15,7 +15,9 @@ async function main() {
     await page.pdf({
       path: `${cwd}/Andrii_Kirmas.pdf`,
       format: "A4",
-      printBackground: true
+      printBackground: true,
+      pageRanges: '1',
+      scale: 0.75
     })
     await browser.close()
 }
