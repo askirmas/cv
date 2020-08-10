@@ -8,7 +8,8 @@
     "postbuild": "npm run compile/pdf",
     "test": "npm run compile/html && npm run compile/sass",
     "compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
-    "compile/html": "./absolutize.sh",
+    "compile/html": "cd page && ts-node html.ts",
+    "postcompile/html": "./absolutize.sh",
     "md": "ts-node cli/md.ts",
     "md@dev": "nodemon",
     "sass@dev": "npm run sass -- --watch",
@@ -35,6 +36,8 @@
     "nodemon": "^2.0.4",
     "np": "^6.4.0",
     "puppeteer": "^5.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "sass": "^1.26.10",
     "ts-jest": "^26.1.4",
     "ts-node": "^8.10.2",
@@ -44,6 +47,8 @@
     "node": ">=12"
   },
   "dependencies": {
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
     "git-hooks-wrapper": "^0.7.1"
   },
   "publishConfig": {
