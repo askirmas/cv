@@ -333,10 +333,10 @@ $font-bold: 600;
 
 Term {
   $entity: #{&};
-  @at-root .#{&entity}-- {
+  @at-root .#{$entity}-- {
     &Engineer {
+      @debug &;
       @include content-key("Engineer");
-      // @include content-value("The engineer has a solid educational grounding and the ability to apply engineering concepts to create digital solutions");
     }
   }
 
