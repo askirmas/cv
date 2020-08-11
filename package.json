@@ -16,8 +16,10 @@
     "compile/sass": "npm run sass",
     "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "compile/pdf": "node cli/pdf.js",
-    "postinstall": "npm run --silent postinstall:ubuntu || exit 0",
-    "postinstall:ubuntu": "google-chrome index.html"
+    "postinstall": "npm run --silent postinstall:ubuntu-1 || npm run --silent postinstall:mac || exit 0",
+    "postinstall:ubuntu-1": "nohup xdg-open index.html >/dev/null 2>&1 &",
+    "postinstall:ubuntu-2": "nohup x-www-browser index.html >/dev/null 2>&1 &", 
+    "postinstall:mac": "open index.html"
   },
   "keywords": [
     "Andrii Kirmas",
