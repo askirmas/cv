@@ -11,9 +11,14 @@ type tProps = Partial<{
   "github": string
 }>
 
-const coreCount = 50
+const {entries: $entries} = Object
+, coreCount = 50
 , goalsCount = 10
 , termsCount = 20
+, slotKeys = {
+  "Experience": [2020, 2019, 2017, 2015, 2014],
+  "Education": [2014, 2012, 2006]
+}
 
 export default function CvSlots({
   description = "",
@@ -60,9 +65,10 @@ export default function CvSlots({
       <main className="Main">
         <div className="Main__Property Objectives"></div>
         <div className="Main__Property Core_Skills">{
-            g(coreCount, i =>
-              <div {...{key: `t${i}`, className: `Core_Skills__Term Core_Skills__Term-${i}`}}/>
-            )
+            g(coreCount, i => <div {...{
+              "key": `t${i}`,
+              "className": `Core_Skills__Term Core_Skills__Term-${i}`
+            }}/>)
         }</div>
         <div className="Main__Property Human_Languages">
           <div className="Human_Languages__Property Human_Languages--English"></div>
@@ -71,86 +77,42 @@ export default function CvSlots({
           <div className="Human_Languages__Property Human_Languages--Russian"></div>
           <div className="Human_Languages__Property Human_Languages--JS"></div>
         </div>
-        <div className="Main__Property ExpRecords Experience">
-        <div className="ExpRecords__Property Experience--y2020">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Experience__Term--y2020-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2020-${i}`}}/>
-            )
-          }</div>
-          <div className="ExpRecords__Property Experience--y2019">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Experience__Term--y2019-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2019-${i}`}}/>
-            )
-          }</div>
-
-          <div className="ExpRecords__Property Experience--y2017">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Experience__Term--y2017-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2017-${i}`}}/>
-            )
-          }</div>
-          <div className="ExpRecords__Property Experience--y2015">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Experience__Term--y2015-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2015-${i}`}}/>
-            )
-          }</div>
-          <div className="ExpRecords__Property Experience--y2014">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Experience__Term--y2014-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2014-${i}`}}/>
-            )
-          }</div>
-        </div>
-        <div className="Main__Property ExpRecords Education">
-          <div className="ExpRecords__Property Education--y2014">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Education__Term--y2014-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Education__Goal--y2014-${i}`}}/>
-            )
-          }</div>
-          <div className="ExpRecords__Property Education--y2012">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Education__Term--y2012-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Education__Goal--y2012-${i}`}}/>
-            )
-          }</div>
-          <div className="ExpRecords__Property Education--y2006">{
-            g(termsCount, i =>
-              <div {...{key: `t${i}`, className: `Term Education__Term--y2006-${i}`}}/>
-            )
-          }{
-            g(goalsCount, i =>
-              <div {...{key: `g${i}`, className: `Goal Education__Goal--y2006-${i}`}}/>
-            )
-          }</div>
-        </div>
+        {
+          ($entries(slotKeys) as [keyof typeof slotKeys, typeof slotKeys[keyof typeof slotKeys]][])
+          .map(([type, years]) =>
+            <div {...{
+              "key": type,
+              "className": `Main__Property ExpRecords ${type}`
+            }}>{
+              years.map(year => <ExpRecord {...{
+                "key": year,
+                year,
+                type
+              }}/>)
+            }</div>
+          )
+        }
       </main>
     </body>
   </html>
+}
+
+type tExpRecordProps = {
+  "year": number
+  "type": "Education"|"Experience"
+}
+
+function ExpRecord({year, type}: tExpRecordProps) {
+  return <div className={`ExpRecords__Property ${type}--y${year}`}>{
+    g(termsCount, i =>
+      <div {...{key: `t${i}`, className: `Term ${type}__Term--y${year}-${i}`}}/>
+    )
+  }{
+    g(goalsCount, i =>
+      <div {...{key: `g${i}`, className: `Goal ${type}__Goal--y${year}-${i}`}}/>
+    )
+  }</div>
+
 }
 
 function g<T>(count: number, itemFn: (i: number) => T) :T[] {
