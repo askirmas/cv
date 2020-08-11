@@ -4,7 +4,9 @@
   "description": "Andrii Kirmas - Senior Software Engineer",
   "homepage": "https://askirmas.github.io/cv/",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
+    "start": "node index.js",
     "build": "npm run test",
     "postbuild": "npm run compile/pdf",
     "test": "npm run compile/html && npm run compile/sass",

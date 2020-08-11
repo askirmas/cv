@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const os = require('os')
 , childProcess = require('child_process')
 
