@@ -3,6 +3,7 @@
   "version": "1.2.0",
   "description": "Andrii Kirmas - Senior Software Engineer",
   "homepage": "https://askirmas.github.io/cv/",
+  "main": "index.js",
   "scripts": {
     "build": "npm run test",
     "postbuild": "npm run compile/pdf",
@@ -16,7 +17,7 @@
     "compile/sass": "npm run sass",
     "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "compile/pdf": "node cli/pdf.js",
-    "postinstall": "node postinstall.js"
+    "postinstall": "node index.js"
   },
   "keywords": [
     "Andrii Kirmas",
@@ -61,11 +62,10 @@
     "yarn": false
   },
   "files": [
-    "index.html",
     "Andrii_Kirmas.html",
     "Andrii_Kirmas.pdf",
     "Andrii_Kirmas.css",
     "style.css",
-    "postinstall.js"
+    "index.js"
   ]
 }
