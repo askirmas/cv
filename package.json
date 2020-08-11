@@ -65,6 +65,7 @@
     "Andrii_Kirmas.html",
     "Andrii_Kirmas.pdf",
     "Andrii_Kirmas.css",
-    "style.css"
+    "style.css",
+    "postinstall.js"
   ]
 }
