@@ -5,6 +5,7 @@
   "homepage": "https://askirmas.github.io/cv/",
   "main": "index.js",
   "bin": {
+    "kirmas-cv": "index.js",
     "andrii_kirmas-cv": "index.js"
   },
   "scripts": {
