@@ -11,6 +11,10 @@ type tProps = Partial<{
   "github": string
 }>
 
+const coreCount = 50
+, goalsCount = 10
+, termsCount = 20
+
 export default function CvSlots({
   description = "",
   email = "",
@@ -56,7 +60,7 @@ export default function CvSlots({
       <main className="Main">
         <div className="Main__Property Objectives"></div>
         <div className="Main__Property Core_Skills">{
-            g(50).map((_, i) =>
+            g(coreCount, i =>
               <div {...{key: `t${i}`, className: `Core_Skills__Term Core_Skills__Term-${i}`}}/>
             )
         }</div>
@@ -69,77 +73,77 @@ export default function CvSlots({
         </div>
         <div className="Main__Property ExpRecords Experience">
         <div className="ExpRecords__Property Experience--y2020">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Experience__Term--y2020-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2020-${i}`}}/>
             )
           }</div>
           <div className="ExpRecords__Property Experience--y2019">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Experience__Term--y2019-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2019-${i}`}}/>
             )
           }</div>
 
           <div className="ExpRecords__Property Experience--y2017">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Experience__Term--y2017-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2017-${i}`}}/>
             )
           }</div>
           <div className="ExpRecords__Property Experience--y2015">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Experience__Term--y2015-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2015-${i}`}}/>
             )
           }</div>
           <div className="ExpRecords__Property Experience--y2014">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Experience__Term--y2014-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Experience__Goal--y2014-${i}`}}/>
             )
           }</div>
         </div>
         <div className="Main__Property ExpRecords Education">
           <div className="ExpRecords__Property Education--y2014">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Education__Term--y2014-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Education__Goal--y2014-${i}`}}/>
             )
           }</div>
           <div className="ExpRecords__Property Education--y2012">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Education__Term--y2012-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Education__Goal--y2012-${i}`}}/>
             )
           }</div>
           <div className="ExpRecords__Property Education--y2006">{
-            g(20).map((_, i) =>
+            g(termsCount, i =>
               <div {...{key: `t${i}`, className: `Term Education__Term--y2006-${i}`}}/>
             )
           }{
-            g(10).map((_, i) =>
+            g(goalsCount, i =>
               <div {...{key: `g${i}`, className: `Goal Education__Goal--y2006-${i}`}}/>
             )
           }</div>
@@ -149,6 +153,9 @@ export default function CvSlots({
   </html>
 }
 
-function g(count: number) {
-  return new Array(count).fill(null)
+function g<T>(count: number, itemFn: (i: number) => T) :T[] {
+  const $return = new Array(count)
+  for (let i = count; i--;)
+    $return[i] = itemFn(i)
+  return $return
 }
