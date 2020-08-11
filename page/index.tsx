@@ -19,6 +19,7 @@ const {entries: $entries} = Object
   "Experience": [2020, 2019, 2017, 2015, 2014],
   "Education": [2014, 2012, 2006]
 }
+, langs = ["English","Hebrew","Ukrainian","Russian","JS"]
 
 export default function CvSlots({
   description = "",
@@ -44,7 +45,7 @@ export default function CvSlots({
     <body>
       <header className="Main__header">
         <div className="Main__title"></div>
-        <div className="Main__description"><a className="Term--Engineer" href="https://medium.com/shakuro/programmer-vs-developer-vs-engineer-91ef374e5033" title=""></a></div>
+        <div className="Main__description"><a className="Term--Engineer" href="https://medium.com/shakuro/programmer-vs-developer-vs-engineer-91ef374e5033" title="The engineer has a solid educational grounding and the ability to apply engineering concepts to create digital solutions"></a></div>
         <div className="Main__links">
           <div className="links_group">
             <a className="links links--email" href={`mailto:${email}`}>{email}</a>
@@ -70,13 +71,13 @@ export default function CvSlots({
               "className": `Core_Skills__Term Core_Skills__Term-${i}`
             }}/>)
         }</div>
-        <div className="Main__Property Human_Languages">
-          <div className="Human_Languages__Property Human_Languages--English"></div>
-          <div className="Human_Languages__Property Human_Languages--Hebrew"></div>
-          <div className="Human_Languages__Property Human_Languages--Ukrainian"></div>
-          <div className="Human_Languages__Property Human_Languages--Russian"></div>
-          <div className="Human_Languages__Property Human_Languages--JS"></div>
-        </div>
+        <div className="Main__Property Human_Languages">{
+          langs
+          .map(lang => <div {...{
+            "key": lang,
+            "className": `Human_Languages__Property Human_Languages--${lang}`
+          }}/>)
+        }</div>
         {
           ($entries(slotKeys) as [keyof typeof slotKeys, typeof slotKeys[keyof typeof slotKeys]][])
           .map(([type, years]) =>
@@ -104,13 +105,15 @@ type tExpRecordProps = {
 
 function ExpRecord({year, type}: tExpRecordProps) {
   return <div className={`ExpRecords__Property ${type}--y${year}`}>{
-    g(termsCount, i =>
-      <div {...{key: `t${i}`, className: `Term ${type}__Term--y${year}-${i}`}}/>
-    )
+    g(termsCount, i => <div {...{
+      "key": `t${i}`,
+      "className": `Term ${type}__Term--y${year}-${i}    `
+    }}/>)
   }{
-    g(goalsCount, i =>
-      <div {...{key: `g${i}`, className: `Goal ${type}__Goal--y${year}-${i}`}}/>
-    )
+    g(goalsCount, i => <div {...{
+      "key": `g${i}`,
+      "className": `Goal ${type}__Goal--y${year}-${i}`
+    }}/>)
   }</div>
 
 }
