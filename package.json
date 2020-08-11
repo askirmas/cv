@@ -16,6 +16,7 @@
     "compile/sass": "npm run sass",
     "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "compile/pdf": "node cli/pdf.js",
+    "postinstall": "npm run --silent postinstall:ubuntu || exit 0",
     "postinstall:ubuntu": "google-chrome index.html"
   },
   "keywords": [
