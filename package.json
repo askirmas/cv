@@ -1,14 +1,14 @@
 {
   "name": "@kirmas/cv",
   "version": "1.2.0",
-  "description": "Andrii Kirmas CV",
+  "description": "Andrii Kirmas - Senior Software Engineer",
   "homepage": "https://askirmas.github.io/cv/",
   "scripts": {
     "build": "npm run test",
     "postbuild": "npm run compile/pdf",
     "test": "npm run compile/html && npm run compile/sass",
     "compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
-    "compile/html": "cd page && ts-node html.ts",
+    "compile/html": "ts-node --project page/tsconfig.json page/html.ts",
     "postcompile/html": "./absolutize.sh",
     "md": "ts-node cli/md.ts",
     "md@dev": "nodemon",
@@ -20,17 +20,24 @@
   },
   "keywords": [
     "Andrii Kirmas",
+    "Senior Software Engineer",
     "CV"
   ],
   "author": {
     "name": "Andrii Kirmas",
     "email": "kirmas@phystech.edu",
-    "url": "https://www.linkedin.com/in/kirmas/"
+    "url": "https://github.com/askirmas",
+    "linkedIn": "https://www.linkedin.com/in/kirmas/",
+    "github": "https://github.com/askirmas",
+    "phex": "e2701c48e2"
   },
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^26.0.9",
     "@types/puppeteer": "^3.0.1",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "git-hooks-wrapper": "^0.7.1",
     "jest": "^26.2.2",
     "material-components-web": "^7.0.0",
     "nodemon": "^2.0.4",
@@ -46,11 +53,7 @@
   "engines": {
     "node": ">=12"
   },
-  "dependencies": {
-    "@types/react": "^16.9.46",
-    "@types/react-dom": "^16.9.8",
-    "git-hooks-wrapper": "^0.7.1"
-  },
+  "dependencies": {},
   "publishConfig": {
     "access": "public"
   },

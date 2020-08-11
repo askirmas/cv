@@ -1,22 +1,26 @@
 import React from 'react'
 
-type Part<T> = {[K in keyof T]: T[K] | undefined}
-type tProps = Part<{
-  "name": string
+// type Part<T> = {[K in keyof T]: T[K] | undefined}
+type tProps = Partial<{
+  "description": string
   "email": string
-  "phone": string
+  "phex": string
   "fileName": string
+  "packageName": string
+  "linkedIn": string
+  "github": string
 }>
 
 export default function CvSlots({
-  name = "",
+  description = "",
   email = "",
-  phone = "",
-  fileName = ""
+  phex = "",
+  fileName = "",
+  github = "",
+  packageName = "",
+  linkedIn = ""
 }: tProps) {
-  const homepage = "https://github.com/askirmas"
-  , packageName = "@kirmas/cv"
-  , linkedIn = "https://www.linkedin.com/in/kirmas/"
+  const phone = parseInt(phex, 16).toString().replace(/^(.*)([\d]{2})([\d]{3})([\d]{4})$/,"+$1-$2-$3-$4")
 
   return <html lang="en">
     <head>
@@ -24,7 +28,7 @@ export default function CvSlots({
         //@ts-ignore
         <meta charset="utf-8"/>
       }
-      <title>{`${name} - Senior Software Engineer`}</title>
+      <title>{description}</title>
       <link href="./style.css" rel="stylesheet"/>
       <link href={`./${fileName}.css`} rel="stylesheet"/>
     </head>
@@ -39,7 +43,7 @@ export default function CvSlots({
             <a className="links links--residence" href=""></a>  
           </div>
           <div className="links_group">
-            <a className="links links--github" href={homepage}></a>
+            <a className="links links--github" href={github}></a>
             <a className="links links--linkedin" href={linkedIn}></a>  
           </div>
           <div className="links_group">

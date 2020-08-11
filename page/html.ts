@@ -1,22 +1,33 @@
-import {writeFileSync} from 'fs'
+import {writeFileSync, readFileSync} from 'fs'
+import {resolve} from 'path'
 import {renderToStaticMarkup} from 'react-dom/server';
 import {createElement} from 'react'
 import Page from "."
 
 export {}
 
-const {env} = process
-, {npm_package_author_name: name = ""} = env 
-, fileName = name.replace(" ", "_")
+const packageData = JSON.parse(readFileSync(resolve(process.cwd(), 'package.json')).toString()) as tPackage
+, {author} = packageData 
+, {name} = author ?? {}
+, fileName = name?.replace(" ", "_")
 
-writeFileSync(`../${fileName}.html`, [
+writeFileSync(`${fileName}.html`, [
   '<!doctype html>',
   renderToStaticMarkup(
     createElement(Page, {
-      name,
+      description: packageData.description,
       fileName,
-      email: env.npm_package_author_email,
-      phone: "+972-54-351-0754",
+      packageName: packageData.name,
+      ...author
     })
   )  
 ].join(''))
+
+type tPackage = Partial<
+  Record<"name"|"description", string>
+  & {
+    author: Partial<
+      Record<"name"|"email"|"url"|"github"|"linkedIn"|"phex", string>
+    >
+  }
+>
