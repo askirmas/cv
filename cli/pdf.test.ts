@@ -20,7 +20,8 @@ it("web", async () => {
   await page.goto(`file://${cwd}/${fileName}.html`, {
     "waitUntil": "networkidle2"
   })
-   await page.setViewport({ width: 1800, height: 980 })
+  await page.waitFor(1000)
+  await page.setViewport({ width: 1800, height: 980 })
 
   const screenshot = await page.screenshot({
     "fullPage": true,
