@@ -335,7 +335,6 @@ Term {
   $entity: #{&};
   @at-root .#{$entity}-- {
     &Engineer {
-      @debug &;
       @include content-key("Engineer");
     }
   }
