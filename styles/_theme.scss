@@ -97,6 +97,8 @@ code {
   text-decoration: inherit;
   margin: 0.2rem;
   @include content-key {
+    width: $icon-size;
+
     background: {
       position: left center;
       repeat: no-repeat;

@@ -1,6 +1,6 @@
 # @kirmas/cv
 
-![test](https://github.com/askirmas/cv/workflows/CI/badge.svg?branch=master)
+![test@ci](https://github.com/askirmas/cv/workflows/CI/badge.svg?branch=master)
 
 Andrii Kirmas - Senior Software Engineer
 
