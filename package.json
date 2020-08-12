@@ -14,7 +14,7 @@
     "pretest": "npm run compile/html && npm run compile/sass",
     "test": "npm run spec",
     "test@ci": "npm run test --blur=2 --threshold=0.01",
-    "compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
+    "-compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
     "compile/html": "ts-node --project page/tsconfig.json page/html.ts",
     "postcompile/html": "./absolutize.sh",
     "-md": "ts-node cli/md.ts",
