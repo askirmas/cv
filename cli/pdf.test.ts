@@ -5,6 +5,7 @@ expect.extend({toMatchImageSnapshot})
 
 const fileName = 'Andrii_Kirmas'
 , cwd = process.cwd()
+, {env} = process
 
 let browser: Browser, page :Page
 
@@ -28,10 +29,12 @@ it("web", async () => {
 
   expect(screenshot).toMatchImageSnapshot( {
     "customSnapshotIdentifier": `${fileName}-web`,
-    "dumpDiffToConsole": true
+    "dumpDiffToConsole": true,
+    "failureThresholdType": "percent",
+    "blur": +(env.npm_config_blur ?? '')
   })
 
-  if (process.env.npm_config_pdf_gen)
+  if (env.npm_config_pdf_gen)
     await page.pdf({
       "path": `${cwd}/${fileName}.pdf`,
       "format": "A4",
