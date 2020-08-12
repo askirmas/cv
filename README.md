@@ -1,8 +1,8 @@
 # @kirmas/cv
 
-![test@ci](https://github.com/askirmas/cv/workflows/CI/badge.svg?branch=master)
+![test@ci](https://github.com/askirmas/cv/workflows/CI/badge.svg?branch=master) ![npm version](https://badge.fury.io/js/%40kirmas%2Fcv.svg)
 
-Andrii Kirmas - Senior Software Engineer
+Andrii Kirmas - Senior Full Stack Software Engineer
 
 Urls to view
 
