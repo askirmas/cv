@@ -1,7 +1,7 @@
 {
   "name": "@kirmas/cv",
   "version": "1.3.1",
-  "description": "Andrii Kirmas - Senior Software Engineer",
+  "description": "Andrii Kirmas - Senior Full Stack Software Engineer",
   "homepage": "https://askirmas.github.io/cv/",
   "main": "index.js",
   "bin": {
@@ -17,6 +17,7 @@
     "-compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
     "compile/html": "ts-node --project page/tsconfig.json page/html.ts",
     "postcompile/html": "./absolutize.sh",
+    "html@dev": "nodemon",
     "-md": "ts-node cli/md.ts",
     "-md@dev": "nodemon",
     "sass@dev": "npm run sass -- --watch",

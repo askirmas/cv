@@ -2,6 +2,7 @@ import React from 'react'
 
 // type Part<T> = {[K in keyof T]: T[K] | undefined}
 type tProps = Partial<{
+  "name": string
   "description": string
   "email": string
   "phex": string
@@ -22,6 +23,7 @@ const {entries: $entries} = Object
 , langs = ["English","Hebrew","Ukrainian","Russian","JS"]
 
 export default function CvSlots({
+  name = "",
   description = "",
   email = "",
   phex = "",
@@ -44,8 +46,15 @@ export default function CvSlots({
     </head>
     <body>
       <header className="Main__header">
-        <div className="Main__title"></div>
-        <div className="Main__description"><a className="Term--Engineer" href="https://medium.com/shakuro/programmer-vs-developer-vs-engineer-91ef374e5033" title="The engineer has a solid educational grounding and the ability to apply engineering concepts to create digital solutions"></a></div>
+        <div className="Main__title">{name}</div>
+        <div className="Main__description">
+          {
+            description
+            .replace(name, "")
+            .replace(/(^[^\w]+|Engineer)/g, "")
+          }
+          <a className="Term--Engineer" href="https://medium.com/shakuro/programmer-vs-developer-vs-engineer-91ef374e5033" title="The engineer has a solid educational grounding and the ability to apply engineering concepts to create digital solutions"></a>
+        </div>
         <div className="Main__links">
           <div className="links_group">
             <a className="links links--email" href={`mailto:${email}`}>{email}</a>

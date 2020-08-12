@@ -115,15 +115,6 @@ $font-bold: 600;
   }
 }
 
-.Main__ {
-  &title {
-    @include content-value("Andrii Kirmas");
-  }
-  &description{
-    @include content-key("Senior Software ");
-  }
-}
-
 .links-- {
   &residence {
     pointer-events: none;

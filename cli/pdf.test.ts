@@ -17,7 +17,7 @@ beforeAll(async () => {
 })
 
 it("web", async () => {
-  await page.goto(`file://${cwd}/index.html`, {
+  await page.goto(`file://${cwd}/${fileName}.html`, {
     "waitUntil": "networkidle2"
   })
    await page.setViewport({ width: 1800, height: 980 })

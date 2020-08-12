@@ -11,6 +11,12 @@
         "Andrii_Kirmas.json"
       ],
       "url": "./Andrii_Kirmas.schema.json"
+    },
+    {
+      "fileMatch": [
+        "nodemon.json"
+      ],
+      "url": "https://json.schemastore.org/nodemon"
     }
   ]
 }
