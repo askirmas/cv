@@ -15,8 +15,9 @@ writeFileSync(`${fileName}.html`, [
   '<!doctype html>',
   renderToStaticMarkup(
     createElement(Page, {
-      description: packageData.description,
+      ...packageData,
       fileName,
+      repositoryUrl: packageData.repository?.https,
       packageName: packageData.name,
       ...author
     })
@@ -24,10 +25,15 @@ writeFileSync(`${fileName}.html`, [
 ].join(''))
 
 type tPackage = Partial<
-  Record<"name"|"description", string>
+  Record<"name"|"description"|"homepage", string>
   & {
-    author: Partial<
+    "author": Partial<
       Record<"name"|"email"|"url"|"github"|"linkedIn"|"phex", string>
     >
+    "repository": Partial<{
+      "type": string
+      "url": string
+      "https": string
+    }>
   }
 >

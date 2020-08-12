@@ -10,6 +10,7 @@ type tProps = Partial<{
   "packageName": string
   "linkedIn": string
   "github": string
+  "repositoryUrl": string
 }>
 
 const {entries: $entries} = Object
@@ -30,7 +31,8 @@ export default function CvSlots({
   fileName = "",
   github = "",
   packageName = "",
-  linkedIn = ""
+  linkedIn = "",
+  repositoryUrl = ""
 }: tProps) {
   const phone = parseInt(phex, 16).toString().replace(/^(.*)([\d]{2})([\d]{3})([\d]{4})$/,"+$1-$2-$3-$4")
 
@@ -63,7 +65,7 @@ export default function CvSlots({
           </div>
           <div className="links_group">
             <a className="links links--github" href={github}>
-              <img src="https://github.com/askirmas/cv/workflows/CI/badge.svg"/>
+              <img src={`${repoUrl2href(repositoryUrl)}/workflows/CI/badge.svg`}/>
             </a>
             <a className="links links--linkedin" href={linkedIn}></a>  
           </div>
@@ -71,8 +73,8 @@ export default function CvSlots({
             <a className="links links--html" href="./index.html">HTML</a>
             <a className="links links--pdf" href={`./${fileName}.pdf`}>PDF</a>
             <a className="links links--npm" href={`https://www.npmjs.com/package/${packageName}`}>
-              <img src="https://badge.fury.io/js/%40kirmas%2Fcv.svg" />
-              <code>npm install @kirmas/cv</code>
+              <img src={`https://badge.fury.io/js/${encode(packageName)}.svg`} />
+              <code>npm install {packageName}</code>
             </a>  
           </div>
         </div>
@@ -137,4 +139,16 @@ function g<T>(count: number, itemFn: (i: number) => T) :T[] {
   for (let i = count; i--;)
     $return[i] = itemFn(i)
   return $return
+}
+
+function encode(source: string) {
+  return source
+  .replace(/@/g, "%40")
+  .replace(/\//g, "%2F")
+}
+
+function repoUrl2href(source: string) {
+  return source
+  .replace(/(^git\+|\.git$)/g,'')
+  .replace(/\/+$/, '')
 }

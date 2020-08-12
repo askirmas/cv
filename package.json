@@ -25,7 +25,8 @@
     "compile/sass": "npm run sass",
     "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "spec": "jest --config jest.config.json",
-    "postinstall": "node index.js"
+    "postinstall": "node index.js",
+    "conf_var": "echo \"<$npm_config_registry>\""
   },
   "keywords": [
     "Andrii Kirmas",
@@ -76,7 +77,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/askirmas/cv.git"
+    "url": "git+ssh://git@github.com/askirmas/cv.git",
+    "https": "https://github.com/askirmas/cv"
   },
   "files": [
     "Andrii_Kirmas.html",
