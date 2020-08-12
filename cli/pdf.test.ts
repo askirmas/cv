@@ -31,6 +31,7 @@ it("web", async () => {
     "customSnapshotIdentifier": `${fileName}-web`,
     "dumpDiffToConsole": true,
     "failureThresholdType": "percent",
+    "failureThreshold": +(env.npm_config_threshold ?? ''),
     "blur": +(env.npm_config_blur ?? '')
   })
 
