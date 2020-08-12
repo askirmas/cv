@@ -27,7 +27,8 @@ it("web", async () => {
   })
 
   expect(screenshot).toMatchImageSnapshot( {
-    "customSnapshotIdentifier": `${fileName}-web`
+    "customSnapshotIdentifier": `${fileName}-web`,
+    "dumpDiffToConsole": true
   })
 
   if (process.env.npm_config_pdf_gen)
