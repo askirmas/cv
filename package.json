@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "dev": "npm run sass@dev & npm run html@dev",
     "build": "npm run test --pdf_gen=1",
     "pretest": "npm run compile/html && npm run compile/sass",
     "test": "npm run spec",

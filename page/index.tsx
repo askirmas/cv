@@ -62,13 +62,18 @@ export default function CvSlots({
             <a className="links links--residence" href=""></a>  
           </div>
           <div className="links_group">
-            <a className="links links--github" href={github}></a>
+            <a className="links links--github" href={github}>
+              <img src="https://github.com/askirmas/cv/workflows/CI/badge.svg"/>
+            </a>
             <a className="links links--linkedin" href={linkedIn}></a>  
           </div>
           <div className="links_group">
             <a className="links links--html" href="./index.html">HTML</a>
             <a className="links links--pdf" href={`./${fileName}.pdf`}>PDF</a>
-            <a className="links links--npm" href={`https://www.npmjs.com/package/${packageName}`}><code>npm install @kirmas/cv</code></a>  
+            <a className="links links--npm" href={`https://www.npmjs.com/package/${packageName}`}>
+              <img src="https://badge.fury.io/js/%40kirmas%2Fcv.svg" />
+              <code>npm install @kirmas/cv</code>
+            </a>  
           </div>
         </div>
       </header>

@@ -110,7 +110,10 @@ code {
       repeat: no-repeat;
       size: contain;
     }
-    margin-right: 0.25rem;
+    margin-right: $icon-margin;
+  }
+  img {
+    margin-right: $icon-margin;
   }
 }
 
