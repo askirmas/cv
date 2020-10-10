@@ -9,12 +9,13 @@
     "andrii_kirmas-cv": "index.js"
   },
   "scripts": {
+    "setup": "git-hooks-wrapper init; git config include.path ../.gitconfig",
     "start": "node index.js",
     "dev": "npm run sass@dev & npm run html@dev",
     "build": "npm run test --pdf_gen=1",
     "pretest": "npm run compile/html && npm run compile/sass",
     "test": "npm run spec",
-    "test@ci": "npm run test --blur=2 --threshold=0.01",
+    "test@ci": "npm run test --blur=2 --threshold=0.1",
     "-compile/md": "npm run md --silent > ./Andrii_Kirmas.md",
     "compile/html": "ts-node --project page/tsconfig.json page/html.ts",
     "postcompile/html": "./absolutize.sh",
@@ -25,7 +26,7 @@
     "compile/sass": "npm run sass",
     "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "spec": "jest --config jest.config.json",
-    "postinstall": "node index.js",
+    "postinstall": "npm run setup; node index.js",
     "conf_var": "echo \"<$npm_config_registry>\""
   },
   "keywords": [
