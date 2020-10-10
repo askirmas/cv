@@ -8,6 +8,7 @@ type tProps = Partial<{
   "phex": string
   "fileName": string
   "packageName": string
+  "skype": string
   "linkedIn": string
   "github": string
   "repositoryUrl": string
@@ -30,6 +31,7 @@ export default function CvSlots({
   phex = "",
   fileName = "",
   github = "",
+  skype = "",
   packageName = "",
   linkedIn = "",
   repositoryUrl = ""
@@ -64,6 +66,7 @@ export default function CvSlots({
             <a className="links links--residence" href=""></a>  
           </div>
           <div className="links_group">
+            <a className="links links--skype" href={skype}></a>
             <a className="links links--github" href={github}>
               <img src={`${repoUrl2href(repositoryUrl)}/workflows/CI/badge.svg`}/>
             </a>

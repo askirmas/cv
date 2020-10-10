@@ -128,6 +128,7 @@ $font-bold: 600;
   &residence { @include content-value("Netanya.Israel");}
   &github { @include content-value("github.com/askirmas");}
   &linkedin { @include content-value("linkedin.com/in/kirmas");}
+  &skype { @include content-value("skype:askirmas");}
 }
 
 .Objectives { @include content-value("Passionate for systematic and iterative procedures. High educability and deep knowledge of computer science makes me efficient in engineering and architecture that provides a logical flow of knowledge and progress.");}
