@@ -1,5 +1,6 @@
 # Failed investigation
 failed.*
+/env.*
 
 # Logs
 logs
