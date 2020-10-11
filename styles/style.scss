@@ -7,7 +7,15 @@
     @include content-image("https://fonts.gstatic.com/s/i/materialicons/email/v6/24px.svg");
   }
   &phone {
-    @include content-image("https://fonts.gstatic.com/s/i/materialicons/smartphone/v7/24px.svg");
+    @include content-image("https://fonts.gstatic.com/s/i/materialicons/smartphone/v7/24px.svg") {
+      margin-right: 0;
+    };
+    & > * {
+      margin: {
+        left: $icon-margin;
+        right: $icon-margin;
+      }
+    }
   }
   &linkedin {
     @include content-image("https://upload.wikimedia.org/wikipedia/commons/8/80/LinkedIn_Logo_2013.svg") {

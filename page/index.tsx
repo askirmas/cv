@@ -5,7 +5,7 @@ type tProps = Partial<{
   "name": string
   "description": string
   "email": string
-  "phex": string
+  "phex": string | string[]
   "fileName": string
   "packageName": string
   "skype": string
@@ -15,6 +15,7 @@ type tProps = Partial<{
 }>
 
 const {entries: $entries} = Object
+, {isArray: $isArray} = Array
 , coreCount = 50
 , goalsCount = 10
 , termsCount = 20
@@ -28,7 +29,7 @@ export default function CvSlots({
   name = "",
   description = "",
   email = "",
-  phex = "",
+  phex = [],
   fileName = "",
   github = "",
   skype = "",
@@ -36,7 +37,11 @@ export default function CvSlots({
   linkedIn = "",
   repositoryUrl = ""
 }: tProps) {
-  const phone = parseInt(phex, 16).toString().replace(/^(.*)([\d]{2})([\d]{3})([\d]{4})$/,"+$1-$2-$3-$4")
+  const phones = ($isArray(phex) ? phex : [phex])
+  .map(phex => parseInt(phex, 16)
+    .toString()
+    .replace(/^(.*)([\d]{2})([\d]{3})([\d]{4})$/, "+$1($2)$3-$4")
+  )
 
   return <html lang="en">
     <head>
@@ -62,7 +67,12 @@ export default function CvSlots({
         <div className="Main__links">
           <div className="links_group">
             <a className="links links--email" href={`mailto:${email}`}>{email}</a>
-            <a className="links links--phone" href={`tel:${phone}`}>{phone}</a>
+            <div className="links links--phone">{
+              phones.map(phone => <a {...{
+                "key": phone,
+                "href": `tel:${phone.replace(/[^0-9+]+/g, "")}`,
+              }}>{phone}</a>)              
+            }</div>
             <a className="links links--residence" href=""></a>  
           </div>
           <div className="links_group">

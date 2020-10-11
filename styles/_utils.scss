@@ -28,9 +28,9 @@
 
 @mixin content-image($url) {
   @include content-key("") {
-    background-image: url($url);
+    background-image: if($url == null, none, url($url));
     @content;
-  }
+  }  
 }
 
 @mixin array-terms($arr...) {
