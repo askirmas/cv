@@ -36,5 +36,5 @@ jobs:
     - name: Install
       run: npm install
 
-    - name: Test
-      run: npm run test@ci
+    - name: Spec
+      run: npm run spec@ci
