@@ -28,7 +28,7 @@ it("web", async () => {
     "type": "png"
   })
 
-  expect(screenshot).toMatchImageSnapshot( {
+  expect(screenshot).toMatchImageSnapshot({
     "customSnapshotIdentifier": `${fileName}-web`,
     "dumpDiffToConsole": true,
     "failureThresholdType": "percent",
