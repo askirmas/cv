@@ -1,0 +1,23 @@
+{
+  "launch": {
+    "args": ["--allow-file-access-from-files", "--enable-local-file-accesses"]
+  },
+  "viewport": {
+    "width": 1800,
+    "height": 980
+  },
+  "goto": {
+    "waitUntil": "networkidle2"
+  },
+  "waitFor": 1000,
+  "screenshot": {
+    "fullPage": true,
+    "type": "png"
+  },
+  "pdf": {
+    "format": "A4",
+    "printBackground": true,
+    "pageRanges": "1",
+    "scale": 0.70
+  }
+}

@@ -1,6 +1,6 @@
 import schema from "../Andrii_Kirmas.schema.json"
 import data from "../Andrii_Kirmas.json"
-import { isFlatObject, unique, Values, htmlEscape } from "./utils"
+import { isFlatObject, unique, Values, htmlEscape } from "../utils/unsorted"
 
 const {values: $values} = Object
 //, {isArray: $isArray} = Array

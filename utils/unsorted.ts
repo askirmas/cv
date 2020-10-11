@@ -1,20 +1,19 @@
-const {values: $values} = Object
-, {from: $from} = Array
-, htmlEscapes = new Map([
-  ["&", "&amp;"],
-  ["<", "&lt;"],
-  [">", "&gt;"],
-  ["\"", "&quot;"],
-  ["'", "&#039;"]
-])
-, htmlEscapeCatch = new RegExp(`[${$from(htmlEscapes.keys()).join("")}]`, "g")
+import htmlEscapeEntries from "./htmlEscapes.json"
 
 export type Dict<V = unknown, K extends PropertyKey = string> = {[k in K]: V}
 export type FlatObject = Record<string|number, null|undefined|boolean|number|string>
 export type Values<T extends Dict> = T[keyof T][]
 
+const {values: $values} = Object
+, {from: $from} = Array
+, htmlEscapes = new Map(htmlEscapeEntries as [string, string][])
+, htmlEscapeCatcher = new RegExp(`[${$from(htmlEscapes.keys()).join("")}]`, "g")
+
 export {
-  isFlatObject, unique, htmlEscape
+  isFlatObject,
+  unique,
+  htmlEscape,
+  htmlReplacement
 }
 
 function isFlatObject(source: Dict) :source is FlatObject {
@@ -34,5 +33,9 @@ function unique<T extends unknown[]>(source: T) :T[number][] {
 }
 
 function htmlEscape(source: string) {
-  return source.replace(htmlEscapeCatch, c => htmlEscapes.get(c) ?? c)
+  return source.replace(htmlEscapeCatcher, c => htmlEscapes.get(c) ?? c)
+}
+
+function htmlReplacement(source: string|undefined) {
+  return source?.replace(" ", "_")
 }
