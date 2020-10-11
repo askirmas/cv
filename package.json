@@ -9,13 +9,13 @@
     "andrii_kirmas-cv": "index.js"
   },
   "scripts": {
-    "setup": "git-hooks-wrapper init; git config include.path ../.gitconfig",
-    "postinstall": "npm run setup; node index.js",
+    "setup": "./setup.sh",
+    "postinstall": "./postinstall.sh",
     "build": "npm run compile",
     "prebuild": "npm run test",
     "postbuild": "npm run spec",
     "start": "node index.js",
-    "dev": "npm run sass@dev & npm run html@dev",    
+    "dev": "npm run sass@dev & npm run html@dev",
     "test": "exit 0",
     "compile": "npm run compile/html && npm run compile/sass && npm run compile/pdf",
     "spec": "jest --config jest.config.json",
@@ -52,30 +52,34 @@
     ]
   },
   "license": "MIT",
-  "devDependencies": {
-    "@types/jest": "^26.0.9",
-    "@types/jest-image-snapshot": "^3.1.0",
-    "@types/puppeteer": "^3.0.1",
-    "@types/react": "^16.9.46",
-    "@types/react-dom": "^16.9.8",
-    "git-hooks-wrapper": "^0.7.1",
-    "jest": "^26.3.0",
-    "jest-image-snapshot": "^4.1.0",
-    "material-components-web": "^7.0.0",
-    "nodemon": "^2.0.4",
-    "np": "^6.4.0",
-    "puppeteer": "^5.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "sass": "^1.26.10",
-    "ts-jest": "^26.2.0",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
-  },
   "engines": {
     "node": ">=12"
   },
-  "dependencies": {},
+  "dependencies": {
+    "material-components-web": "^7.0.0",
+    "puppeteer": "^5.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.27.0"
+  },
+  "optionalDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/jest-image-snapshot": "^3.1.0",
+    "@types/node": "^14.11.8",
+    "@types/puppeteer": "^3.0.2",
+    "@types/react": "^16.9.51",
+    "@types/react-dom": "^16.9.8",
+    "jest": "^26.5.2",
+    "jest-image-snapshot": "^4.2.0",
+    "ts-jest": "^26.4.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "git-hooks-wrapper": "^0.7.1",
+    "nodemon": "^2.0.4",
+    "np": "^6.4.0"
+  },
   "publishConfig": {
     "access": "public"
   },
