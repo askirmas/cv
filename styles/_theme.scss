@@ -31,6 +31,7 @@ code {
   grid-template-rows:
     max-content
     min-content
+    1fr
     min-content
     1fr
     min-content
@@ -38,6 +39,7 @@ code {
   grid-template-areas:
     'Objectives Objectives'
     'Experience Core_Skills'
+    'Experience .'
     'Experience Education'
     'Experience .'
     'Experience Human_Languages'
