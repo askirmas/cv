@@ -148,6 +148,18 @@ $font-bold: 600;
 .Experience {
   $root: #{&};
 
+  @at-root y2021 {
+    $year: #{&};
+    @at-root #{$root} {
+      &--#{$year} {
+        @include content-apply(
+          "2020 – 2021 Senior FrontEnd Engineer",
+          "Deutche Bank @Moscow.Russia"
+        )
+      }
+    }
+  }
+
   @at-root y2020 {
     $year: #{&};
     @at-root #{$root} {

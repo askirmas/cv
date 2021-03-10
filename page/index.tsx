@@ -20,7 +20,7 @@ const {entries: $entries} = Object
 , goalsCount = 10
 , termsCount = 20
 , slotKeys = {
-  "Experience": [2020, 2019, 2017, 2015, 2014],
+  "Experience": [2021, 2020, 2019, 2017, 2015, 2014],
   "Education": [2014, 2012, 2006]
 }
 , langs = ["English","Hebrew","Ukrainian","Russian","JS"]
