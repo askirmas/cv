@@ -40,7 +40,7 @@ export default function CvSlots({
   const phones = ($isArray(phex) ? phex : [phex])
   .map(phex => parseInt(phex, 16)
     .toString()
-    .replace(/^(.*)([\d]{2})([\d]{3})([\d]{4})$/, "+$1($2)$3-$4")
+    .replace(/^(.*)([\d]{3})([\d]{3})([\d]{4})$/, "+$1($2)$3-$4")
   )
 
   return <html lang="en">

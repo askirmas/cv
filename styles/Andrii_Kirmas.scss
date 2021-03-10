@@ -121,11 +121,11 @@ $font-bold: 600;
     color: inherit;
   }
   &residence {
-    @include content-key("🇮🇱") {
+    @include content-key("🇷🇺") {
       padding-left: 0;
     }
   }
-  &residence { @include content-value("Netanya.Israel");}
+  &residence { @include content-value("Moscow.Russia");}
   &github { @include content-value("github.com/askirmas");}
   &linkedin { @include content-value("linkedin.com/in/kirmas");}
   &skype { @include content-value("skype:askirmas");}
