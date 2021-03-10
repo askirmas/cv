@@ -36,16 +36,16 @@
   }
 }
 
-.Objectives { @include content-key("Objectives");}
-.Experience { @include content-key("Experience");}
-.Education { @include content-key("Education");}
+.Objectives { @include content-key("О себе");}
+.Experience { @include content-key("Опыт");}
+.Education { @include content-key("Образование");}
 .Core_Skills {
-  @include content-key("Competences");
+  @include content-key("Навыки");
   line-height: 1.5em;
 }
 
 .Human_Languages {
-  & { @include content-key("Languages");}
+  & { @include content-key("Языки");}
   &--English { @include content-key("English: ");}
   &--Hebrew { @include content-key("Hebrew: ");}
   &--Ukrainian { @include content-key("Ukrainian: ");}

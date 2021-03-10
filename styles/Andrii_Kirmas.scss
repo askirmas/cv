@@ -125,13 +125,13 @@ $font-bold: 600;
       padding-left: 0;
     }
   }
-  &residence { @include content-value("Moscow.Russia");}
+  &residence { @include content-value("Москва.РФ");}
   &github { @include content-value("github.com/askirmas");}
   &linkedin { @include content-value("linkedin.com/in/kirmas");}
   &skype { @include content-value("skype:askirmas");}
 }
 
-.Objectives { @include content-value("Passionate for systematic and iterative procedures. High educability and deep knowledge of computer science makes me efficient in engineering and architecture that provides a logical flow of knowledge and progress.");}
+.Objectives { @include content-value("Приверженность к систематизации и последовательности действий. Высокий уровень обучаемости и глубина знаний позволяют мне быть эффективным в решении инженерных и архитектурных задач.");}
 
 .Human_Languages-- {
   &English { @include content-value("Fluent");}
@@ -267,17 +267,17 @@ $font-bold: 600;
     @at-root #{$root} {
       &--#{$year} {
         @include content-apply(
-          "2012 - 2014 Master of Computer Science",
-          "Institute of Cybernetics @Kyiv.Ukraine. Institute of Physics and Technology @Moscow.Russia"
+          "2012 - 2014 Магистр прикладной математики",
+          "Институт кибернетики @Киев.Украина. Московский физико-технический институт @Москва.РФ"
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Information fluctuation complexity"); }
-        &1 { @include goal-content("Neural networks"); }
-        &2 { @include goal-content("Software Engineering") {
+        &0 { @include goal-content("Теория информации"); }
+        &1 { @include goal-content("Нейронные сети"); }
+        &2 { @include goal-content("Программный инжениринг") {
           font-weight: #{$font-bold};
         } }
-        &3 { @include goal-content("System Engineering") {
+        &3 { @include goal-content("Системный инжениринг") {
           font-weight: #{$font-bold};
         } }
       }
@@ -289,17 +289,17 @@ $font-bold: 600;
     @at-root #{$root} {
       &--#{$year} {
         @include content-apply(
-          "2006 - 2012 Bachelor of Applied Mathematics",
-          "Institute of Physics and Technology @Moscow.Russia"
+          "2006 - 2012 Бакалавр прикладной математики",
+          "Московский физико-технический институт @Москва.РФ"
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Algorithms and calculus methods, Computational complexity, Data structures"); }
-        &1 { @include goal-content("Databases"); }
-        &2 { @include goal-content("Mathematical analysis and statistics"); }
-        &3 { @include goal-content("Mathematical optimization"); }
-        &4 { @include goal-content("Parallel programming"); }
-        &5 { @include goal-content("Programming language theory") {
+        &0 { @include goal-content("Алгоритмы и методы вычислений, Вычислительная сложность, Структуры данных"); }
+        &1 { @include goal-content("Базы данных"); }
+        &2 { @include goal-content("Мат. анализ и статистика"); }
+        &3 { @include goal-content("Методы оптимизации"); }
+        &4 { @include goal-content("Параллельное программирование"); }
+        &5 { @include goal-content("Теория реализации языков программирования") {
           font-weight: #{$font-bold};
         } }
       }
@@ -311,21 +311,21 @@ $font-bold: 600;
     @at-root #{$root} {
       &--#{$year} {
         @include content-apply(
-          "1996 - 2006 Awardee of international and republic Math olympiads",
-          "Physics and Mathematics Lyceum #27 @Kharkiv.Ukraine"
+          "1996 - 2006 Победитель международных и республиканских математических олимпиад",
+          "Физико-математический лицей №27 @Харьков.Украина"
         );
       }
       &__Goal--#{$year}- {
-        &0 { @include goal-content("Boolean algebra") {
+        &0 { @include goal-content("Алгебра логики") {
           font-weight: #{$font-bold};
         } }
-        &1 { @include goal-content("Discrete mathematics") {
+        &1 { @include goal-content("Дискретная математика") {
           font-weight: #{$font-bold};
         } }
-        &2 { @include goal-content("Geometry");
+        &2 { @include goal-content("Геометрия");
           font-weight: #{$font-bold};
         }
-        &3 { @include goal-content("Probability theory"); }
+        &3 { @include goal-content("Теория вероятностей"); }
       }
     }
   }

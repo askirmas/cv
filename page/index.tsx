@@ -26,7 +26,7 @@ const {entries: $entries} = Object
 , langs = ["English","Hebrew","Ukrainian","Russian","JS"]
 
 export default function CvSlots({
-  name = "",
+  // name = "",
   description = "",
   email = "",
   phex = [],
@@ -54,11 +54,14 @@ export default function CvSlots({
     </head>
     <body>
       <header className="Main__header">
-        <div className="Main__title">{name}</div>
+        <div className="Main__title">{
+          description
+          .replace(/\s+[–-].*$/, "")
+        }</div>
         <div className="Main__description">
           {
             description
-            .replace(name, "")
+            .replace(/^.*[–-]\s+/, "")
             .replace(/(^[^\w]+|Engineer)/g, "")
           }
           <a className="Term--Engineer" href="https://medium.com/shakuro/programmer-vs-developer-vs-engineer-91ef374e5033" title="The engineer has a solid educational grounding and the ability to apply engineering concepts to create digital solutions"></a>
