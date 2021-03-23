@@ -1,16 +1,28 @@
 & {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: #{$padding-big};
+  @media only screen and (min-width: #{$desktop}) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: #{$padding-big};
+    grid-template-areas:
+      'links links'
+      'hr hr'
+      'objectives objectives'
+      'experience competences'
+      'experience projects'
+      'experience education'
+      'experience languages'
+    ;  
+  }
   grid-template-areas:
-    'links links'
-    'hr hr'
-    'objectives objectives'
-    'experience competences'
-    'experience projects'
-    'experience education'
-    'experience languages'
-  ;
+    'links'
+    'hr'
+    'objectives'
+    'competences'
+    'projects'
+    'experience'
+    'education'
+    'languages'
+  ;  
 
   &__links { grid-area: links; }
   &__objectives { grid-area: objectives; }

@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <meta
         name="viewport"
         // eslint-disable-next-line max-len
-        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+        content="initial-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
       />               
     </Head>
     <Component {...pageProps} />
