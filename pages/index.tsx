@@ -5,6 +5,9 @@ import type { CssIdentifiersMap } from "../styles2/index.scss"
 import { forIn } from "../utils/assoc"
 import { ValueOf } from "../utils/ts-swiss.types"
 
+const {definitions} = cv
+, terms = {...definitions.stack, ...definitions.subjects}
+
 export default function Page() {
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
   , {
@@ -159,9 +162,15 @@ function ArticleContent({
 
     { forIn({stack, subjects, goals: items}, (key, value) => value &&
       <ul key={key} {...bem({[`article__${key}`]: true})}>{
-        forIn(value, (k, v) => <li key={k} {
-          ...key === "stack" && stacker(v)
-        }>{v}</li>)
+        forIn(value, (k, v) => {
+          const term = terms[v] ?? (key in definitions ? {group: v} : undefined)
+          , {favor, group}: Partial<ValueOf<typeof terms>> = term ?? {}
+
+          return <li key={k}
+            {...term && bem({term: favor === -1 ? "deprecated" : true})}
+            {...stacker(group)}
+          >{v}</li>
+        })
       }</ul>
     ) }
   </>

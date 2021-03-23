@@ -313,11 +313,46 @@
     }  
   },
   "definitions": {
+    "subjects": {
+      "OOP-PBP": {"group": "oop"},      
+      "Design by contract": {"group": "contracts"},
+      "Coverage 100%": {"group": "test"},
+      "TDD": {"group": "test"},
+      "Databases": {"group": "db"},
+      "BEM": { "group": "css" },
+      "PureCss": { "group": "css" },
+      "Geometry": {"group": "css"}
+    },
     "stack": {
-      "PHP": -1,
-      "Apache": -1,
-      "WordPress": -1,
-      "Monolith": -1
+      "PHP": {
+        "favor": -1,
+        "group": "php"
+      },
+      "Apache": {
+        "favor": -1
+      },
+      "WordPress": {
+        "favor": -1,
+        "group": "php"
+      },
+      "Monolith": {
+        "favor": -1
+      },
+      "JsonSchema": {"group": "contracts"},
+      "TypeScript": {"group": "contracts"},
+      "C++": {"group": "oop"},
+      "JavaScript": {"group": "oop"},
+      "ES6": {"group": "oop"},
+      "Cypress": {"group": "test"},
+      "Puppeteer": {"group": "test"},
+      "Jest": {"group": "test"},
+      "MySQL": {"group": "db"},
+      "MongoDB": {"group": "db"},
+      "CSS3": {"group": "css"},
+      "Sass": {"group": "css"},
+      "React": {"group": "react"},
+      "Redux": {"group": "react"},
+      "Next.js": {"group": "react"}      
     }
   }
 }

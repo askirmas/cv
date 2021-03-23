@@ -46,4 +46,6 @@ export type CssIdentifiersMap = {
   "location__city": string|undefined
   "location__description": string|undefined
   "location__title": string|undefined
+  "term": string|undefined
+  "term--deprecated": string|undefined
 }

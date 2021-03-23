@@ -1,24 +1,78 @@
 {
   "properties": {
-    "properties": {"$ref": "#definitions/stacked"},
+    "properties": {"allOf": [
+      {"$ref": "#definitions/subjected"},
+      {"$ref": "#definitions/stacked"}
+    ]},
     "definitions": {
-      "properties": { "stack": {
-        "propertyNames": {"$ref": "#definitions/keywords"}
-      }}
+      "properties": {
+        "subjects": {
+          "propertyNames": {"$ref": "#definitions/subjects"}
+        },
+        "stack": {
+          "propertyNames": {"$ref": "#definitions/stacks"}
+        }
+      }
     }
   },
   "definitions": {
+    "subjected": {
+      "properties": {
+        "subjects": {
+          "title": "Subjects",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#definitions/subjects"}
+        }
+      },
+      "additionalProperties": {"$ref": "#definitions/subjected"}  
+    },
     "stacked": {
       "properties": {
         "stack": {
+          "title": "Stack",
           "type": "array",
           "uniqueItems": true,
-          "items": {"$ref": "#definitions/keywords"}
+          "items": {"$ref": "#definitions/stacks"}
         }
       },
       "additionalProperties": {"$ref": "#definitions/stacked"}  
     },
-    "keywords": {
+    "subjects": {
+      "enum": [
+        "XP",
+        "TDD",
+        "Coverage 100%",
+        "SOLID",
+        "DRY",
+        "KISS",
+        "YAGNI",
+        "OOP-PBP",
+        "RESTful",
+        "Microservices",
+        "MVC",
+        "Design by contract",
+        "PureCss",
+        "BEM",
+        "Software Engineering",
+        "System Engineering",
+        "Information fluctuation complexity",
+        "Neural networks",
+        "Programming language theory",
+        "Parallel programming",
+        "Databases",
+        "Mathematical analysis and statistics",
+        "Mathematical optimization",
+        "Computational complexity",
+        "Data structures",
+        "Algorithms and calculus methods",
+        "Boolean algebra",
+        "Discrete mathematics",
+        "Geometry",
+        "Probability theory"
+      ]
+    },
+    "stacks": {
       "enum": [
         "JsonSchema",
         "TypeScript",

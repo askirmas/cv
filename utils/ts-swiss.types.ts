@@ -19,6 +19,8 @@ export type Recombine<T> = T extends any[]
 )
 : T
 
+// type primitive = undefined | null | boolean | number | string | symbol | bigint
+
 export type KeyOf<T> = keyof UnionToIntersection<T>
 
 export type ValueOf<T> = UnionToIntersection<UnionToIntersection<T>[keyof UnionToIntersection<T>]>
