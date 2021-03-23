@@ -59,7 +59,7 @@ export default function Page() {
 
       <article {...bem({cv__competences: true, section: true})}>
         <a {...chapter("competences")} {...bem({section__title: true})}>{cv.properties.competences.title}</a>
-        <ul {...bem({article__subjects: true})}>{
+        <ul {...bem({article__description: true})}>{
           forIn(cv.properties.competences.subjects, (key, value) => <li key={key}>{value}</li>)
         }</ul>
         <ul {...bem({article__stack: true})}>{
@@ -72,10 +72,10 @@ export default function Page() {
         {
           forIn(cv.properties.projects.items, (key, {title, stack, description, href}) => <article key={key} {...bem({article: true})}>
             <a {...{href, ...bem({article__title: true})}}>{title}</a>
-            <div {...bem({article__description: true})}>{description}</div>
             <ul {...bem({article__stack: true})}>{
               forIn(stack, (key, value) => <li key={key}>{value}</li>)
             }</ul>
+            <div {...bem({article__description: true})}>{description}</div>
           </article>)
         }
       </section>

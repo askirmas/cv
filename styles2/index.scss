@@ -168,8 +168,7 @@
   }
 
   &__description {
-    display: flex;
-    flex-direction: column;
+    @extend %list--mid;
   }
 
   &__goals {
@@ -187,7 +186,6 @@
   display: flex;
   flex-wrap: wrap;
   
-  gap: 0.5em;
   &__title {
     order: 0;
   }
