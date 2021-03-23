@@ -26,7 +26,7 @@ export default function Page() {
       <span {...bem({header__title: true})}>{title}</span>
       <span {...bem({header__description: true})}>{description}</span>
     </header>
-    
+
     <main {...bem({cv: true})}>
       <aside {...bem({cv__links: true})}>{
         forIn(links, (links_group, links) => <div key={links_group} {...bem({links_group})}>{
@@ -35,7 +35,7 @@ export default function Page() {
             ? <span key={type} {...bem({link: type})}>{value}</span>
             : <a key={type}
               {...bem({link: type === "phex" ? "phone" : type})}
-              {...href(type, value)}
+              {...hrefer(type, value)}
             />)
         }</div>)
       }</aside>
@@ -53,7 +53,7 @@ export default function Page() {
         <section key={section} {...bem({[`cv__${section}`]: true, article: true})}>
           <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
 
-          { forIn(items, (key, {min, max, title, ...article}) =>
+          { forIn(items, (key, {min, max, title, href, ...article}) =>
             <article key={key} {...bem({article: true})}>
               <a
                 {...bem({article__title: [href ? "external" : "anchor", min === undefined ? false : "range"]})}
@@ -70,7 +70,7 @@ export default function Page() {
   </>
 }
 
-function href(type: string, value: string) {
+function hrefer(type: string, value: string) {
   switch (type) {
     case "phex": return {
       href: `tel:${parseInt(value, 16)}`,
