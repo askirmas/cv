@@ -192,12 +192,12 @@
   &__description {
     order: 1;
     font-style: italic;
-    color: darkgreen;
+    color: #{$secondary};
     &::before {
-      content: "/* "
+      content: "\A0/* "
     }
     &::after {
-      content: " */"
+      content: " */\A0"
     }
   }
   &__city {
