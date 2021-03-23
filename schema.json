@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "allOf": [
+    {"$ref": "#definitions/described"},
+    {
+      "type": "object",
+      "propertyNames": {"enum": [
+        "$schema", "title", "description", "links", "properties"
+      ]},
+      "properties": {
+        "$schema": {"type": "string"},
+        "links": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {"$ref": "#definitions/leaf"}
+          }
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "objectives": {"$ref": "#/definitions/described"},
+            "experience": {"$ref": "#/definitions/expSection"},
+            "education": {"$ref": "#/definitions/expSection"},
+            "projects": {"$ref": "#/definitions/expSection"},
+            "competences": {"$ref": "#/definitions/expRecord"},
+            "languages": {}
+          }
+        }
+      }      
+    }
+  ],
+  "definitions": {
+    "expSection": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {"$ref": "#definitions/leaf"},
+        "items": {
+          "type": ["array", "object"],
+          "additionalProperties": {"$ref": "#/definitions/expRecord"},
+          "items": {"$ref": "#/definitions/expRecord"}
+        }
+      }
+    },
+    "expRecord": {
+      "title": "Record",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "$ref": {"type": "string"},
+        "title": {"$ref": "#/definitions/leaf"},
+        "location": {
+          "type": ["object", "array"],
+          "anyOf": [
+            {"$ref": "#definitions/location"},
+            {"items": {"$ref": "#definitions/location"}}
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "stack": {"$ref": "#definitions/stack"}
+      }
+    },
+    "location": {
+      "allOf": [
+        {"$ref": "#definitions/described"},
+        {
+          "properties": {
+            "city": {"$ref": "#definitions/leaf"}
+          }
+        }
+      ]
+    },
+    "stack": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "described": {
+      "properties": {
+        "title": {"$ref": "#definitions/leaf"},
+        "description": {"$ref": "#definitions/leaf"}    
+      }
+    },
+    "leaf": {
+      "type": ["string", "object"],
+      "required": ["en"],
+      "propertyNames": {"enum": ["en", "ru", "uk", "he"]},
+      "additionalProperties": {"type": "string"}
+    }
+  }
+}

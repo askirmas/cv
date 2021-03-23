@@ -1,0 +1,196 @@
+@use "@material/typography";
+@use "@material/elevation";
+
+@import "../styles/quarks"
+, "../styles/utils"
+, "templates"
+;
+
+:root {
+  @include typography.typography("body1");
+}
+
+@at-root .cv {
+  @import "layout--main";
+
+  &__title {
+    @include typography.typography("headline2");
+  }
+
+  &__description {
+    @include typography.typography("headline4");
+  }
+
+  &__links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@at-root .links_group {
+  display: inline-flex;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  gap: 0.5em;
+
+  &--contacts {
+    order: 0;
+  }
+  &--social {
+    order: 1;
+  }
+  &--etc {
+    order: 2;
+  }
+}
+
+@at-root .link {
+  text-decoration: inherit;
+  display: inline-flex;
+  align-items: center;
+ 
+  @include content-key {
+    width: $icon-size;
+    height: $icon-size;
+    line-height: $icon-size;
+    display: inline-block;
+
+    background: {
+      position: left center;
+      repeat: no-repeat;
+      size: contain;
+    }
+    margin-right: $icon-margin;
+  }
+
+  &--email {
+    @include content-image("https://fonts.gstatic.com/s/i/materialicons/email/v6/24px.svg");
+  }
+  &--phone {
+    @include content-image("https://fonts.gstatic.com/s/i/materialicons/smartphone/v7/24px.svg") {
+      margin-right: 0;
+    };
+    @include content-value(attr(data-content));
+    // & > * {
+    //   margin: {
+    //     left: $icon-margin;
+    //     right: $icon-margin;
+    //   }
+    // }
+  }
+  &--linkedin {
+    @include content-image("https://upload.wikimedia.org/wikipedia/commons/8/80/LinkedIn_Logo_2013.svg") {
+      background-position-x: right;
+      background-size: auto #{$icon-size};
+      padding-left: 0.25 * $icon-size;
+      margin-right: 0;
+    }
+  }
+  &--skype {
+    @include content-image("https://upload.wikimedia.org/wikipedia/commons/6/60/Skype_logo_%282019%E2%80%93present%29.svg");
+  }
+  &--pdf {
+    @include content-image("https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg");
+  }
+  &--html {
+    @include content-image("https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg");
+  }  
+  &--location {
+    display: inline-block;
+    &::first-letter {
+      font-size: #{$icon-size};
+    }
+  }
+  &--github {
+    /**/
+  }
+  &--npm {
+    /**/
+  }
+}
+
+@at-root .section {
+  &__title {
+    @include typography.typography("headline5");
+    @extend %chapter;
+  }
+  // &__goals {
+  //   @extend %list--mid;
+  // }
+  // &__stack {
+  //   @extend %list--small;
+  // }
+}
+
+@at-root .article {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include typography.typography("headline6");
+    @extend %chapter;
+    &--range {
+      @include content-key(attr(data-min) " – " attr(data-max) " ");
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    // @extend %comma-separation;
+  }
+
+  &__goals {
+    @extend %list--big;
+    &--flow {
+      @extend %list--mid;
+    }
+  }
+  &__stack {
+    @extend %list--small;
+  }
+}
+
+@at-root .location {
+  display: flex;
+  flex-wrap: wrap;
+  
+  gap: 0.5em;
+  &__title {
+    order: 0;
+  }
+  &__description {
+    order: 1;
+    font-style: italic;
+    color: darkgreen;
+    &::before {
+      content: "/* "
+    }
+    &::after {
+      content: " */"
+    }
+  }
+  &__city {
+    order: 3;
+    &::before {
+      content: "@"
+    }
+  }
+}
+
+// @at-root .exp_item {
+//   &__range {
+//     @include content-value(attr(data-min) " – " attr(data-max));
+//   }
+//   &__goal {
+//     @extend %list--big;
+//   }
+//   &__stack {
+//     @extend %list--small;
+//   }
+// }

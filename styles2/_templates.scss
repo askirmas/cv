@@ -1,0 +1,43 @@
+@at-root %chapter {
+  color: initial;
+  display: inline-block;
+  &:target {
+    text-decoration: underline;
+  }
+}
+
+@at-root %comma-separation {
+  & > :not(:last-child) {
+    &::after {
+      order: 1000;
+      content: ",\A0";
+    }
+  }
+}
+
+@at-root %list-reset {
+  margin: {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+@at-root %list--big {
+  padding-left: 1em;
+  @extend %list-reset;
+}
+
+@at-root %list--mid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  @extend %list-reset
+    , %comma-separation
+  ;
+}
+
+@at-root %list--small {
+  @include typography.typography("subtitle2");
+  @extend %list--mid;
+}
