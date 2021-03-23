@@ -9,10 +9,10 @@
   &__title {
     @include typography.typography("headline6");
     &--anchor {
-      @extend %link--anchor;
+      @extend %link-anchor;
     }
     &--external {
-      @extend %link--external;
+      @extend %link-external;
     }
 
     &--range {
@@ -21,20 +21,20 @@
   }
 
   &__description {
-    @extend %list--mid;
+    @extend %list-mid;
   }
 
   &__goals {
-    @extend %list--big;
+    @extend %list-big;
   }
   &__stack {
-    @extend %list--small;
+    @extend %list-small;
     border-left: #{$radius} solid #{$back};
     padding-left: #{$padding};
     color: #{$passive};
   }
   &__subjects {
     font-style: italic;
-    @extend %list--mid;
+    @extend %list-mid;
   }
 }

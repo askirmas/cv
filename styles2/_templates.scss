@@ -1,4 +1,4 @@
-@at-root %link--anchor {
+@at-root %link-anchor {
   color: inherit;
   text-decoration: none;
   display: list-item;
@@ -13,7 +13,7 @@
   }
 }
 
-@at-root %link--calm {
+@at-root %link-calm {
   color: inherit;
   text-decoration: none;
   &:hover {
@@ -21,7 +21,7 @@
   }
 }
 
-@at-root %link--external {
+@at-root %link-external {
   color: #{$primary};
   text-decoration: none;
   &:hover {
@@ -45,12 +45,12 @@
   }
 }
 
-@at-root %list--big {
-  padding-left: 1em;
+@at-root %list-big {
+  padding-left: #{$padding};
   @extend %list-reset;
 }
 
-@at-root %list--mid {
+@at-root %list-mid {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -60,7 +60,7 @@
   ;
 }
 
-@at-root %list--small {
+@at-root %list-small {
   @include typography.typography("subtitle2");
-  @extend %list--mid;
+  @extend %list-mid;
 }

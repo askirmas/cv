@@ -55,7 +55,7 @@ export default function Page() {
       )}
 
       { forIn({experience, education, projects}, (section, {title, items}) =>
-        <section {...bem({[`cv__${section}`]: true, article: true})}>
+        <section key={section} {...bem({[`cv__${section}`]: true, article: true})}>
           <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
 
           { forIn(items, (key, {title, min, max, subjects, stack, items, location, href, description}) =>

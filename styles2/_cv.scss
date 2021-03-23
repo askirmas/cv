@@ -59,7 +59,7 @@
 
   &__chapter {
     @include typography.typography("headline5");
-    @extend %link--anchor;
+    @extend %link-anchor;
     margin: {
       top: #{$padding};
       bottom: #{$padding};
