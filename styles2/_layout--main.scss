@@ -1,7 +1,7 @@
 & {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 1rem;
+  column-gap: #{$padding-big};
   grid-template-areas:
     'links links'
     'hr hr'

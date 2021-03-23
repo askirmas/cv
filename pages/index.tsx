@@ -105,8 +105,8 @@ export default function Page() {
         }
       </section>
 
-      <section {...bem({cv__education: true, section: true})}>
-        <a {...chapter("education")} {...bem({section__title: true})}>{cv.properties.education.title}</a>
+      <section {...bem({cv__education: true, article: true})}>
+        <a {...chapter("education")} {...bem({cv__chapter: true})}>{cv.properties.education.title}</a>
         {
           forIn(cv.properties.education.items, (key, {min, max, title, location, subjects, stack}) =>
             <article key={key} {...bem({article: true})}>
