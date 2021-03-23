@@ -4,8 +4,9 @@
     grid-template-columns: 1fr 1fr;
     column-gap: #{$padding-big};
     grid-template-areas:
+      'topb topb'
       'links links'
-      'hr hr'
+      'delimiter delimiter'
       'objectives objectives'
       'experience competences'
       'experience projects'
@@ -23,8 +24,9 @@
   //   'education'
   //   'languages'
   // ;  
-
+  
   &__links { grid-area: links; }
+  &__delimiter{ grid-area: delimiter; }
   &__objectives { grid-area: objectives; }
   &__projects { grid-area: projects; }
   &__experience { grid-area: experience; }

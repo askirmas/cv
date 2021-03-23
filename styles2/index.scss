@@ -10,20 +10,21 @@
 :root {
   @include typography.typography("body1");
 }
-@media only screen and (max-width: #{$desktop}) {
-  :root {
-    font-size: 12px;
-  }
-}
+// @media only screen and (max-width: #{$desktop}) {
+//   :root {
+//     font-size: 12px;
+//   }
+// }
 
 @at-root .header {
   padding: {
     top: #{$padding-big};
     left: #{$padding-big};
     right: #{$padding-big};
-    bottom: #{$padding};
+    // bottom: #{$padding};
   }
   @include typography.typography("headline2");
+  
   &__title {
     /**/
   }
@@ -43,19 +44,36 @@
   }
   margin-bottom: #{$padding};
   flex-grow: 1;
-  overflow-y: overlay;
-  overflow-x: hidden;
-  // overflow-x: visible;
+
   @import "layout--main";
+  overflow: {
+    y: overlay;
+    x: hidden;
+  }
+
+  &::before {
+    grid-area: topb;
+    content: "";
+    
+    position: sticky;
+    top: 0;
+
+    height: #{$padding};
+
+    background-image: linear-gradient(#{$surface}, transparent);
+  }
 
   &__delimiter {
     position: sticky;
-    grid-area: hr;
+    top: 0;
+
+    height: #{$padding};
+
     margin: 0 -#{$padding-big};
     padding: 0;
     border: none;
-    height: 1em;
-    top: 0;
+    
+    
     &::before {
       content: "";
       position: absolute;
@@ -131,12 +149,6 @@
       margin-right: 0;
     };
     @include content-value(attr(data-content));
-    // & > * {
-    //   margin: {
-    //     left: $icon-margin;
-    //     right: $icon-margin;
-    //   }
-    // }
   }
   &--linkedin {
     @include content-image("https://upload.wikimedia.org/wikipedia/commons/8/80/LinkedIn_Logo_2013.svg") {
