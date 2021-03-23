@@ -60,7 +60,7 @@ export default function Page() {
             <article key={key} {...bem({article: true})}>
               <a
                 {...bem({article__title: [href ? "external" : "anchor", min === undefined ? false : "range"]})}
-                {...chapter(key)}
+                {...href ? {href} : chapter(key)}
                 {...dataProps({min, max})
               }>{title}</a>
               
@@ -163,6 +163,7 @@ function ArticleContent({
     { forIn({stack, subjects, goals: items}, (key, value) => value &&
       <ul key={key} {...bem({[`article__${key}`]: true})}>{
         forIn(value, (k, v) => {
+          //TODO De-hardcode - update data
           const term = terms[v] ?? (key in definitions ? {group: v} : undefined)
           , {favor, group}: Partial<ValueOf<typeof terms>> = term ?? {}
 
