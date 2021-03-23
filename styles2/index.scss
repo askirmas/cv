@@ -12,8 +12,16 @@
 }
 
 @at-root .header {
+  padding: {
+    top: #{$padding-big};
+    left: #{$padding-big};
+    right: #{$padding-big};
+    bottom: #{$padding};
+  }
   @include typography.typography("headline2");
-  &__title {}
+  &__title {
+    /**/
+  }
 
   &__description {
     @include typography.typography("headline4");
@@ -24,15 +32,20 @@
 }
 
 @at-root .cv {
+  padding: {
+    left: #{$padding-big};
+    right: #{$padding-big};
+  }
+  margin-bottom: #{$padding};
   flex-grow: 1;
   overflow-y: overlay;
   // overflow-x: visible;
   @import "layout--main";
 
-  &__hr {
+  &__delimiter {
     position: sticky;
     grid-area: hr;
-    margin: 0 -1rem;
+    margin: 0 -#{$padding-big};
     padding: 0;
     border: none;
     height: 1em;
@@ -48,13 +61,21 @@
     }
  }
 
-
   &__links {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__chapter {
+    @include typography.typography("headline5");
+    @extend %link--anchor;
+    margin: {
+      top: #{$padding};
+      bottom: #{$padding};
+    };
   }
 }
 
@@ -64,7 +85,7 @@
     left: auto;
     right: auto;
   }
-  gap: 0.5em;
+  gap: #{$gap};
 
   &--contacts {
     order: 0;
@@ -139,29 +160,21 @@
     @include content-image("https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png")
   }
   &--npm {
+    /**/
   }
-}
-
-@at-root .section {
-  &__title {
-    @include typography.typography("headline5");
-    @extend %link--anchor;
-  }
-  // &__goals {
-  //   @extend %list--mid;
-  // }
-  // &__stack {
-  //   @extend %list--small;
-  // }
 }
 
 @at-root .article {
   display: flex;
   flex-direction: column;
+  margin: {
+    bottom: #{$padding};
+  };
 
   &__title {
     @include typography.typography("headline6");
     @extend %link--anchor;
+
     &--range {
       @include content-key(attr(data-min) " – " attr(data-max) " ");
     }
@@ -207,15 +220,3 @@
     }
   }
 }
-
-// @at-root .exp_item {
-//   &__range {
-//     @include content-value(attr(data-min) " – " attr(data-max));
-//   }
-//   &__goal {
-//     @extend %list--big;
-//   }
-//   &__stack {
-//     @extend %list--small;
-//   }
-// }

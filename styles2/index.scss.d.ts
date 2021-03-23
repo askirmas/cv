@@ -13,22 +13,25 @@ export type CssIdentifiersMap = {
   "article__title": string|undefined
   "article__title--range": string|undefined
   "cv": string|undefined
+  "cv__chapter": string|undefined
   "cv__competences": string|undefined
+  "cv__delimiter": string|undefined
   "cv__education": string|undefined
   "cv__experience": string|undefined
-  "cv__hr": string|undefined
   "cv__languages": string|undefined
   "cv__links": string|undefined
   "cv__objectives": string|undefined
   "cv__projects": string|undefined
   "header": string|undefined
   "header__description": string|undefined
+  "header__title": string|undefined
   "link": string|undefined
   "link--email": string|undefined
   "link--github": string|undefined
   "link--html": string|undefined
   "link--linkedin": string|undefined
   "link--location": string|undefined
+  "link--npm": string|undefined
   "link--pdf": string|undefined
   "link--phone": string|undefined
   "link--skype": string|undefined
@@ -40,5 +43,4 @@ export type CssIdentifiersMap = {
   "location__city": string|undefined
   "location__description": string|undefined
   "location__title": string|undefined
-  "section__title": string|undefined
 }
