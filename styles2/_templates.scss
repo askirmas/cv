@@ -1,10 +1,39 @@
-@at-root %chapter {
-  color: initial;
-  display: inline-block;
+@at-root %link--anchor {
+  color: inherit;
+  text-decoration: none;
+  display: list-item;
+  list-style-type: none;
+  // &::marker {}
+  &:hover {
+    list-style-type: "§ "; // § ¶ #
+  }
   &:target {
     text-decoration: underline;
   }
 }
+
+@at-root %link--calm {
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    color: #{$primary};
+  }
+}
+
+// @at-root %link--external {
+//   color: #{$primary};
+//   text-decoration: none;
+//   &:hover {
+//     text-decoration: underline;
+//     &::after {
+//       content: "";
+//       width: #{$icon-size};
+//       height: #{$icon-size};
+//       display: inline-block;
+//       background-image: url(https://fonts.gstatic.com/s/i/materialicons/open_in_new/v15/24px.svg);
+//     }
+//   }
+// }
 
 @at-root %comma-separation {
   & > :not(:last-child) {

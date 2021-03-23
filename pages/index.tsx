@@ -71,7 +71,7 @@ export default function Page() {
         <a {...chapter("projects")} {...bem({section__title: true})}>{cv.properties.projects.title}</a>
         {
           forIn(cv.properties.projects.items, (key, {title, stack, description, href}) => <article key={key} {...bem({article: true})}>
-            <a {...{href, ...bem({article__title: true})}}>{title}</a>
+            <a {...{href, ...bem({article__title: "external"})}}>{title}</a>
             <ul {...bem({article__stack: true})}>{
               forIn(stack, (key, value) => <li key={key}>{value}</li>)
             }</ul>

@@ -78,7 +78,7 @@
 }
 
 @at-root .link {
-  text-decoration: inherit;
+  @extend %link--calm;
   display: inline-flex;
   align-items: center;
  
@@ -130,6 +130,7 @@
   }  
   &--location {
     display: inline-block;
+    pointer-events: none;
     &::first-letter {
       font-size: #{$icon-size};
     }
@@ -145,7 +146,7 @@
 @at-root .section {
   &__title {
     @include typography.typography("headline5");
-    @extend %chapter;
+    @extend %link--anchor;
   }
   // &__goals {
   //   @extend %list--mid;
@@ -161,7 +162,7 @@
 
   &__title {
     @include typography.typography("headline6");
-    @extend %chapter;
+    @extend %link--anchor;
     &--range {
       @include content-key(attr(data-min) " – " attr(data-max) " ");
     }
