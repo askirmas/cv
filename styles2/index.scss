@@ -4,6 +4,7 @@
 @import "../styles/quarks"
 , "../styles/utils"
 , "templates"
+, "next"
 ;
 
 :root {
@@ -11,6 +12,8 @@
 }
 
 @at-root .cv {
+  flex-grow: 1;
+  overflow-y: overlay;
   @import "layout--main";
 
   &__title {

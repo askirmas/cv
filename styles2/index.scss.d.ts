@@ -4,6 +4,7 @@ declare const identifiersMap: CssIdentifiersMap
 export default identifiersMap
 
 export type CssIdentifiersMap = {
+  "__next": string|undefined
   "article": string|undefined
   "article__description": string|undefined
   "article__goals": string|undefined
