@@ -1,4 +1,5 @@
 {
+  "$schema": "./stack.schema.json",
   "title": "Andrii Kirmas",
   "description": "Senior Full Stack Engineer",
   "links": {
@@ -24,6 +25,7 @@
       "description": "Passionate for systematic and iterative procedures. High educability and deep knowledge of computer science makes me efficient in engineering and architecture that provides a logical flow of knowledge and progress."
     },  
     "competences": {
+      "$comment": "Move to definitions?",
       "title": "Competences",
       "subjects": [
         "XP",
@@ -97,7 +99,7 @@
             "MySQL",
             "MongoDB",
             "git",
-            "CSS",
+            "CSS3",
             "JS DOM",
             "Webpack",
             "GitLab CI"        
@@ -131,8 +133,7 @@
             "MySQL",
             "MongoDB",
             "git",
-            "utils",
-            "CSS",
+            "CSS3",
             "Apache",
             "PHP",
             "jQuery",
@@ -310,5 +311,13 @@
         "js": "JavaScript: Native speaker"   
       }
     }  
+  },
+  "definitions": {
+    "stack": {
+      "PHP": -1,
+      "Apache": -1,
+      "WordPress": -1,
+      "Monolith": -1
+    }
   }
 }

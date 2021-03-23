@@ -26,6 +26,11 @@ export default function Page() {
   //     languages
   //   },
   // } = langed
+  , {
+    competences,
+    objectives,
+    languages
+  } = cv.properties
 
   return <>
     <header {...bem({header: true})}>
@@ -44,28 +49,26 @@ export default function Page() {
             />)
         }</div>)
       }</aside>
+
       <hr {...bem({cv__delimiter: true})}/>
-      <article {...bem({cv__languages: true, article: true})}>
-        <a {...chapter("languages")} {...bem({cv__chapter: true})}>{cv.properties.languages.title}</a>
-        <ul {...bem({article__goals: true})}>{
-          forIn(cv.properties.languages.items, (key, value) => <li key={key}>{value}</li>)
-        }</ul>
-      </article>
 
-      <article {...bem({cv__objectives: true, article: true})}>
-        <a {...chapter("objectives")} {...bem({cv__chapter: true})}>{cv.properties.objectives.title}</a>
-        <div {...bem({article__description: true})}>{cv.properties.objectives.description}</div>
-      </article>
+      {
+        forIn({languages, objectives, competences}, (section, {title, description, items, stack, subjects}) =>
+          <article key={section} {...bem({[`cv__${section}`]: true, article: true})}>
+            <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
 
-      <article {...bem({cv__competences: true, article: true})}>
-        <a {...chapter("competences")} {...bem({cv__chapter: true})}>{cv.properties.competences.title}</a>
-        <ul {...bem({article__description: true})}>{
-          forIn(cv.properties.competences.subjects, (key, value) => <li key={key}>{value}</li>)
-        }</ul>
-        <ul {...bem({article__stack: true})}>{
-          forIn(cv.properties.competences.stack, (key, value) => <li key={key}>{value}</li>)
-        }</ul>
-      </article>
+            <div {...bem({article__description: true})}>{description}</div>
+
+            {
+              forIn({subjects, stack, goals: items}, (key, value) => value &&
+                <ul key={key} {...bem({[`article__${key}`]: true})}>{
+                  forIn(value, (k, v) => <li key={k}>{v}</li>)
+                }</ul>
+              )
+            }
+          </article>
+        )
+      }
 
       <section {...bem({cv__projects: true, article: true})}>
         <a {...chapter("projects")} {...bem({cv__chapter: true})}>{cv.properties.projects.title}</a>

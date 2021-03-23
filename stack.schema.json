@@ -1,0 +1,68 @@
+{
+  "properties": {
+    "properties": {"$ref": "#definitions/stacked"},
+    "definitions": {
+      "properties": { "stack": {
+        "propertyNames": {"$ref": "#definitions/keywords"}
+      }}
+    }
+  },
+  "definitions": {
+    "stacked": {
+      "properties": {
+        "stack": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#definitions/keywords"}
+        }
+      },
+      "additionalProperties": {"$ref": "#definitions/stacked"}  
+    },
+    "keywords": {
+      "enum": [
+        "JsonSchema",
+        "TypeScript",
+        "RESTful",
+        "bash",
+        "Node",
+        "Jest",
+        "Cypress",
+        "Puppeteer",
+        "Sass",
+        "HTML5",
+        "React",
+        "Redux",
+        "ExpressJs",
+        "MySQL",
+        "MongoDB",
+        "git",
+        "CSS3",
+        "JS DOM",
+        "Webpack",
+        "GitLab CI",
+        "Reactive",
+        "Functional",
+        "RxJs",
+        "JavaScript",
+        "<canvas>",
+        "Apache",
+        "PHP",
+        "Python",
+        "Haxe",
+        "nw.js",
+        "pixi.js",
+        "Microservices",
+        "Next.js",
+        "jQuery",
+        "WordPress",
+        "Monolith",
+        "nginx",
+        "C++",
+        "OpenCV",
+        "ES6",
+        "OpenMPI",
+        "C"
+      ]      
+    }
+  }
+}
