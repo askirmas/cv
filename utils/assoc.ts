@@ -1,4 +1,4 @@
-import { KeyOf, UnionToIntersection, ValueOf } from "./ts-swiss.types"
+import type { KeyOf, UnionToIntersection, ValueOf } from "./ts-swiss.types"
 
 const {isArray: $isArray} = Array
 
