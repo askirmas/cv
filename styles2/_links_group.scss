@@ -1,0 +1,18 @@
+@at-root .links_group {
+  display: inline-flex;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  gap: #{$gap};
+
+  &--contacts {
+    order: 0;
+  }
+  &--social {
+    order: 1;
+  }
+  &--etc {
+    order: 2;
+  }
+}
