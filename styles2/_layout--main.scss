@@ -1,6 +1,6 @@
 & {
   display: grid;
-  @media only screen and (min-width: #{$desktop}) {
+  // @media only screen and (min-width: #{$desktop}) {
     grid-template-columns: 1fr 1fr;
     column-gap: #{$padding-big};
     grid-template-areas:
@@ -12,17 +12,17 @@
       'experience education'
       'experience languages'
     ;  
-  }
-  grid-template-areas:
-    'links'
-    'hr'
-    'objectives'
-    'competences'
-    'projects'
-    'experience'
-    'education'
-    'languages'
-  ;  
+  // }
+  // grid-template-areas:
+  //   'links'
+  //   'hr'
+  //   'objectives'
+  //   'competences'
+  //   'projects'
+  //   'experience'
+  //   'education'
+  //   'languages'
+  // ;  
 
   &__links { grid-area: links; }
   &__objectives { grid-area: objectives; }
