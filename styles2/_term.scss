@@ -1,6 +1,14 @@
 @at-root .term {
   cursor: crosshair;
-  border-radius: 0.5em;
+  border-radius: #{$radius-big};
+
+  border-right: #{$radius-shift} solid transparent;
+  background-clip: border-box;
+  padding-left: #{$radius-shift};
+  margin: {
+    left: -#{$radius-shift};
+    right: #{$gap};
+  }
 
   &--deprecated {
     cursor: not-allowed;
