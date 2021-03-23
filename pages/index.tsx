@@ -3,6 +3,7 @@ import {classBeming } from "react-classnaming"
 import type {  ClassNamesProperty } from "react-classnaming"
 import type { CssIdentifiersMap } from "../styles2/index.scss"
 import { arrayize, forIn } from "../utils/assoc"
+import { ValueOf } from "../utils/ts-swiss.types"
 
 export default function Page() {
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
@@ -25,6 +26,7 @@ export default function Page() {
       <span {...bem({header__title: true})}>{title}</span>
       <span {...bem({header__description: true})}>{description}</span>
     </header>
+    
     <main {...bem({cv: true})}>
       <aside {...bem({cv__links: true})}>{
         forIn(links, (links_group, links) => <div key={links_group} {...bem({links_group})}>{
@@ -40,17 +42,10 @@ export default function Page() {
 
       <hr {...bem({cv__delimiter: true})}/>
 
-      { forIn({languages, objectives, competences}, (section, {title, description, items, stack, subjects}) =>
+      { forIn({languages, objectives, competences}, (section, {title, ...article}) =>
         <article key={section} {...bem({[`cv__${section}`]: true, article: true})}>
           <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
-
-          <div {...bem({article__description: true})}>{description}</div>
-
-          { forIn({stack, subjects, goals: items}, (key, value) => value &&
-            <ul key={key} {...bem({[`article__${key}`]: true})}>{
-              forIn(value, (k, v) => <li key={k}>{v}</li>)
-            }</ul>
-          )}
+          <ArticleContent {...article}/>
         </article>
       )}
 
@@ -58,35 +53,15 @@ export default function Page() {
         <section key={section} {...bem({[`cv__${section}`]: true, article: true})}>
           <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
 
-          { forIn(items, (key, {title, min, max, subjects, stack, items, location, href, description}) =>
+          { forIn(items, (key, {min, max, title, ...article}) =>
             <article key={key} {...bem({article: true})}>
               <a
-                {...chapter(key)}
                 {...bem({article__title: [href ? "external" : "anchor", min === undefined ? false : "range"]})}
+                {...chapter(key)}
                 {...dataProps({min, max})
-            }>{
-              title
-            }</a>
-
-              <div {...bem({article__description: true})}>
-                { description }
-
-                {
-                  location && arrayize(location)
-                  .map(({title, description, city}, i) => <div key={i} {...bem({location: true})}>
-                    {title && <span {...bem({location__title: true})}>{title}</span>  }
-                    {description && <span {...bem({location__description: true})}>{description}</span> }
-                    {city && <span {...bem({location__city: true})}>{city}</span> }
-                  </div>)
-                }
-              </div>
-
-              { forIn({stack, subjects, goals: items}, (key, value) => value &&
-                <ul key={key} {...bem({[`article__${key}`]: true})}>{
-                  forIn(value, (k, v) => <li key={k}>{v}</li>)
-                }</ul>
-              ) }
-
+              }>{title}</a>
+              
+              <ArticleContent {...article}/>
             </article>
           )}
         </section>
@@ -146,4 +121,42 @@ function dataProps<T extends Record<string, string|number>>(source: T) {
     $return[`data-${key}`] = source[key]
 
   return $return
+}
+
+type Example = typeof cv["properties"]
+
+type Props = Partial<Pick<ValueOf<
+  ValueOf<Pick<Example, "experience"|"education"|"projects">>["items"]
+  & Pick<Example, "competences"|"objectives"|"languages">
+>, "stack"|"subjects"|"items"|"location"|"description">>
+
+function ArticleContent({
+  stack,
+  subjects,
+  items,
+  location,
+  description,
+}: Props) {
+  const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
+
+  return <>
+    <div {...bem({article__description: true})}>
+      { description }
+
+      {
+        location && arrayize(location)
+        .map(({title, description, city}, i) => <div key={i} {...bem({location: true})}>
+          {title && <span {...bem({location__title: true})}>{title}</span>  }
+          {description && <span {...bem({location__description: true})}>{description}</span> }
+          {city && <span {...bem({location__city: true})}>{city}</span> }
+        </div>)
+      }
+    </div>
+
+    { forIn({stack, subjects, goals: items}, (key, value) => value &&
+      <ul key={key} {...bem({[`article__${key}`]: true})}>{
+        forIn(value, (k, v) => <li key={k}>{v}</li>)
+      }</ul>
+    ) }
+  </>
 }

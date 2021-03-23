@@ -303,13 +303,13 @@
     },
     "languages": {
       "title": "Languages",
-      "items": {
-        "eng": "English: Fluent",
-        "il": "Hebrew: Basic",
-        "ua": "Ukrainian: Mother tongue",
-        "rus": "Russian: Mother tongue",
-        "js": "JavaScript: Native speaker"   
-      }
+      "items": [
+        "English: Fluent",
+        "Hebrew: Basic",
+        "Ukrainian: Mother tongue",
+        "Russian: Mother tongue",
+        "JavaScript: Native speaker"
+      ]
     }  
   },
   "definitions": {
