@@ -8,8 +8,8 @@ export type CssIdentifiersMap = {
   "article": string|undefined
   "article__description": string|undefined
   "article__goals": string|undefined
-  "article__goals--flow": string|undefined
   "article__stack": string|undefined
+  "article__subjects": string|undefined
   "article__title": string|undefined
   "article__title--range": string|undefined
   "cv": string|undefined

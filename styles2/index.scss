@@ -145,17 +145,16 @@
   &__description {
     display: flex;
     flex-direction: column;
-    // @extend %comma-separation;
   }
 
   &__goals {
     @extend %list--big;
-    &--flow {
-      @extend %list--mid;
-    }
   }
   &__stack {
     @extend %list--small;
+  }
+  &__subjects {
+    @extend %list--mid;
   }
 }
 

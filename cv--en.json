@@ -25,7 +25,7 @@
     },  
     "competences": {
       "title": "Competences",
-      "items": [
+      "subjects": [
         "XP",
         "TDD",
         "Coverage 100%",
@@ -258,7 +258,7 @@
               "city": "Moscow.Russia"
             }
           ],
-          "items": [
+          "subjects": [
             "Software Engineering",
             "System Engineering",
             "Information fluctuation complexity",
@@ -273,7 +273,7 @@
             "city": "Moscow.Russia"
           },
           "stack": ["MySQL", "C", "C++", "OpenMPI"],
-          "items": [
+          "subjects": [
             "Programming language theory",
             "Parallel programming",
             "Databases",
@@ -291,7 +291,7 @@
             "title": "Physics and Mathematics Lyceum #27",
             "city": "Kharkiv.Ukraine"
           },
-          "items": [
+          "subjects": [
             "Boolean algebra",
             "Discrete mathematics",
             "Geometry",

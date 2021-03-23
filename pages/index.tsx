@@ -57,8 +57,8 @@ export default function Page() {
 
     <article {...bem({cv__competences: true, section: true})}>
       <a {...chapter("competences")} {...bem({section__title: true})}>{cv.properties.competences.title}</a>
-      <ul {...bem({article__goals: "flow"})}>{
-        forIn(cv.properties.competences.items, (key, value) => <li key={key}>{value}</li>)
+      <ul {...bem({article__subjects: true})}>{
+        forIn(cv.properties.competences.subjects, (key, value) => <li key={key}>{value}</li>)
       }</ul>
       <ul {...bem({article__stack: true})}>{
         forIn(cv.properties.competences.stack, (key, value) => <li key={key}>{value}</li>)
@@ -106,7 +106,7 @@ export default function Page() {
     <section {...bem({cv__education: true, section: true})}>
       <a {...chapter("education")} {...bem({section__title: true})}>{cv.properties.education.title}</a>
       {
-        forIn(cv.properties.education.items, (key, {min, max, title, location, items, stack}) =>
+        forIn(cv.properties.education.items, (key, {min, max, title, location, subjects, stack}) =>
           <article key={key} {...bem({article: true})}>
             <a {...chapter(key)} {...bem({article__title: "range"})} {...dataProps({min, max})}>{title}</a>
             <div {...bem({article__description: true})}>{
@@ -121,8 +121,8 @@ export default function Page() {
             <ul {...bem({article__stack: true})}>{
               forIn(stack, (key, value) => <li key={key}>{value}</li>)
             }</ul>
-            <ul {...bem({article__goals: "flow"})}>{
-              forIn(items, (key, value) => <li key={key}>{value}</li>)
+            <ul {...bem({article__subjects: true})}>{
+              forIn(subjects, (key, value) => <li key={key}>{value}</li>)
             }</ul>
           </article>
         )
