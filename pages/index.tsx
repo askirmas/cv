@@ -156,6 +156,17 @@ function href(type: string, value: string) {
       href: `https://github.com/${value}`,
       children: `github.com/${value}`
     }
+    case "npm": return {
+      href: `https://www.npmjs.com/package/${value}`,
+      children: <img src={`https://badge.fury.io/js/${encodeURIComponent(value)}.svg`} alt="npm"/>
+    }
+    case "html":
+    case "pdf": {
+      return {
+        children: type.toUpperCase()
+      }
+    }
+
     default: return {
       href: value,
       children: `${type}: ${value}`
