@@ -20,20 +20,13 @@
   }
 }
 
-// @at-root %link--external {
-//   color: #{$primary};
-//   text-decoration: none;
-//   &:hover {
-//     text-decoration: underline;
-//     &::after {
-//       content: "";
-//       width: #{$icon-size};
-//       height: #{$icon-size};
-//       display: inline-block;
-//       background-image: url(https://fonts.gstatic.com/s/i/materialicons/open_in_new/v15/24px.svg);
-//     }
-//   }
-// }
+@at-root %link--external {
+  color: #{$primary};
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 @at-root %comma-separation {
   & > :not(:last-child) {

@@ -11,6 +11,8 @@ export type CssIdentifiersMap = {
   "article__stack": string|undefined
   "article__subjects": string|undefined
   "article__title": string|undefined
+  "article__title--anchor": string|undefined
+  "article__title--external": string|undefined
   "article__title--range": string|undefined
   "cv": string|undefined
   "cv__chapter": string|undefined

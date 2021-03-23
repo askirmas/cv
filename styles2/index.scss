@@ -180,7 +180,12 @@
 
   &__title {
     @include typography.typography("headline6");
-    @extend %link--anchor;
+    &--anchor {
+      @extend %link--anchor;
+    }
+    &--external {
+      @extend %link--external;
+    }
 
     &--range {
       @include content-key(attr(data-min) " – " attr(data-max) " ");

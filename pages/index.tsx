@@ -71,7 +71,7 @@ export default function Page() {
         <a {...chapter("projects")} {...bem({cv__chapter: true})}>{cv.properties.projects.title}</a>
         {
           forIn(cv.properties.projects.items, (key, {title, stack, description, href}) => <article key={key} {...bem({article: true})}>
-            <a {...{href, ...bem({article__title: true})}}>{title}</a>
+            <a {...{href, ...bem({article__title: "external"})}}>{title}</a>
             <ul {...bem({article__stack: true})}>{
               forIn(stack, (key, value) => <li key={key}>{value}</li>)
             }</ul>
@@ -85,7 +85,7 @@ export default function Page() {
         {
           forIn(cv.properties.experience.items, (key, {min, max, title, location, items, stack}) =>
             <article key={key} {...bem({article: true})}>
-              <a {...chapter(key)} {...bem({article__title: "range"})} {...dataProps({min, max})}>{title}</a>
+              <a {...chapter(key)} {...bem({article__title: ["anchor", "range"]})} {...dataProps({min, max})}>{title}</a>
               <div {...bem({article__description: true})}>{
                 arrayize(location)
                 .map(({title, description, city}, i) => <div key={i} {...bem({location: true})}>
@@ -110,7 +110,7 @@ export default function Page() {
         {
           forIn(cv.properties.education.items, (key, {min, max, title, location, subjects, stack}) =>
             <article key={key} {...bem({article: true})}>
-              <a {...chapter(key)} {...bem({article__title: "range"})} {...dataProps({min, max})}>{title}</a>
+              <a {...chapter(key)} {...bem({article__title: ["anchor", "range"]})} {...dataProps({min, max})}>{title}</a>
               <div {...bem({article__description: true})}>{
                 arrayize(location)
                 //@ts-expect-error
