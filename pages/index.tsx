@@ -114,6 +114,10 @@ function chapter(id: string) {
   return { id, href: `#${id}` }
 }
 
+function stacker(id: string) {
+  return dataProps({hover: id})
+}
+
 function dataProps<T extends Record<string, string|number>>(source: T) {
   const $return = {}
 
@@ -155,7 +159,9 @@ function ArticleContent({
 
     { forIn({stack, subjects, goals: items}, (key, value) => value &&
       <ul key={key} {...bem({[`article__${key}`]: true})}>{
-        forIn(value, (k, v) => <li key={k}>{v}</li>)
+        forIn(value, (k, v) => <li key={k} {
+          ...key === "stack" && stacker(v)
+        }>{v}</li>)
       }</ul>
     ) }
   </>

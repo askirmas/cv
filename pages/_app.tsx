@@ -1,11 +1,37 @@
-// import App from "next/app";
-import type { AppProps /*, AppContext */ } from 'next/app'
+import App from 'next/app'
 import Head from 'next/head'
 
 import "../styles2/index.scss"
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <>
+const {from: $from} = Array
+, hoverName = "_hover"
+export default class MyApp extends App {
+  hoverAgent({target: {dataset: {hover}}}: {target: HTMLElement}) {
+    const previous = document.body.getElementsByClassName(hoverName)
+    , {length} = previous
+
+    for (let i = length; i--;)
+      previous[i].classList.remove(hoverName)
+
+    if (!hover)
+      return
+    
+    document.body.querySelectorAll(`[data-hover='${hover}']`)
+    .forEach(({classList}) => classList.add(hoverName))
+  }
+  componentDidMount() {
+    //@ts-expect-error
+    document.body.addEventListener("mouseover", this.hoverAgent)
+  }
+  componentWillUnmount() {
+    //@ts-expect-error
+    document.body.removeEventListener("mouseover", this.hoverAgent)
+  }
+
+  render() {
+    const { Component, pageProps} = this.props
+
+    return <>
     <Head>
       <meta charSet="utf-8"/>
       <meta
@@ -16,6 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     </Head>
     <Component {...pageProps} />
   </>
+  }
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -30,4 +57,3 @@ function MyApp({ Component, pageProps }: AppProps) {
 //   return { ...appProps }
 // }
 
-export default MyApp

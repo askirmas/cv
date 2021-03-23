@@ -31,9 +31,11 @@
 
 @at-root %comma-separation {
   & > :not(:last-child) {
+    margin-right: 0.5em;
+    position: relative;
     &::after {
-      order: 1000;
-      content: ",\A0";
+      position: absolute;
+      content: ",";
     }
   }
 }

@@ -5,6 +5,7 @@ export default identifiersMap
 
 export type CssIdentifiersMap = {
   "__next": string|undefined
+  "_hover": string|undefined
   "article": string|undefined
   "article__description": string|undefined
   "article__goals": string|undefined

@@ -32,6 +32,17 @@
     border-left: #{$radius} solid #{$back};
     padding-left: #{$padding};
     color: #{$passive};
+
+    //TODO to block
+    ._hover {
+      border-radius: 0.5em;
+      cursor: crosshair;
+      color: initial;
+      background-color: #{$primary-alpha};
+      &::after {
+        display: none;
+      }
+    }
   }
   &__subjects {
     font-style: italic;
