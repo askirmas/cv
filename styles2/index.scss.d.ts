@@ -14,14 +14,15 @@ export type CssIdentifiersMap = {
   "article__title--range": string|undefined
   "cv": string|undefined
   "cv__competences": string|undefined
-  "cv__description": string|undefined
   "cv__education": string|undefined
   "cv__experience": string|undefined
+  "cv__hr": string|undefined
   "cv__languages": string|undefined
   "cv__links": string|undefined
   "cv__objectives": string|undefined
   "cv__projects": string|undefined
-  "cv__title": string|undefined
+  "header": string|undefined
+  "header__description": string|undefined
   "link": string|undefined
   "link--email": string|undefined
   "link--github": string|undefined
