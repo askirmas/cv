@@ -59,7 +59,7 @@
     &::before {
       content: "";
       position: absolute;
-      top: -4px;
+      top: -#{$radius};
       width: 100%;
       height: 100%;
       background-color: #{$surface};
@@ -201,6 +201,10 @@
   }
   &__stack {
     @extend %list--small;
+    border-left: #{$radius} solid #{$back};
+    padding-left: #{$padding};
+    font-style: italic;
+    color: #{$passive};
   }
   &__subjects {
     @extend %list--mid;
