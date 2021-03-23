@@ -69,19 +69,19 @@
         "deutsche-bank": {
           "min": 2020, "max": 2021,
           "title": "Senior FrontEnd Engineer",
-          "location": {
+          "locations": [{
             "title": "Deutsche Bank",
             "city": "Moscow.Russia"
-          }
+          }]
         },
         "cloudwize": {
           "min": 2019, "max": 2020,
           "title": "Senior Fullstack Engineer",
-          "location": {
+          "locations": [{
             "title": "Cloudwize.io",
             "description": "Cloud Management",
             "city": "Netanya.Israel"
-          },
+          }],
           "stack": [
             "JsonSchema",
             "TypeScript",
@@ -115,11 +115,11 @@
         "go-be-marketing": {
           "min": 2018, "max": 2019,
           "title": "Lead Software Engineer",
-          "location": {
+          "locations": [{
             "title": "Go-Be Marketing Ltd",
             "description": "eCommerce company",
             "city": "Tel-Aviv.Israel"
-          },
+          }],
           "stack": [
             "JsonSchema",
             "RESTful",
@@ -151,7 +151,7 @@
         "intetics": {
           "min": 2015, "max": 2017,
           "title": "Software Engineer",
-          "location": [
+          "locations": [
             {
               "title": "Intetics Inc",
               "description": "Out-staff company",
@@ -190,11 +190,11 @@
         "eikoncraft": {
           "min": 2014, "max": 2015,
           "title": "Freelance Developer",
-          "location": {
+          "locations": [{
             "title": "Eikoncraft",
             "description": "Outsource company",
             "city": "Dallas.USA"
-          },
+          }],
           "stack": [
             "JavaScript", "Reactive"
           ],
@@ -205,11 +205,11 @@
         "nedi": {
           "min": 2008, "max": 2014,
           "title": "Co-Founder, Branch Manager",
-          "location": {
+          "locations": [{
             "title": "New Educational Initiatives Llc",
             "description": "eLearning company",
             "city": "Moscow.Russia"
-          },
+          }],
           "stack": [
             "MySQL", "JavaScript", "C++", "PHP", "OpenCV"
           ],
@@ -249,7 +249,7 @@
         "master": {
           "min": 2012, "max": 2014,
           "title": "Master of Computer Science",
-          "location": [
+          "locations": [
             {
               "title": "Institute of Cybernetics",
               "city": "Kyiv.Ukraine"
@@ -269,10 +269,10 @@
         "bachelor": {
           "min": 2006, "max": 2012,
           "title": "Bachelor of Applied Mathematics",
-          "location":  {
+          "locations":  [{
             "title": "Institute of Physics and Technology",
             "city": "Moscow.Russia"
-          },
+          }],
           "stack": ["MySQL", "C", "C++", "OpenMPI"],
           "subjects": [
             "Programming language theory",
@@ -288,10 +288,10 @@
         "school": {
           "min": 1996, "max": 2006,
           "title": "Awardee of international and republic Math olympiads",
-          "location": {
+          "locations": [{
             "title": "Physics and Mathematics Lyceum #27",
             "city": "Kharkiv.Ukraine"
-          },
+          }],
           "subjects": [
             "Boolean algebra",
             "Discrete mathematics",

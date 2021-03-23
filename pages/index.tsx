@@ -1,8 +1,8 @@
 import cv from "../cv--en.json"
-import {classBeming } from "react-classnaming"
-import type {  ClassNamesProperty } from "react-classnaming"
+import { classBeming } from "react-classnaming"
+import type { ClassNamesProperty } from "react-classnaming"
 import type { CssIdentifiersMap } from "../styles2/index.scss"
-import { arrayize, forIn } from "../utils/assoc"
+import { forIn } from "../utils/assoc"
 import { ValueOf } from "../utils/ts-swiss.types"
 
 export default function Page() {
@@ -132,13 +132,13 @@ type Example = typeof cv["properties"]
 type Props = Partial<Pick<ValueOf<
   ValueOf<Pick<Example, "experience"|"education"|"projects">>["items"]
   & Pick<Example, "competences"|"objectives"|"languages">
->, "stack"|"subjects"|"items"|"location"|"description">>
+>, "stack"|"subjects"|"items"|"locations"|"description">>
 
 function ArticleContent({
   stack,
   subjects,
   items,
-  location,
+  locations,
   description,
 }: Props) {
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
@@ -148,8 +148,8 @@ function ArticleContent({
       { description }
 
       {
-        location && arrayize(location)
-        .map(({title, description, city}, i) => <div key={i} {...bem({location: true})}>
+        //@ts-expect-error
+        locations?.map(({title, description, city}, i) => <div key={i} {...bem({location: true})}>
           {title && <span {...bem({location__title: true})}>{title}</span>  }
           {description && <span {...bem({location__description: true})}>{description}</span> }
           {city && <span {...bem({location__city: true})}>{city}</span> }
