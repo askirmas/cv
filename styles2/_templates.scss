@@ -3,6 +3,7 @@
   text-decoration: none;
   display: list-item;
   list-style-type: none;
+  scroll-margin-top: #{$padding};
   // &::marker {}
   &:hover {
     list-style-type: "§ "; // § ¶ #
