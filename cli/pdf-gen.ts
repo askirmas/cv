@@ -5,18 +5,18 @@ import { sync } from "globby"
 import { basename, join} from "path"
 export default pdfGen
 
-const nextOut = "out"
-, htmlExt = ".html"
 
 if (module.parent === null) {
   const cwd = process.cwd()
-  process.chdir(nextOut)
+  , {outFolder} = options
+  outFolder && process.chdir(outFolder)
+
   pdfGen(options)
   .finally(() => process.chdir(cwd))
 }
   
 async function pdfGen({
-  goto, launch, pdf, waitFor
+  goto, launch, pdf, waitFor, ext
 }: tOptions = {}) {
   const cwd = process.cwd()
   , browser = await puppeteer.launch(launch)
@@ -25,14 +25,14 @@ async function pdfGen({
     "npm_package_author_name": author
   } = process.env
 
-  for (const outFile of sync(`*${htmlExt}`)) {
+  for (const outFile of sync(`*${ext}`)) {
     if (outFile === "404")
       continue
 
     await page.goto(`file://${join(cwd, outFile)}`, goto)
     waitFor && await page.waitFor(waitFor)
     await page.pdf({
-      "path": join(cwd, `${author}-${basename(outFile, htmlExt)}.pdf`),
+      "path": join(cwd, `${author}-${basename(outFile, ext)}.pdf`),
       ...pdf
     })  
   }

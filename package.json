@@ -11,23 +11,13 @@
   "scripts": {
     "setup": "./setup.sh",
     "preparation": "./postinstall.sh",
-    "build:old": "npm run compile:old",
-    "prebuild:old": "npm run test",
-    "postbuild:old": "npm run spec",
     "start": "node index.js",
-    "dev:old": "npm run sass@dev & npm run html@dev",
     "test": "exit 0",
-    "compile:old": "npm run compile/html && npm run compile/sass && npm run compile/pdf",
     "spec": "jest --config jest.config.json",
     "spec@ci": "exit 0; npm run spec --blur=2 --threshold=0.075",
-    "compile/html": "ts-node-script cli/html",
-    "postcompile/html": "./absolutize.sh",
-    "compile/sass": "npm run sass",
-    "html@dev": "nodemon",
-    "sass@dev": "npm run sass -- --watch",
-    "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "dev": "next",
     "build": "npm run compile && npm run compile/pdf",
+    "postbuild": "npm run spec",
     "compile": "rm -rf out && next build && next export",
     "precompile": "npm run langs",
     "postcompile": "rm -rf out/404.html",
@@ -45,19 +35,9 @@
   "author": {
     "name": "Andrii Kirmas",
     "email": "kirmas@phystech.edu",
-    "url": "https://github.com/askirmas",
-    "linkedIn": "linkedin.com/in/kirmas/",
-    "github": "github.com/askirmas",
-    "skype": "skype:askirmas?chat",
-    "phex": [
-      "e27c46302c",
-      "e2701c48e2"
-    ]
+    "url": "https://github.com/askirmas"
   },
   "license": "MIT",
-  "engines": {
-    "node": ">=12"
-  },
   "dependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
@@ -76,7 +56,6 @@
     "material-components-web": "^7.0.0",
     "next": "^10.0.9",
     "node-sass-json-importer": "^4.3.0",
-    "nodemon": "^2.0.4",
     "np": "^6.4.0",
     "postcss-d-ts": "^1.0.0",
     "puppeteer": "^8.0.0",
@@ -100,11 +79,7 @@
     "https": "https://github.com/askirmas/cv"
   },
   "files": [
-    "Andrii_Kirmas.html",
-    "Andrii_Kirmas.pdf",
-    "Andrii_Kirmas.css",
-    "style.css",
-    "index.html",
-    "index.js"
+    "index.js",
+    "postinstall.sh"
   ]
 }
