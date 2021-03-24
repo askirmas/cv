@@ -1,11 +1,12 @@
-import cv from "../cv--en.json"
+import cv from "../cv-langs.json"
 import { classBeming } from "react-classnaming"
 import type { ClassNamesProperty } from "react-classnaming"
 import type { CssIdentifiersMap } from "../styles2/index.scss"
 import { forIn } from "../utils/assoc"
 import { ValueOf } from "../utils/ts-swiss.types"
 
-const {definitions} = cv
+const defaultLanguage = "en" as const
+, {definitions} = cv[defaultLanguage]
 , terms = {...definitions.stack, ...definitions.subjects}
 
 export default function Page() {
@@ -22,7 +23,7 @@ export default function Page() {
       education,
       projects
     }
-  } = cv
+  } = cv[defaultLanguage]
 
   return <>
     <header {...bem({header: true})}>
@@ -130,7 +131,7 @@ function dataProps<T extends Record<string, string|number>>(source: T) {
   return $return
 }
 
-type Example = typeof cv["properties"]
+type Example = typeof cv[typeof defaultLanguage]["properties"]
 
 type Props = Partial<Pick<ValueOf<
   ValueOf<Pick<Example, "experience"|"education"|"projects">>["items"]
