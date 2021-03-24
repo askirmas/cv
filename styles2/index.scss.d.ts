@@ -27,14 +27,12 @@ export type CssIdentifiersMap = {
   "cv__projects": string|undefined
   "header": string|undefined
   "header__description": string|undefined
-  "header__title": string|undefined
   "link": string|undefined
   "link--email": string|undefined
   "link--github": string|undefined
   "link--html": string|undefined
   "link--linkedin": string|undefined
   "link--location": string|undefined
-  "link--npm": string|undefined
   "link--pdf": string|undefined
   "link--phone": string|undefined
   "link--skype": string|undefined

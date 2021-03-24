@@ -26,7 +26,10 @@ export default function Page({
 
   return <>
     <header {...bem({header: true})}>
-      <span {...bem({header__title: true})}>{title}</span>
+      <span {...bem({
+        //@ts-expect-error
+        header__title: true
+      })}>{title}</span>
       <span {...bem({header__description: true})}>{description}</span>
     </header>
 
@@ -37,7 +40,10 @@ export default function Page({
             type === "location"
             ? <span key={type} {...bem({link: type})}>{value}</span>
             : <a key={type}
-              {...bem({link: type === "phex" ? "phone" : type})}
+              {...bem({
+                //@ts-expect-error
+                link: type === "phex" ? "phone" : type
+              })}
               {...hrefer(type, value)}
             />)
         }</div>)
