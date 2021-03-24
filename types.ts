@@ -5,10 +5,7 @@ export type LinkTypes = "email"|"phex"|"location"|"linkedin"|"github"|"skype"|"h
 export type CV<V> = {
   title: V
   description: V
-  // TODO replace with string
-  links: Record<"contacts"|"social"|"etc",
-    P<LinkTypes, V>
-  >
+  links: Record<string, P<LinkTypes, V>>
 
   items: Record<"objectives"|"competences"|"languages", CVArticle<V>>
 
@@ -58,4 +55,5 @@ export type Langs = "en"|"uk"|"he"|"ru"
 /// ts-swiss
 
 type AnyObject = Record<string, any>
+/** Partial Record */
 type P<K extends string, V> = {[k in K]?: V}

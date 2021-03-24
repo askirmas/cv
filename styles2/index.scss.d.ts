@@ -37,9 +37,6 @@ export type CssIdentifiersMap = {
   "link--phone": string|undefined
   "link--skype": string|undefined
   "links_group": string|undefined
-  "links_group--contacts": string|undefined
-  "links_group--etc": string|undefined
-  "links_group--social": string|undefined
   "location": string|undefined
   "location__city": string|undefined
   "location__description": string|undefined

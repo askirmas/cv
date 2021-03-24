@@ -27,7 +27,7 @@ export default function Page({
 
     <main {...bem({cv: true})}>
       <aside {...bem({cv__links: true})}>{
-        forIn(links, (links_group, links) => <div key={links_group} {...bem({links_group})}>{
+        forIn(links, (key, links) => <div key={key} {...bem({links_group: true})}>{
           forIn(links, (type, value) =>
             type === "location"
             ? <span key={type} {...bem({link: type})}>{value}</span>

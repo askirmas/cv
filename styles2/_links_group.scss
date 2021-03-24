@@ -5,14 +5,4 @@
     right: auto;
   }
   gap: #{$gap};
-
-  &--contacts {
-    order: 0;
-  }
-  &--social {
-    order: 1;
-  }
-  &--etc {
-    order: 2;
-  }
 }
