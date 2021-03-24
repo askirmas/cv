@@ -13,14 +13,8 @@ export default function Page({
   title,
   description,
   links,
-  "properties": {
-    competences,
-    objectives,
-    languages,
-    experience,
-    education,
-    projects
-  }
+  items,
+  properties
 }: typeof cv_example["en"]) {
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
 
@@ -51,14 +45,14 @@ export default function Page({
 
       <hr {...bem({cv__delimiter: true})}/>
 
-      { forIn({languages, objectives, competences}, (section, {title, ...article}) =>
+      { forIn(items, (section, {title, ...article}) =>
         <article key={section} {...bem({[`cv__${section}`]: true, article: true})}>
           <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
           <ArticleContent {...article}/>
         </article>
       )}
 
-      { forIn({experience, education, projects}, (section, {title, items}) =>
+      { forIn(properties, (section, {title, items}) =>
         <section key={section} {...bem({[`cv__${section}`]: true, article: true})}>
           <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
 
@@ -138,11 +132,11 @@ function dataProps<T extends Record<string, string|number>>(source: T) {
   return $return
 }
 
-type Example = typeof cv_example[typeof defaultLanguage]["properties"]
+type Example = typeof cv_example[typeof defaultLanguage]
 
 type Props = Partial<Pick<ValueOf<
-  ValueOf<Pick<Example, "experience"|"education"|"projects">>["items"]
-  & Pick<Example, "competences"|"objectives"|"languages">
+  ValueOf<Example["properties"]>["items"]
+  & Example["items"]
 >, "stack"|"subjects"|"items"|"locations"|"description">>
 
 function ArticleContent({

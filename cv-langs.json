@@ -20,7 +20,7 @@
         "npm": "@kirmas/cv"
       }
     },
-    "properties": {
+    "items": {
       "objectives": {
         "title": "Objectives",
         "description": "Passionate for systematic and iterative procedures. High educability and deep knowledge of computer science makes me efficient in engineering and architecture that provides a logical flow of knowledge and progress."
@@ -64,6 +64,18 @@
           "Redux"
         ]
       },
+      "languages": {
+        "title": "Languages",
+        "items": [
+          "English: Fluent",
+          "Hebrew: Basic",
+          "Ukrainian: Mother tongue",
+          "Russian: Mother tongue",
+          "JavaScript: Native speaker"
+        ]
+      }
+    },
+    "properties": {
       "experience": {
         "title": "Experience",
         "items": {
@@ -343,16 +355,6 @@
             ]
           }
         }
-      },
-      "languages": {
-        "title": "Languages",
-        "items": [
-          "English: Fluent",
-          "Hebrew: Basic",
-          "Ukrainian: Mother tongue",
-          "Russian: Mother tongue",
-          "JavaScript: Native speaker"
-        ]
       }
     },
     "definitions": {
@@ -466,7 +468,7 @@
         "npm": "@kirmas/cv"
       }
     },
-    "properties": {
+    "items": {
       "objectives": {
         "title": "Objectives",
         "description": "Passionate for systematic and iterative procedures. High educability and deep knowledge of computer science makes me efficient in engineering and architecture that provides a logical flow of knowledge and progress."
@@ -510,6 +512,18 @@
           "Redux"
         ]
       },
+      "languages": {
+        "title": "Languages",
+        "items": [
+          "English: Fluent",
+          "Hebrew: Basic",
+          "Ukrainian: Mother tongue",
+          "Russian: Mother tongue",
+          "JavaScript: Native speaker"
+        ]
+      }
+    },
+    "properties": {
       "experience": {
         "title": "Experience",
         "items": {
@@ -789,16 +803,6 @@
             ]
           }
         }
-      },
-      "languages": {
-        "title": "Languages",
-        "items": [
-          "English: Fluent",
-          "Hebrew: Basic",
-          "Ukrainian: Mother tongue",
-          "Russian: Mother tongue",
-          "JavaScript: Native speaker"
-        ]
       }
     },
     "definitions": {
@@ -912,7 +916,7 @@
         "npm": "@kirmas/cv"
       }
     },
-    "properties": {
+    "items": {
       "objectives": {
         "title": "Objectives",
         "description": "Passionate for systematic and iterative procedures. High educability and deep knowledge of computer science makes me efficient in engineering and architecture that provides a logical flow of knowledge and progress."
@@ -956,6 +960,18 @@
           "Redux"
         ]
       },
+      "languages": {
+        "title": "Languages",
+        "items": [
+          "English: Fluent",
+          "Hebrew: Basic",
+          "Ukrainian: Mother tongue",
+          "Russian: Mother tongue",
+          "JavaScript: Native speaker"
+        ]
+      }
+    },
+    "properties": {
       "experience": {
         "title": "Experience",
         "items": {
@@ -1235,16 +1251,6 @@
             ]
           }
         }
-      },
-      "languages": {
-        "title": "Languages",
-        "items": [
-          "English: Fluent",
-          "Hebrew: Basic",
-          "Ukrainian: Mother tongue",
-          "Russian: Mother tongue",
-          "JavaScript: Native speaker"
-        ]
       }
     },
     "definitions": {
@@ -1358,7 +1364,7 @@
         "npm": "@kirmas/cv"
       }
     },
-    "properties": {
+    "items": {
       "objectives": {
         "title": "О себе",
         "description": "Приверженность к систематизации и последовательности действий. Высокий уровень обучаемости и глубина знаний позволяют мне быть эффективным в решении инженерных и архитектурных задач."
@@ -1402,6 +1408,18 @@
           "Redux"
         ]
       },
+      "languages": {
+        "title": "Языки",
+        "items": [
+          "English: Fluent",
+          "Hebrew: Basic",
+          "Ukrainian: Mother tongue",
+          "Russian: Mother tongue",
+          "JavaScript: Native speaker"
+        ]
+      }
+    },
+    "properties": {
       "experience": {
         "title": "Опыт работы",
         "items": {
@@ -1681,16 +1699,6 @@
             ]
           }
         }
-      },
-      "languages": {
-        "title": "Языки",
-        "items": [
-          "English: Fluent",
-          "Hebrew: Basic",
-          "Ukrainian: Mother tongue",
-          "Russian: Mother tongue",
-          "JavaScript: Native speaker"
-        ]
       }
     },
     "definitions": {

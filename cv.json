@@ -32,7 +32,7 @@
       "npm": "@kirmas/cv"
     }
   },
-  "properties": {
+  "items": {
     "objectives": {
       "title": {
         "en": "Objectives",
@@ -85,6 +85,21 @@
         "Redux"    
       ]
     },
+    "languages": {
+      "title": {
+        "en": "Languages",
+        "ru": "Языки"
+      },
+      "items": [
+        "English: Fluent",
+        "Hebrew: Basic",
+        "Ukrainian: Mother tongue",
+        "Russian: Mother tongue",
+        "JavaScript: Native speaker"
+      ]
+    }  
+  },  
+  "properties": {
     "experience": {
       "title": {
         "en": "Experience",
@@ -376,20 +391,7 @@
           ]
         }
       }  
-    },
-    "languages": {
-      "title": {
-        "en": "Languages",
-        "ru": "Языки"
-      },
-      "items": [
-        "English: Fluent",
-        "Hebrew: Basic",
-        "Ukrainian: Mother tongue",
-        "Russian: Mother tongue",
-        "JavaScript: Native speaker"
-      ]
-    }  
+    }
   },
   "definitions": {
     "subjects": {

@@ -14,16 +14,10 @@
       }
     },
     "properties": {
-      "additionalProperties": false,
-      "properties": {
-        "objectives": {"$ref": "#/definitions/Article"},
-        "competences": {"$ref": "#/definitions/Article"},
-        "languages": {"$ref": "#/definitions/Article"},
-
-        "experience": {"$ref": "#/definitions/Section"},
-        "education": {"$ref": "#/definitions/Section"},
-        "projects": {"$ref": "#/definitions/Section"}
-      }
+      "additionalProperties": {"$ref": "#/definitions/Section"}
+    },
+    "items": {
+      "additionalProperties": {"$ref": "#/definitions/Article"}
     },
     "definitions": {
       "required": ["subjects", "stack"],
