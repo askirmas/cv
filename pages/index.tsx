@@ -1,4 +1,4 @@
-import cv from "../cv-langs.json"
+import cv_example from "../cv-langs.json"
 import { classBeming } from "react-classnaming"
 import type { ClassNamesProperty } from "react-classnaming"
 import type { CssIdentifiersMap } from "../styles2/index.scss"
@@ -6,24 +6,23 @@ import { forIn } from "../utils/assoc"
 import { ValueOf } from "../utils/ts-swiss.types"
 
 const defaultLanguage = "en" as const
-, {definitions} = cv[defaultLanguage]
+, {definitions} = cv_example[defaultLanguage]
 , terms = {...definitions.stack, ...definitions.subjects}
 
-export default function Page() {
+export default function Page({
+  title,
+  description,
+  links,
+  "properties": {
+    competences,
+    objectives,
+    languages,
+    experience,
+    education,
+    projects
+  }
+}: typeof cv_example["en"]) {
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
-  , {
-    title,
-    description,
-    links,
-    "properties": {
-      competences,
-      objectives,
-      languages,
-      experience,
-      education,
-      projects
-    }
-  } = cv[defaultLanguage]
 
   return <>
     <header {...bem({header: true})}>
@@ -73,6 +72,8 @@ export default function Page() {
     </main>
   </>
 }
+
+export const getServerSideProps = ({query}) => ({props: query})
 
 function hrefer(type: string, value: string) {
   switch (type) {
@@ -131,7 +132,7 @@ function dataProps<T extends Record<string, string|number>>(source: T) {
   return $return
 }
 
-type Example = typeof cv[typeof defaultLanguage]["properties"]
+type Example = typeof cv_example[typeof defaultLanguage]["properties"]
 
 type Props = Partial<Pick<ValueOf<
   ValueOf<Pick<Example, "experience"|"education"|"projects">>["items"]
