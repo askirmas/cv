@@ -1,7 +1,7 @@
 {
   "name": "@kirmas/cv",
   "version": "1.6.0",
-  "description": "Andrii Kirmas - Senior Full Stack Software Engineer",
+  "description": "Andrii Kirmas - Senior Full Stack Engineer",
   "homepage": "https://askirmas.github.io/cv/",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,7 @@
   },
   "scripts": {
     "setup": "./setup.sh",
-    "postinstall": "./postinstall.sh",
+    "preparation": "./postinstall.sh",
     "build:old": "npm run compile:old",
     "prebuild:old": "npm run test",
     "postbuild:old": "npm run spec",
@@ -23,15 +23,16 @@
     "compile/html": "ts-node-script cli/html",
     "postcompile/html": "./absolutize.sh",
     "compile/sass": "npm run sass",
-    "compile/pdf": "ts-node-script cli/pdf-gen",
     "html@dev": "nodemon",
     "sass@dev": "npm run sass -- --watch",
     "sass": "sass --no-indented --no-source-map --style=compressed --load-path=node_modules styles:.",
     "dev": "next",
-    "build": "npm run compile",
-    "precompile": "npm run langs",
+    "build": "npm run compile && npm run compile/pdf",
     "compile": "rm -rf out && next build && next export",
-    "langs": "ts-node-script langing"
+    "precompile": "npm run langs",
+    "postcompile": "rm -rf out/404.html",
+    "langs": "ts-node-script langing",
+    "compile/pdf": "ts-node-script cli/pdf-gen"
   },
   "keywords": [
     "Andrii Kirmas",
@@ -60,6 +61,7 @@
   "dependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
+    "@types/globby": "^9.1.0",
     "@types/jest": "^26.0.14",
     "@types/jest-image-snapshot": "^3.1.0",
     "@types/node": "^14.11.8",
@@ -68,6 +70,7 @@
     "@types/react-dom": "^16.9.8",
     "ajv": "^7.2.3",
     "git-hooks-wrapper": "^0.7.1",
+    "globby": "^11.0.3",
     "jest": "^26.5.2",
     "jest-image-snapshot": "^4.2.0",
     "material-components-web": "^7.0.0",
@@ -76,7 +79,7 @@
     "nodemon": "^2.0.4",
     "np": "^6.4.0",
     "postcss-d-ts": "^1.0.0",
-    "puppeteer": "^5.3.1",
+    "puppeteer": "^8.0.0",
     "react": "^16.13.1",
     "react-classnaming": "^0.16.4",
     "react-dom": "^16.13.1",
