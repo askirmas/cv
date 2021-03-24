@@ -69,4 +69,13 @@
       bottom: #{$padding};
     };
   }
+
+  // TODO dehardcode
+  &__languages .article__goals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    // row-gap: 2em;
+  }
 }

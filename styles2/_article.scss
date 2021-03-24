@@ -1,7 +1,6 @@
 @at-root .article {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin: {
     bottom: #{$padding};
   };
