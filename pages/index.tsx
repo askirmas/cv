@@ -79,7 +79,7 @@ export default function Page({
   </>
 }
 
-export const getServerSideProps = ({query}) => ({props: query})
+Page.getInitialProps = ({query}) => query
 
 function hrefer(type: string, value: string) {
   switch (type) {

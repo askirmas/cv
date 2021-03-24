@@ -4,6 +4,7 @@ const jsonImporter = require('node-sass-json-importer')
 const data = require("./cv-langs.json")
 
 module.exports = {
+  "assetPrefix": ".",
   "sassOptions": {
     "importer": jsonImporter()
   },
