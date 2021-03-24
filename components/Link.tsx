@@ -1,5 +1,6 @@
 import { ClassNamed } from "react-classnaming"
 import { dataProps } from "../utils/props"
+import { LinkTypes } from "../types"
 
 type LinkProps = ClassNamed & {
   type: string
@@ -17,7 +18,7 @@ function Link({className, type, value}: LinkProps) {
 }
 
 function linkHelper(type: string, value: string) {
-  switch (type) {
+  switch (type as LinkTypes) {
     case "phex": return {
       href: `tel:${parseInt(value, 16)}`,
       ...dataProps({content: `+${parseInt(value, 16)}`})

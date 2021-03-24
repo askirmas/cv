@@ -1,4 +1,3 @@
-import cv_example from "../cv-langs.json"
 import { classBeming } from "react-classnaming"
 import type { ClassNamesProperty } from "react-classnaming"
 import type { CssIdentifiersMap } from "../styles2/index.scss"
@@ -6,6 +5,7 @@ import { forIn } from "../utils/assoc"
 import { ArticleContent } from "./ArticleContent"
 import { chapter, dataProps } from "../utils/props"
 import { Link } from "./Link"
+import { CV } from "../types"
 
 export default function Page({
   title,
@@ -13,7 +13,7 @@ export default function Page({
   links,
   items,
   properties
-}: typeof cv_example["en"]) {
+}: CV<string>) {
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
 
   return <>

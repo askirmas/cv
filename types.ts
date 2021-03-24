@@ -1,54 +1,61 @@
-export type CV = Described & {
-  links: Record<"contacts"|"social"|"etc", {[k in LinkTypes]?: Langed}>
-  properties: {
-    languages: Titled & {
-      items: Record<string, Langed>
-    }
-    objectives: Described
-    competences: Titled & tExperienceItem
-    projects: Titled & {
-      items: Array<{
-        $ref: string
-        stack: string[]
-      }>
-    }
-  } & Record<"experience"|"education", Titled & {
-    items: Record<string, tExperienceItem>
+/// Domain
+
+export type LinkTypes = "email"|"phex"|"location"|"linkedin"|"github"|"skype"|"html"|"pdf"|"npm"
+
+export type CV<V> = {
+  title: V
+  description: V
+  // TODO replace with string
+  links: Record<"contacts"|"social"|"etc",
+    P<LinkTypes, V>
+  >
+
+  items: Record<"objectives"|"competences"|"languages", CVArticle<V>>
+
+  properties: Record<"experience"|"projects"|"education", {
+    title: V
+    items: Record<string, CVArticle<V>>
   }>
+
+  definitions: Record<"subjects"|"stack", Record<string, Term>>
 }
 
-export type tExperienceItem = Titled & Partial<{
+export type CVArticle<V> = {
+  title: V
+} & Partial<{
+  description: V
   min: number
   max: number
-  location: Location | Location[]
-  stack: string[]
-  items: Langed[]
+  href: string
+  locations: Array<{
+    title: V
+    city: V
+  } & Partial<{
+    description: V    
+  }>>
+  subjects: V[]
+  stack: V[]
+  items: V[]
 }>
 
-// type Collection<T> = Record<string, T> | Array<T>
-
-export type Location = Described & {
-  city: Langed
-}
-
-type Titled = {
-  title: Langed
-}
-type Described = Titled & Partial<{
-  description: Langed
+export type Term = Partial<{
+  favor: number
+  group: string
 }>
 
-// export type LangedExt = Langed | {[L in Langs]?: {const: string; mask: string}}
+/// Lang
 
-type Langed = string | {[L in Langs]?: string}
+export type Langed = string | {[L in Langs]?: string}
 
 export type LangRec<T> = T extends any[] ? LangRec<T[number]>[]
-: T extends {[k in LinkTypes]?: string}
+: T extends {[k in Langs]?: string}
 ? string
 : T extends AnyObject ? {[k in keyof T]: LangRec<T[k]>}
 : T
 
-type AnyObject = Record<string, any>
-
 export type Langs = "en"|"uk"|"he"|"ru"
-type LinkTypes = "email"|"phex"|"location"|"linkedin"|"github"|"skype"|"html"|"pdf"|"npm"
+
+/// ts-swiss
+
+type AnyObject = Record<string, any>
+type P<K extends string, V> = {[k in K]?: V}

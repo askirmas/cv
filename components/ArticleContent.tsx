@@ -1,21 +1,14 @@
-import cv_example from "../cv-langs.json"
+import {definitions} from "../cv.json"
 import { classBeming } from "react-classnaming"
 import type { ClassNamesProperty } from "react-classnaming"
 import type { CssIdentifiersMap } from "../styles2/index.scss"
 import { forIn } from "../utils/assoc"
-import { ValueOf } from "../utils/ts-swiss.types"
 import { stacker } from "../utils/props"
+import type { CVArticle, Term } from "../types"
 
-const defaultLanguage = "en" as const
-, {definitions} = cv_example[defaultLanguage]
-, terms = {...definitions.stack, ...definitions.subjects}
+const terms = {...definitions.stack, ...definitions.subjects}
 
-type Example = typeof cv_example[typeof defaultLanguage]
-
-type Props = Partial<Pick<ValueOf<
-  ValueOf<Example["properties"]>["items"]
-  & Example["items"]
->, "stack"|"subjects"|"items"|"locations"|"description">>
+type Props = Pick<CVArticle<string>, "stack"|"subjects"|"items"|"locations"|"description">
 
 export {
   ArticleContent
@@ -28,6 +21,7 @@ function ArticleContent({
   locations,
   description,
 }: Props) {
+  //TODO split css imports
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
 
   return <>
@@ -35,7 +29,6 @@ function ArticleContent({
       { description }
 
       {
-        //@ts-expect-error
         locations?.map(({title, description, city}, i) => <div key={i} {...bem({location: true})}>
           {title && <span {...bem({location__title: true})}>{title}</span>  }
           {description && <span {...bem({location__description: true})}>{description}</span> }
@@ -48,8 +41,8 @@ function ArticleContent({
       <ul key={key} {...bem({[`article__${key}`]: true})}>{
         forIn(value, (k, v) => {
           //TODO De-hardcode - update data
-          const term = terms[v] ?? (key in definitions ? {group: v} : undefined)
-          , {favor, group}: Partial<ValueOf<typeof terms>> = term ?? {}
+          const term: Term|undefined = terms[v] ?? (key in definitions ? {group: v} : undefined)
+          , {favor, group} = term ?? {}
 
           return <li key={k}
             {...term && bem({term: favor === -1 ? "deprecated" : true})}
