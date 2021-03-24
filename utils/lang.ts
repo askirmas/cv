@@ -1,4 +1,4 @@
-import { LangRec, Langs } from "../types"
+import type { LangRec, Langs } from "../types"
 
 const {isArray: $isArray} = Array
 

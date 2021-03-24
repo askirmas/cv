@@ -23,7 +23,7 @@
     },
     "social": {
       "linkedin": "kirmas",
-      "github": "askirmas/cv",
+      "github": "askirmas",
       "skype": "askirmas"  
     },
     "etc": {
@@ -44,11 +44,12 @@
       }
     },  
     "competences": {
+      "$comment": "Calc from definitions?",
       "title": {
         "en": "Competences",
         "ru": "Навыки"
       },
-      "items": [
+      "subjects": [
         "XP",
         "TDD",
         "Coverage 100%",
@@ -93,25 +94,25 @@
         "deutsche-bank": {
           "min": 2020, "max": 2021,
           "title": "Senior FrontEnd Engineer",
-          "location": {
+          "locations": [{
             "title": "Deutsche Bank",
             "city": {
               "en": "Moscow.Russia",
               "ru": "Москва.РФ"
             }
-          }
+          }]
         },
         "cloudwize": {
           "min": 2019, "max": 2020,
           "title": "Senior Fullstack Engineer",
-          "location": {
+          "locations": [{
             "title": "Cloudwize.io",
             "description": "Cloud Management",
             "city": {
               "en": "Netanya.Israel",
               "ru": "Нетания.Израиль"
             }
-          },
+          }],
           "stack": [
             "JsonSchema",
             "TypeScript",
@@ -129,7 +130,7 @@
             "MySQL",
             "MongoDB",
             "git",
-            "CSS",
+            "CSS3",
             "JS DOM",
             "Webpack",
             "GitLab CI"        
@@ -145,14 +146,14 @@
         "go-be-marketing": {
           "min": 2018, "max": 2019,
           "title": "Lead Software Engineer",
-          "location": {
+          "locations": [{
             "title": "Go-Be Marketing Ltd",
             "description": "ECommerce Company",
             "city": {
               "en": "Tel-Aviv.Israel",
               "ru": "Тель-Авив.Израиль"
             }
-          },
+          }],
           "stack": [
             "JsonSchema",
             "RESTful",
@@ -166,8 +167,7 @@
             "MySQL",
             "MongoDB",
             "git",
-            "utils",
-            "CSS",
+            "CSS3",
             "Apache",
             "PHP",
             "jQuery",
@@ -185,7 +185,7 @@
         "intetics": {
           "min": 2015, "max": 2017,
           "title": "Software Engineer",
-          "location": [
+          "locations": [
             {
               "title": "Intetics Inc",
               "description": "Out-staff company",
@@ -224,11 +224,11 @@
         "eikoncraft": {
           "min": 2014, "max": 2015,
           "title": "Freelance Developer",
-          "location": {
+          "locations": [{
             "title": "Eikoncraft",
             "description": "Outsource company",
             "city": "Dallas.USA"
-          },
+          }],
           "stack": [
             "JavaScript", "Reactive"
           ],
@@ -239,14 +239,14 @@
         "nedi": {
           "min": 2008, "max": 2014,
           "title": "Co-Founder, Branch Manager",
-          "location": {
+          "locations": [{
             "title": "New Educational Initiatives Llc",
             "description": "eLearning company",
             "city": {
               "en": "Moscow.Russia",
               "ru": "Москва.РФ"
             }
-          },
+          }],
           "stack": [
             "MySQL", "JavaScript", "C++", "PHP", "OpenCV"
           ],
@@ -262,20 +262,26 @@
         "en": "Projects",
         "ru": "Проекты"
       },
-      "items": [
-        {
-          "$ref": "git-hooks-wrapper/package.json",
+      "items": {
+        "git-hooks-wrapper": {
+          "title": "git-hooks-wrapper",
+          "description": "Wrapper scripts for Git Hooks",
+          "href": "https://github.com/askirmas/git-hooks-wrapper#readme",
           "stack": ["bash", "git"]
         },
-        {
-          "$ref": "postcss-d-ts/package.json",
+        "postcss-d-ts": {
+          "title": "postcss-d-ts",
+          "description": "PostCSS plugin to generate `.d.ts` of all used CSS classes and ids in imported stylesheets",
+          "href": "https://github.com/askirmas/postcss-d-ts#readme",
           "stack": ["TypeScript", "Node"]
         },
-        {
-          "$ref": "react-classnaming/package.json",
+        "react-classnaming": {
+          "title": "react-classnaming",
+          "description": "Tools to establish CSS classes as an explicit abstraction layer and to handle it as an interface between React and CSSStyleDeclaration",
+          "href": "https://github.com/askirmas/react-classnaming#readme",
           "stack": ["TypeScript", "ES6"]
-        }
-      ]
+        }        
+      }
     },
     "education": {
       "title": {
@@ -289,7 +295,7 @@
             "en": "Master of Computer Science",
             "ru": "Магистр прикладной математики"
           },
-          "location": [
+          "locations": [
             {
               "title": {
                 "en": "Institute of Cybernetics",
@@ -324,7 +330,7 @@
             "en": "Bachelor of Applied Mathematics",
             "ru": "Бакалавр прикладной математики"
           },
-          "location":  {
+          "locations":  [{
             "title": {
               "en": "Institute of Physics and Technology",
               "ru": "МФТИ"
@@ -333,7 +339,7 @@
               "en": "Moscow.Russia",
               "ru": "Москва.РФ"
             }
-          },
+          }],
           "stack": ["MySQL", "C", "C++", "OpenMPI"],
           "items": [
             "Programming language theory",
@@ -352,7 +358,7 @@
             "en": "Awardee of international and republic Math olympiads",
             "ru": "Победитель международных и республиканских математических олимпиад"
           },
-          "location": {
+          "locations": [{
             "title": {
               "en": "Physics and Mathematics Lyceum #27",
               "ru": "Физико-математический лицей №27"
@@ -361,7 +367,7 @@
               "en": "Kharkiv.Ukraine",
               "ru": "Харьков.Украина"
             }
-          },
+          }],
           "items": [
             "Boolean algebra",
             "Discrete mathematics",
@@ -376,23 +382,56 @@
         "en": "Languages",
         "ru": "Языки"
       },
-      "items": {
-        "eng": {
-          "en": "English: Fluent"
-        },
-        "il": {
-          "en": "Hebrew: Basic"
-        },
-        "ua": {
-          "en": "Ukrainian: Mother tongue"
-        },
-        "rus": {
-          "en": "Russian: Mother tongue"
-        },
-        "js": {
-          "en": "JavaScript: Native speaker"   
-        }
-      }
+      "items": [
+        "English: Fluent",
+        "Hebrew: Basic",
+        "Ukrainian: Mother tongue",
+        "Russian: Mother tongue",
+        "JavaScript: Native speaker"
+      ]
     }  
-  }
+  },
+  "definitions": {
+    "subjects": {
+      "OOP-PBP": {"group": "oop"},      
+      "Design by contract": {"group": "contracts"},
+      "Coverage 100%": {"group": "test"},
+      "TDD": {"group": "test"},
+      "Databases": {"group": "db"},
+      "BEM": { "group": "css" },
+      "PureCss": { "group": "css" },
+      "Geometry": {"group": "css"}
+    },
+    "stack": {
+      "PHP": {
+        "favor": -1,
+        "group": "php"
+      },
+      "Apache": {
+        "favor": -1
+      },
+      "WordPress": {
+        "favor": -1,
+        "group": "php"
+      },
+      "Monolith": {
+        "favor": -1
+      },
+      "JsonSchema": {"group": "contracts"},
+      "TypeScript": {"group": "contracts"},
+      "C++": {"group": "oop"},
+      "JavaScript": {"group": "oop"},
+      "ES6": {"group": "oop"},
+      "Cypress": {"group": "test"},
+      "Puppeteer": {"group": "test"},
+      "Jest": {"group": "test"},
+      "MySQL": {"group": "db"},
+      "MongoDB": {"group": "db"},
+      "CSS3": {"group": "css"},
+      "Sass": {"group": "css"},
+      "React": {"group": "react"},
+      "Redux": {"group": "react"},
+      "Next.js": {"group": "react"}      
+    }
+  }  
 }

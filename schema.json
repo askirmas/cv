@@ -1,96 +1,203 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "allOf": [
-    {"$ref": "#definitions/described"},
-    {
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["properties", "definitions"],
+  "properties": {
+    "$schema": {},
+    "title": {"$ref": "#/definitions/Langing"},
+    "description": {"$ref": "#/definitions/Langing"},
+    "links": {
       "type": "object",
-      "propertyNames": {"enum": [
-        "$schema", "title", "description", "links", "properties"
-      ]},
-      "properties": {
-        "$schema": {"type": "string"},
-        "links": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "object",
-            "additionalProperties": {"$ref": "#definitions/leaf"}
-          }
-        },
-        "properties": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "objectives": {"$ref": "#/definitions/described"},
-            "experience": {"$ref": "#/definitions/expSection"},
-            "education": {"$ref": "#/definitions/expSection"},
-            "projects": {"$ref": "#/definitions/expSection"},
-            "competences": {"$ref": "#/definitions/expRecord"},
-            "languages": {}
-          }
-        }
-      }      
-    }
-  ],
-  "definitions": {
-    "expSection": {
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {"$ref": "#/definitions/Langing"}
+      }
+    },
+    "properties": {
       "additionalProperties": false,
       "properties": {
-        "title": {"$ref": "#definitions/leaf"},
+        "objectives": {"$ref": "#/definitions/Article"},
+        "competences": {"$ref": "#/definitions/Article"},
+        "languages": {"$ref": "#/definitions/Article"},
+
+        "experience": {"$ref": "#/definitions/Section"},
+        "education": {"$ref": "#/definitions/Section"},
+        "projects": {"$ref": "#/definitions/Section"}
+      }
+    },
+    "definitions": {
+      "required": ["subjects", "stack"],
+      "properties": {
+        "subjects": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/definitions/subjectNames"},
+          "additionalProperties": {"$ref": "#/definitions/Term"}
+        },
+        "stack": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/definitions/stackNames"},
+          "additionalProperties": {"$ref": "#/definitions/Term"}
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Section": {
+      "title": "Section",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {"$ref": "#/definitions/Langing"},
         "items": {
-          "type": ["array", "object"],
-          "additionalProperties": {"$ref": "#/definitions/expRecord"},
-          "items": {"$ref": "#/definitions/expRecord"}
+          "type": "object",
+          "additionalProperties": {"$ref": "#/definitions/Article"}
         }
       }
     },
-    "expRecord": {
-      "title": "Record",
+    "Article":  {
+      "title": "Article",
       "type": "object",
+      "required": ["title"],
       "additionalProperties": false,
       "properties": {
+        "title": {"$ref": "#/definitions/Langing"},
+        "description": {"$ref": "#/definitions/Langing"},
+        "$comment": {"type": "string"},
+        "href": {"type": "string"},
+
         "min": {"type": "number"},
         "max": {"type": "number"},
-        "$ref": {"type": "string"},
-        "title": {"$ref": "#/definitions/leaf"},
-        "location": {
-          "type": ["object", "array"],
-          "anyOf": [
-            {"$ref": "#definitions/location"},
-            {"items": {"$ref": "#definitions/location"}}
-          ]
-        },
-        "items": {
+
+        "locations": {
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "additionalProperties": false,
+            "required": ["title"],
+            "properties": {
+              "title": {"$ref": "#/definitions/Langing"},
+              "description": {"type": "string"},
+              "city": {"$ref": "#/definitions/Langing"}  
+            }
+          }
         },
-        "stack": {"$ref": "#definitions/stack"}
+
+        "subjects": {"$ref": "#/definitions/Subjects"},
+        "stack": {"$ref": "#/definitions/Stack"},
+        "items": {"type": "array", "items": {"type": "string"}}
       }
     },
-    "location": {
-      "allOf": [
-        {"$ref": "#definitions/described"},
-        {
-          "properties": {
-            "city": {"$ref": "#definitions/leaf"}
-          }
-        }
+    "Subjects": {
+      "title": "Subjects",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/definitions/subjectNames"}  
+    },
+    "Stack": {
+      "title": "Stack",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/definitions/stackNames"}
+    },
+    "subjectNames": {
+      "enum": [
+        "XP",
+        "TDD",
+        "Coverage 100%",
+        "SOLID",
+        "DRY",
+        "KISS",
+        "YAGNI",
+        "OOP-PBP",
+        "RESTful",
+        "Microservices",
+        "MVC",
+        "Design by contract",
+        "PureCss",
+        "BEM",
+        "Software Engineering",
+        "System Engineering",
+        "Information fluctuation complexity",
+        "Neural networks",
+        "Programming language theory",
+        "Parallel programming",
+        "Databases",
+        "Mathematical analysis and statistics",
+        "Mathematical optimization",
+        "Computational complexity",
+        "Data structures",
+        "Algorithms and calculus methods",
+        "Boolean algebra",
+        "Discrete mathematics",
+        "Geometry",
+        "Probability theory"
       ]
     },
-    "stack": {
-      "type": "array",
-      "items": {"type": "string"}
+    "stackNames": {
+      "enum": [
+        "JsonSchema",
+        "TypeScript",
+        "RESTful",
+        "bash",
+        "Node",
+        "Jest",
+        "Cypress",
+        "Puppeteer",
+        "Sass",
+        "HTML5",
+        "React",
+        "Redux",
+        "ExpressJs",
+        "MySQL",
+        "MongoDB",
+        "git",
+        "CSS3",
+        "JS DOM",
+        "Webpack",
+        "GitLab CI",
+        "Reactive",
+        "Functional",
+        "RxJs",
+        "JavaScript",
+        "<canvas>",
+        "Apache",
+        "PHP",
+        "Python",
+        "Haxe",
+        "nw.js",
+        "pixi.js",
+        "Microservices",
+        "Next.js",
+        "jQuery",
+        "WordPress",
+        "Monolith",
+        "nginx",
+        "C++",
+        "OpenCV",
+        "ES6",
+        "OpenMPI",
+        "C"
+      ]      
     },
-    "described": {
-      "properties": {
-        "title": {"$ref": "#definitions/leaf"},
-        "description": {"$ref": "#definitions/leaf"}    
-      }
-    },
-    "leaf": {
+    "Langing": {
       "type": ["string", "object"],
+      "propertyNames": {"enum": ["en", "uk", "he", "ru"]},
       "required": ["en"],
-      "propertyNames": {"enum": ["en", "ru", "uk", "he"]},
-      "additionalProperties": {"type": "string"}
+      "additionalProperties": {"type": "string"},
+      "examples": [
+        {"en": "…"}
+      ]
+    },
+    "Term": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "group": {"enum": [
+          "contracts", "oop", "test",
+          "db",
+          "css", "html", "react", "php"
+        ]},
+        "favor": {"type": "number"}
+      }
     }
   }
 }
