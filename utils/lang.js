@@ -1,15 +1,18 @@
-import type { LangRec, Langs } from "../types"
+//@ts-nocheck
+//import type { LangRec, Langs } from "../types"
 
 const {isArray: $isArray} = Array
 
-export type Langer<L extends string> = <T>(data: Record<L, T> | T) => T
+// type Langer<L extends string> = <T>(data: Record<L, T> | T) => T 
 
-export  {
+// export {
+module.exports = {  
   langer,
   langRec
 }
 
-function langer<L extends string>(lang: L): Langer<L> {
+//function langer<L extends string>(lang: L): Langer<L> {
+function langer(lang) {
   return data => {
     if (typeof data === "string")
       return data
@@ -19,8 +22,10 @@ function langer<L extends string>(lang: L): Langer<L> {
   }
 }
 
-function langRec<L extends Langs, T>(lang: L, source: T) :LangRec<T> {
-  const $return: Partial<LangRec<T>> = {}
+// function langRec<L extends Langs, T>(lang: L, source: T) :LangRec<T> {
+function langRec(lang, source){
+  // const $return: Partial<LangRec<T>> = {}
+  const $return = {}
 
   if ($isArray(source)) 
     //@ts-expect-error
@@ -39,5 +44,5 @@ function langRec<L extends Langs, T>(lang: L, source: T) :LangRec<T> {
   }
 
 
-  return $return as LangRec<T>
+  return $return
 }

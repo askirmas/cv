@@ -1,7 +1,15 @@
 //@ts-nocheck
 
 const jsonImporter = require('node-sass-json-importer')
-const data = require("./cv-langs.json")
+, ajv = require("ajv").default
+, {langRec} = require("./utils/lang")
+, Ajv = new ajv({
+  "strict": true,
+  "strictTypes": false,
+  "inlineRefs": true,
+  "allErrors": true,  
+  "allowUnionTypes": true
+})
 
 module.exports = {
   "assetPrefix": ".",
@@ -9,13 +17,35 @@ module.exports = {
     "importer": jsonImporter()
   },
   "exportPathMap": () => {
-    const page = "/"
-    , pathMap = {"/": {page, query: data["en"]}}
+    const schema = require("./schema.json")
+    , cv = require("./cv.json")
+    , {$schema, ...data} = cv
+    , langs = {}
+    
+    validate(schema, data)
 
-    for (const key in data) {
-      pathMap[`/${key}`] = {page, query: data[key]}
+    for (const lang of schema.definitions.Langing.propertyNames.enum) {
+      const langed = langRec(lang, cv)
+      validate(schema, langed)
+      langs[lang] = langed
+    }
+    
+
+    const page = "/"
+    , pathMap = {"/": {page, query: langs["en"]}}
+
+    for (const key in langs) {
+      pathMap[`/${key}`] = {page, query: langs[key]}
     }
 
     return pathMap
   }
+}
+
+// Parameters<typeof Ajv.validate>
+function validate(...args) {
+  if (!Ajv.validate(...args)) {
+    console.error($stringify(Ajv.errors))
+    process.exit(1)
+  }  
 }

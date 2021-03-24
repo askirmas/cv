@@ -18,10 +18,9 @@
     "dev": "next",
     "build": "npm run compile && npm run compile/pdf",
     "postbuild": "npm run spec",
-    "compile": "rm -rf out && next build && next export",
-    "precompile": "npm run langs",
+    "compile": "next build && next export",
+    "precompile": "rm -rf out ",
     "postcompile": "rm -rf out/404.html",
-    "langs": "ts-node-script langing",
     "compile/pdf": "ts-node-script cli/pdf-gen"
   },
   "keywords": [
