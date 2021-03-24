@@ -1,6 +1,6 @@
 import {toMatchImageSnapshot} from "jest-image-snapshot"
 import puppeteer, {Browser, Page} from "puppeteer"
-import opts from "./pdf-gen.config"
+import opts from "./config"
 import { sync } from "globby"
 import {basename} from "path"
  

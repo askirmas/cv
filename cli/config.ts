@@ -1,5 +1,25 @@
-{
+import type {
+  PDFOptions,
+  WaitForOptions,
+  LaunchOptions,
+  ScreenshotOptions,
+  Viewport
+} from "puppeteer"
+
+export type tOptions = Partial<{
+  "launch": LaunchOptions
+  "goto": WaitForOptions
+  "viewport": Viewport
+  "pdf": PDFOptions
+  "waitFor": number
+  "screenshot": ScreenshotOptions
+  "outFolder":string
+  "ext": string
+}>
+
+const typed: tOptions = {
   "launch": {
+    //@ts-expect-error
     "args": ["--allow-file-access-from-files", "--enable-local-file-accesses"]
   },
   "viewport": {
@@ -15,6 +35,7 @@
     "type": "png"
   },
   "pdf": {
+    //@ts-expect-error
     "format": "A4",
     "printBackground": true,
     "pageRanges": "1",
@@ -23,3 +44,5 @@
   "outFolder": "out",
   "ext": ".html"
 }
+
+export default typed

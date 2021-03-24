@@ -1,6 +1,6 @@
-import type {tOptions} from "./pdf-gen.config"
+import type {tOptions} from "./config"
 import puppeteer from "puppeteer"
-import options from "./pdf-gen.config"
+import options from "./config"
 import { sync } from "globby"
 import { basename, join} from "path"
 export default pdfGen
