@@ -23,6 +23,7 @@ beforeAll(async () => {
   browser = await puppeteer.launch(launch)
   page = await browser.newPage()  
 })
+
 afterAll(async () => {
   await page.close()
   await browser.close()

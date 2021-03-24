@@ -20,7 +20,10 @@ export type tOptions = Partial<{
 const typed: tOptions = {
   "launch": {
     //@ts-expect-error
-    "args": ["--allow-file-access-from-files", "--enable-local-file-accesses"]
+    "args": ["--allow-file-access-from-files", "--enable-local-file-accesses",
+      "--wait-for-browser"
+    ],
+    // "product": "firefox"
   },
   "viewport": {
     "width": 1260,
