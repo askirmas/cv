@@ -37,13 +37,14 @@ module.exports = {
       validate(schema, langed)
       langs[lang] = langed
     }
+
+    const locales = Object.keys(langs)
     
+    const page = "/component"
+    , pathMap = {"/": {page: "/redir", locales}}
 
-    const page = "/"
-    , pathMap = {"/": {page, query: langs["en"]}}
-
-    for (const key in langs) {
-      pathMap[`/${key}`] = {page, query: langs[key]}
+    for (const locale in langs) {
+      pathMap[`/${locale}`] = {page, locales, locale, query: langs[locale]}
     }
 
     return pathMap
