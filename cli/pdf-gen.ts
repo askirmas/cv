@@ -26,13 +26,16 @@ async function pdfGen({
   } = process.env
 
   for (const outFile of sync(`*${ext}`)) {
-    if (outFile === "404")
+    const baseName = basename(outFile, ext)
+    
+    if (["404", "index"].includes(baseName))
       continue
 
     await page.goto(`file://${join(cwd, outFile)}`, goto)
     waitFor && await page.waitFor(waitFor)
     await page.pdf({
-      "path": join(cwd, `${author}-${basename(outFile, ext)}.pdf`),
+      //TODO Pick from links
+      "path": join(cwd, `${author}-${baseName}.pdf`),
       ...pdf
     })  
   }

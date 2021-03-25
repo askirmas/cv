@@ -52,10 +52,11 @@ module.exports = {
 function readJsonSync(jsonPath, {homepage, name} = {}) {
   return $parse(
     readFileSync(jsonPath),
-    (k, v) => {
+    (_, v) => {
       if (typeof v !== "string")
         return v
 
+      // TODO require(project)
       return eval("`"+ v.replace(/`/g, "\\`") + "`")
     }
   )
