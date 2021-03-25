@@ -1,0 +1,19 @@
+@use "@material/typography";
+@use "@material/elevation";
+
+:root {
+  @include typography.typography("body1");
+}
+
+@import "../styles/quarks"
+, "../styles/utils"
+, "next"
+, "templates"
+, "cv"
+, "header"
+, "links_group"
+, "link"
+, "term"
+, "article"
+, "location"
+;

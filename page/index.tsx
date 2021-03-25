@@ -45,10 +45,7 @@ export default function CvSlots({
 
   return <html lang="en">
     <head>
-      {
-        //@ts-ignore
-        <meta charset="utf-8"/>
-      }
+      <meta charSet="utf-8"/>
       <title>{description}</title>
       <link href="./style.css" rel="stylesheet"/>
       <link href={`./${fileName}.css`} rel="stylesheet"/>

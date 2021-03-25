@@ -1,5 +1,0 @@
-{
-  "watch": ["page"],
-  "ext": "ts,tsx,js,jsx,json",
-  "exec": "npm run compile/html"
-}

@@ -1,29 +1,45 @@
-import type {tOptions} from "./pdf-gen.config"
+import type {tOptions} from "./config"
 import puppeteer from "puppeteer"
-import { getPackage, withName4Fs } from "../utils/package"
-
+import options from "./config"
+import { sync } from "globby"
+import { basename, join} from "path"
 export default pdfGen
+
 
 if (module.parent === null) {
   const cwd = process.cwd()
-  , {name4fs} = withName4Fs(getPackage())
-  , options = require("./pdf-gen.config")
-  pdfGen(`${cwd}/${name4fs}`, options)
+  , {outFolder} = options
+  outFolder && process.chdir(outFolder)
+
+  pdfGen(options)
+  .finally(() => process.chdir(cwd))
 }
   
-
-async function pdfGen(
-  baseName: string,
-  {goto, launch, pdf, waitFor}: Pick<tOptions, "goto"|"launch"|"pdf"|"waitFor"> = {}
-) {
-  const browser = await puppeteer.launch(launch)
+async function pdfGen({
+  goto, launch, pdf, waitFor, ext
+}: tOptions = {}) {
+  const cwd = process.cwd()
+  , browser = await puppeteer.launch(launch)
   , page = await browser.newPage()  
+  , {
+    "npm_package_author_name": author
+  } = process.env
 
-  await page.goto(`file://${baseName}.html`, goto)
-  waitFor && await page.waitFor(waitFor)
-  await page.pdf({
-    "path": `${baseName}.pdf`,
-    ...pdf
-  })
+  for (const outFile of sync(`*${ext}`)) {
+    const baseName = basename(outFile, ext)
+    
+    if (["404", "index"].includes(baseName))
+      continue
+
+    await page.goto(`file://${join(cwd, outFile)}`, goto)
+    waitFor && await page.waitFor(waitFor)
+    await page.pdf({
+      //TODO Pick from links
+      "path": join(cwd, `${author}-${baseName}.pdf`),
+      ...pdf
+    })  
+  }
+
+  await page.close()
   await browser.close()
 }

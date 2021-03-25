@@ -2,7 +2,7 @@
 
 const os = require('os')
 , childProcess = require('child_process')
-, file2open = "index.html"
+, file2open = process.env.npm_package_homepage
 
 let cmd = `nohup xdg-open ${file2open} >/dev/null 2>&1 &`
 
