@@ -19,8 +19,8 @@ module.exports = {
     "importer": jsonImporter()
   },
   "exportPathMap": () => {
-    const schema = readJsonSync("./schema.json")
-    , cv = readJsonSync("./cv.json")
+    const schema = readJsonSync("./public/schema.json")
+    , cv = readJsonSync("./public/cv.json")
     , {$schema, ...data} = cv
     , langs = {}
     

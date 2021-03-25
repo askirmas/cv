@@ -1,4 +1,4 @@
-import {definitions} from "../cv.json"
+import {definitions} from "../public/cv.json"
 import { classBeming } from "react-classnaming"
 import type { ClassNamesProperty } from "react-classnaming"
 import type { CssIdentifiersMap } from "../styles2/index.scss"
