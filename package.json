@@ -77,7 +77,7 @@
   },
   "np": {
     "yarn": false,
-    "test": false
+    "yolo": true
   },
   "repository": {
     "type": "git",
