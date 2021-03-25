@@ -26,8 +26,8 @@ const typed: tOptions = {
     // "product": "firefox"
   },
   "viewport": {
-    "width": 1260,
-    "height": 1780
+    "width": 1100,
+    "height": 1560
   },
   "goto": {
     "waitUntil": "networkidle2"
@@ -42,7 +42,7 @@ const typed: tOptions = {
     "format": "A4",
     "printBackground": true,
     "pageRanges": "1",
-    "scale": 0.57
+    "scale": 0.73
   },
   "outFolder": "out",
   "ext": ".html"

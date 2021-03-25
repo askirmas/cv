@@ -3,6 +3,7 @@
 
 :root {
   @include typography.typography("body1");
+  font-size: 14px;
 }
 
 @import "../styles-old/quarks"
