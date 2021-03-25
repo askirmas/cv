@@ -18,9 +18,14 @@ module.exports = {
   "sassOptions": {
     "importer": jsonImporter()
   },
-  "exportPathMap": () => {
-    const schema = readJsonSync("./public/schema.json")
-    , cv = readJsonSync("./public/cv.json")
+  "exportPathMap": (_, {dev}) => {
+    const {homepage, author: {name}} = require("./package.json")
+    , replacements = {
+      name,
+      homepage: dev ? "" : homepage
+    }
+    , schema = readJsonSync("./public/schema.json")
+    , cv = readJsonSync("./public/cv.json", replacements)
     , {$schema, ...data} = cv
     , langs = {}
     
@@ -44,8 +49,16 @@ module.exports = {
   }
 }
 
-function readJsonSync(jsonPath) {
-  return $parse(readFileSync(jsonPath))
+function readJsonSync(jsonPath, {homepage, name} = {}) {
+  return $parse(
+    readFileSync(jsonPath),
+    (k, v) => {
+      if (typeof v !== "string")
+        return v
+
+      return eval("`"+ v.replace(/`/g, "\\`") + "`")
+    }
+  )
 }
 
 // Parameters<typeof Ajv.validate>

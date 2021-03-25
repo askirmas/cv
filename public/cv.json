@@ -30,19 +30,19 @@
       "html": {
         "title": "HTML",
         "href": {
-          "en": "/en",
-          "he": "/he",
-          "uk": "/uk",
-          "ru": "/ru"
+          "en": "${homepage}en",
+          "he": "${homepage}he",
+          "uk": "${homepage}uk",
+          "ru": "${homepage}ru"
         }
       },
       "pdf": {
         "title": "PDF",
         "href": {
-          "en": "/Andrii Kirmas-en.pdf",
-          "he": "/Andrii Kirmas-he.pdf",
-          "uk": "/Andrii Kirmas-uk.pdf",
-          "ru": "/Andrii Kirmas-ru.pdf"
+          "en": "${homepage}${name}-en.pdf",
+          "he": "${homepage}${name}-he.pdf",
+          "uk": "${homepage}${name}-uk.pdf",
+          "ru": "${homepage}${name}-ru.pdf"
         }
       },
       "npm": "@kirmas/cv"
@@ -109,23 +109,23 @@
       "items": [
         {
           "title": "English: Fluent",
-          "href": "/en"
+          "href": "${homepage}en"
         },
         {
           "title": "Hebrew: Basic",
-          "href": "/he"
+          "href": "${homepage}he"
         },
         {
           "title": "Ukrainian: Mother tongue",
-          "href": "/uk"
+          "href": "${homepage}uk"
         },
         {
           "title": "Russian: Mother tongue",
-          "href": "/ru"
+          "href": "${homepage}ru"
         },
         {
           "title": "JavaScript: Native speaker",
-          "href": "/cv.json"
+          "href": "${homepage}cv.json"
         }
       ]
     }  
