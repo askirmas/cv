@@ -82,11 +82,11 @@
 
   // TODO dehardcode
   &__languages .article__goals {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
-    column-gap: 1.5em;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // flex-direction: row;
+    // column-gap: 1.5em;
     a {
       @extend %link-external;
     }

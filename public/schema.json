@@ -108,9 +108,11 @@
       "additionalProperties": false,
       "properties": {
         "group": {"enum": [
+          "eng",
           "contracts", "oop", "test",
-          "db",
-          "css", "html", "react", "php"
+          "trpl", "neural", "parprog", "c",
+          "db", "server", "cli",
+          "css", "html", "react"
         ]},
         "favor": {"type": "number"}
       }
@@ -141,10 +143,9 @@
         "Microservices",
         "MVC",
         "Design by contract",
-        "PureCss",
+        "Pure-CSS",
         "BEM",
-        "Software Engineering",
-        "System Engineering",
+        "Software and Systems Engineering",
         "Information fluctuation complexity",
         "Neural networks",
         "Programming language theory",
@@ -153,7 +154,7 @@
         "Mathematical analysis and statistics",
         "Mathematical optimization",
         "Computational complexity",
-        "Data structures",
+        "Algorithms and Data structures",
         "Algorithms and calculus methods",
         "Boolean algebra",
         "Discrete mathematics",
@@ -183,8 +184,9 @@
         "JS DOM",
         "Webpack",
         "GitLab CI",
-        "Reactive",
-        "Functional",
+        "Reactive paradigm",
+        "Functional paradigm",
+        "Compilers",
         "RxJs",
         "JavaScript",
         "<canvas>",

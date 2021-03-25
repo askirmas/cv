@@ -78,10 +78,8 @@
         "YAGNI",
         "OOP-PBP",
         "RESTful",
-        "Microservices",
-        "MVC",
         "Design by contract",
-        "PureCss",
+        "Pure-CSS",
         "BEM"
       ],
       "stack": [
@@ -91,9 +89,6 @@
         "git",
         "Jest",
         "Cypress",
-        "HTML5",
-        "CSS3",
-        "Sass",
         "MySQL",
         "MongoDB",
         "JavaScript",
@@ -101,7 +96,9 @@
         "ExpressJs",
         "React",
         "Next.js",
-        "Redux"    
+        "HTML5",
+        "CSS3",
+        "Sass"
       ]
     },
     "languages": {
@@ -247,8 +244,9 @@
             }
           ],
           "stack":[
-            "Reactive",
-            "Functional",
+            "Reactive paradigm",
+            "Functional paradigm",
+            "Compilers",
             "React",
             "RxJs",
             "TypeScript",
@@ -279,7 +277,7 @@
             "city": "Dallas.USA"
           }],
           "stack": [
-            "JavaScript", "Reactive"
+            "JavaScript", "Reactive paradigm"
           ],
           "items": [
             "Created internal timelog system"
@@ -366,10 +364,8 @@
               }
             }
           ],
-          "items": [
-            "Software Engineering",
-            "System Engineering",
-            "Information fluctuation complexity",
+          "subjects": [
+            "Software and Systems Engineering",
             "Neural networks"
           ]
         }, 
@@ -390,15 +386,11 @@
             }
           }],
           "stack": ["MySQL", "C", "C++", "OpenMPI"],
-          "items": [
+          "subjects": [
             "Programming language theory",
             "Parallel programming",
             "Databases",
-            "Mathematical analysis and statistics",
-            "Mathematical optimization",
-            "Computational complexity",
-            "Data structures",
-            "Algorithms and calculus methods"
+            "Algorithms and Data structures"
           ]
         },
         "school": {
@@ -417,11 +409,9 @@
               "ru": "Харьков.Украина"
             }
           }],
-          "items": [
-            "Boolean algebra",
+          "subjects": [
             "Discrete mathematics",
-            "Geometry",
-            "Probability theory"
+            "Geometry"
           ]
         }
       }  
@@ -429,32 +419,47 @@
   },
   "definitions": {
     "subjects": {
-      "OOP-PBP": {"group": "oop"},      
+      "Software and Systems Engineering": {"group": "eng"},
+      "XP": {"group": "eng"},
+      "KISS": {"group": "eng"},
+      "YAGNI": {"group": "eng"},
+      "DRY": {"group": "eng"},
+      "RESTful": {"group": "contracts"},
       "Design by contract": {"group": "contracts"},
+      "SOLID": {"group": "oop"},
+      "OOP-PBP": {"group": "oop"},      
       "Coverage 100%": {"group": "test"},
       "TDD": {"group": "test"},
       "Databases": {"group": "db"},
       "BEM": { "group": "css" },
-      "PureCss": { "group": "css" },
-      "Geometry": {"group": "css"}
+      "Pure-CSS": { "group": "css" },
+      "Geometry": {"group": "css"},
+      "Programming language theory": {"group": "trpl"},
+      "Neural networks": {"group": "neural"},
+      "Parallel programming": {"group": "parprog"},
+      "Discrete mathematics": {"group": "c"},
+      "Algorithms and Data structures": {"group": "c"}
     },
     "stack": {
       "PHP": {
         "favor": -1,
-        "group": "php"
+        "group": "server"
       },
       "Apache": {
-        "favor": -1
+        "favor": -1,
+        "group": "server"
       },
       "WordPress": {
         "favor": -1,
-        "group": "php"
+        "group": "server"
       },
       "Monolith": {
-        "favor": -1
+        "favor": -1,
+        "group": "eng"
       },
       "JsonSchema": {"group": "contracts"},
       "TypeScript": {"group": "contracts"},
+      "RESTful": {"group": "contracts"},
       "C++": {"group": "oop"},
       "JavaScript": {"group": "oop"},
       "ES6": {"group": "oop"},
@@ -463,11 +468,29 @@
       "Jest": {"group": "test"},
       "MySQL": {"group": "db"},
       "MongoDB": {"group": "db"},
+      "Node": {"group": "cli"},
+      "bash": {"group": "cli"},
+      "git": {"group": "cli"},
+      "ExpressJs": {"group": "server"},
+      "nginx": {"group": "server"},
       "CSS3": {"group": "css"},
       "Sass": {"group": "css"},
       "React": {"group": "react"},
       "Redux": {"group": "react"},
-      "Next.js": {"group": "react"}      
+      "Next.js": {"group": "react"},
+      "Webpack": {"group": "react"},
+      "RxJs": {"group": "react"},
+      "Python": {"group": "trpl"},
+      "Haxe": {"group": "trpl"},
+      "HTML5": {"group": "html"},
+      "<canvas>": {"group": "html"},
+      "pixi.js": {"group": "html"},
+      "jQuery": {"group": "html"},
+      "JS DOM": {"group": "html"},
+      "OpenCV": {"group": "neural"},
+      "OpenMPI": {"group": "parprog"},
+      "C": {"group": "c"},
+      "Compilers": {"group": "trpl"}
     }
   }  
 }
