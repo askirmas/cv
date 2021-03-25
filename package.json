@@ -76,7 +76,8 @@
     "access": "public"
   },
   "np": {
-    "yarn": false
+    "yarn": false,
+    "test": false
   },
   "repository": {
     "type": "git",
