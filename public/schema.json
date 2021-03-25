@@ -10,7 +10,7 @@
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "additionalProperties": {"$ref": "#/definitions/Langing"}
+        "additionalProperties": {"$ref": "#/definitions/Leaf"}
       }
     },
     "properties": {
@@ -77,17 +77,44 @@
 
         "subjects": {"$ref": "#/definitions/Subjects"},
         "stack": {"$ref": "#/definitions/Stack"},
-        "items": {"type": "array", "items": {
-          "type": ["string", "object"],
+        "items": {"type": "array", "items": {"$ref": "#/definitions/Leaf"}}
+      }
+    },
+    "Leaf": {
+      "oneOf": [
+        {"$ref": "#/definitions/Langing"},
+        {
+          "type": "object",
           "additionalProperties": false,
           "required": ["title", "href"],
           "properties": {
             "title": {"$ref": "#/definitions/Langing"},
-            "href": {"type": "string"}
-          }
-        }}
-      }
+            "href": {"$ref": "#/definitions/Langing"}
+          }    
+        }
+      ]
     },
+    "Langing": {
+      "type": ["string", "object"],
+      "propertyNames": {"enum": ["en", "uk", "he", "ru"]},
+      "required": ["en"],
+      "additionalProperties": {"type": "string"},
+      "examples": [
+        {"en": "…"}
+      ]
+    },
+    "Term": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "group": {"enum": [
+          "contracts", "oop", "test",
+          "db",
+          "css", "html", "react", "php"
+        ]},
+        "favor": {"type": "number"}
+      }
+    },    
     "Subjects": {
       "title": "Subjects",
       "type": "array",
@@ -179,27 +206,6 @@
         "OpenMPI",
         "C"
       ]      
-    },
-    "Langing": {
-      "type": ["string", "object"],
-      "propertyNames": {"enum": ["en", "uk", "he", "ru"]},
-      "required": ["en"],
-      "additionalProperties": {"type": "string"},
-      "examples": [
-        {"en": "…"}
-      ]
-    },
-    "Term": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "group": {"enum": [
-          "contracts", "oop", "test",
-          "db",
-          "css", "html", "react", "php"
-        ]},
-        "favor": {"type": "number"}
-      }
     }
   }
 }

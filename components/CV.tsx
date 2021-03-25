@@ -27,8 +27,9 @@ export default function CV({
 
     <main {...bem({cv: true})}>
       <aside {...bem({cv__links: true})}>{
-        forIn(links, (key, links) => <div key={key} {...bem({links_group: true})}>{
-          forIn(links, (type, value) =>
+        forIn(links, (key, linksGroup) => <div key={key} {...bem({links_group: true})}>{
+          forIn(linksGroup, (type, value) =>
+            //TODO move to Link
             type === "location"
             ? <span key={type} {...bem({link: type})}>{value}</span>
             : <Link key={type} {...{

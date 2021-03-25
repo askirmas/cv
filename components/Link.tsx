@@ -1,10 +1,10 @@
 import { ClassNamed } from "react-classnaming"
 import { dataProps } from "../utils/props"
-import { LinkTypes } from "../types"
+import { LinkTypes, Leaf } from "../types"
 
 type LinkProps = ClassNamed & {
   type: string
-  value: string
+  value: Leaf<string>
 }
 
 export {
@@ -12,7 +12,9 @@ export {
 }
 
 function Link({className, type, value}: LinkProps) {
-  const {children, ...props} = linkHelper(type, value)
+  const {children, ...props} = typeof value === "string"
+  ? linkHelper(type, value)
+  : {children: value.title, href: value.href}
 
   return <a {...{className, ...props}}>{children}</a>
 }

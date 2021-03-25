@@ -27,8 +27,24 @@
       "skype": "askirmas"  
     },
     "etc": {
-      "html": "...",
-      "pdf": "...",
+      "html": {
+        "title": "HTML",
+        "href": {
+          "en": "/en",
+          "he": "/he",
+          "uk": "/uk",
+          "ru": "/ru"
+        }
+      },
+      "pdf": {
+        "title": "PDF",
+        "href": {
+          "en": "/Andrii Kirmas-en.pdf",
+          "he": "/Andrii Kirmas-he.pdf",
+          "uk": "/Andrii Kirmas-uk.pdf",
+          "ru": "/Andrii Kirmas-ru.pdf"
+        }
+      },
       "npm": "@kirmas/cv"
     }
   },

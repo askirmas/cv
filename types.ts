@@ -5,7 +5,7 @@ export type LinkTypes = "email"|"phex"|"location"|"linkedin"|"github"|"skype"|"h
 export type tCV<V> = {
   title: V
   description: V
-  links: Record<string, P<LinkTypes, V>>
+  links: Record<string, P<LinkTypes, Leaf<V>>>
 
   items: Record<"objectives"|"competences"|"languages", CVArticle<V>>
 
@@ -32,11 +32,13 @@ export type CVArticle<V> = {
   }>>
   subjects: V[]
   stack: V[]
-  items: Array<V | {
-    title: V
-    href : V
-  }>
+  items: Array<Leaf<V>>
 }>
+
+export type Leaf<V> = V | {
+  title: V
+  href: V
+}
 
 export type Term = Partial<{
   favor: number
