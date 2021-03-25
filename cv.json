@@ -45,7 +45,10 @@
           "ru": "${homepage}${name}-ru.pdf"
         }
       },
-      "npm": "@kirmas/cv"
+      "npm": {
+        "title": "v${version}",
+        "href": "https://www.npmjs.com/package/@kirmas/cv"
+      }
     }
   },
   "items": {
