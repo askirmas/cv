@@ -22,6 +22,16 @@
 
     height: #{$padding};
     background-image: linear-gradient(#{$surface}, transparent);
+
+    // TODO #4
+    $me: #{&};
+    @at-root {
+      @media print {
+        @at-root #{$me} {
+          display: none;
+        }
+      }
+    }
   }
 
   &__delimiter {
