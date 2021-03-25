@@ -1,8 +1,13 @@
 @at-root .link {
   @extend %link-calm;
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
- 
+  text-align: center;
+  height: $icon-size;
+  overflow: hidden;
+  justify-content: center;
+
   @include content-key {
     width: $icon-size;
     height: $icon-size;
