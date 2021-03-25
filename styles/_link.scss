@@ -27,12 +27,7 @@
     @include content-value(attr(data-content));
   }
   &--linkedin {
-    @include content-image("https://askirmas.github.io/cv/images/linkedin.svg") {
-      background-position-x: right;
-      background-size: auto #{$icon-size};
-      padding-left: 0.25 * $icon-size;
-      margin-right: 0;
-    }
+    @include content-image("https://askirmas.github.io/cv/images/linkedin.svg");
   }
   &--skype {
     @include content-image("https://askirmas.github.io/cv/images/skype.svg");
