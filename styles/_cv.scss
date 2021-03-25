@@ -6,7 +6,7 @@
     right: #{$padding-big};
   }
   margin-bottom: #{$padding};
-
+  
   @import "layout--main";
   overflow: {
     y: overlay;
@@ -15,6 +15,7 @@
 
   &::before {
     grid-area: topb;
+    order: -1000;
     content: "";
     
     position: sticky;
@@ -82,11 +83,11 @@
 
   // TODO dehardcode
   &__languages .article__goals {
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
-    // flex-direction: row;
-    // column-gap: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    column-gap: 1.5em;
     a {
       @extend %link-external;
     }
