@@ -91,11 +91,26 @@
         "ru": "Языки"
       },
       "items": [
-        "English: Fluent",
-        "Hebrew: Basic",
-        "Ukrainian: Mother tongue",
-        "Russian: Mother tongue",
-        "JavaScript: Native speaker"
+        {
+          "title": "English: Fluent",
+          "href": "/en"
+        },
+        {
+          "title": "Hebrew: Basic",
+          "href": "/he"
+        },
+        {
+          "title": "Ukrainian: Mother tongue",
+          "href": "/uk"
+        },
+        {
+          "title": "Russian: Mother tongue",
+          "href": "/ru"
+        },
+        {
+          "title": "JavaScript: Native speaker",
+          "href": "/cv.json"
+        }
       ]
     }  
   },  

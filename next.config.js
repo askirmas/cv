@@ -1,6 +1,8 @@
 //@ts-nocheck
 
-const jsonImporter = require('node-sass-json-importer')
+const {stringify: $stringify, parse: $parse} = JSON
+, {readFileSync} = require('fs')
+, jsonImporter = require('node-sass-json-importer')
 , ajv = require("ajv").default
 , {langRec} = require("./utils/lang")
 , Ajv = new ajv({
@@ -17,8 +19,8 @@ module.exports = {
     "importer": jsonImporter()
   },
   "exportPathMap": () => {
-    const schema = require("./schema.json")
-    , cv = require("./cv.json")
+    const schema = readJsonSync("./schema.json")
+    , cv = readJsonSync("./cv.json")
     , {$schema, ...data} = cv
     , langs = {}
     
@@ -42,10 +44,18 @@ module.exports = {
   }
 }
 
+function readJsonSync(jsonPath) {
+  return $parse(readFileSync(jsonPath))
+}
+
 // Parameters<typeof Ajv.validate>
 function validate(...args) {
   if (!Ajv.validate(...args)) {
-    console.error($stringify(Ajv.errors))
+    console.error($stringify(
+      Ajv.errors,
+      null,
+      2
+    ))
     process.exit(1)
   }  
 }

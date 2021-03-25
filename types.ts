@@ -2,7 +2,7 @@
 
 export type LinkTypes = "email"|"phex"|"location"|"linkedin"|"github"|"skype"|"html"|"pdf"|"npm"
 
-export type CV<V> = {
+export type tCV<V> = {
   title: V
   description: V
   links: Record<string, P<LinkTypes, V>>
@@ -32,7 +32,10 @@ export type CVArticle<V> = {
   }>>
   subjects: V[]
   stack: V[]
-  items: V[]
+  items: Array<V | {
+    title: V
+    href : V
+  }>
 }>
 
 export type Term = Partial<{

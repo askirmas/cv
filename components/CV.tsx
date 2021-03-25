@@ -5,15 +5,15 @@ import { forIn } from "../utils/assoc"
 import { ArticleContent } from "./ArticleContent"
 import { chapter, dataProps } from "../utils/props"
 import { Link } from "./Link"
-import { CV } from "../types"
+import { tCV } from "../types"
 
-export default function Page({
+export default function CV({
   title,
   description,
   links,
   items,
   properties
-}: CV<string>) {
+}: tCV<string>) {
   const bem = classBeming<ClassNamesProperty<CssIdentifiersMap>>()
 
   return <>

@@ -77,7 +77,15 @@
 
         "subjects": {"$ref": "#/definitions/Subjects"},
         "stack": {"$ref": "#/definitions/Stack"},
-        "items": {"type": "array", "items": {"type": "string"}}
+        "items": {"type": "array", "items": {
+          "type": ["string", "object"],
+          "additionalProperties": false,
+          "required": ["title", "href"],
+          "properties": {
+            "title": {"$ref": "#/definitions/Langing"},
+            "href": {"type": "string"}
+          }
+        }}
       }
     },
     "Subjects": {

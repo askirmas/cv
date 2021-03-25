@@ -43,11 +43,14 @@ function ArticleContent({
           //TODO De-hardcode - update data
           const term: Term|undefined = terms[v] ?? (key in definitions ? {group: v} : undefined)
           , {favor, group} = term ?? {}
-
+          , {href, title} = typeof v === "string" ? {title: v, href: undefined} : v
           return <li key={k}
             {...term && bem({term: favor === -1 ? "deprecated" : true})}
             {...stacker(group)}
-          >{v}</li>
+          >{
+            !href ? title
+            : <a {...{href}}>{title}</a>
+          }</li>
         })
       }</ul>
     ) }

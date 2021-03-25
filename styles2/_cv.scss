@@ -87,5 +87,8 @@
     justify-content: space-between;
     flex-direction: row;
     column-gap: 1.5em;
+    a {
+      @extend %link-external;
+    }
   }
 }
