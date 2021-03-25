@@ -12,16 +12,21 @@
     "setup": "./setup.sh",
     "preparation": "./postinstall.sh",
     "start": "node index.js",
-    "test": "exit 0",
-    "spec": "jest --config jest.config.json",
-    "spec@ci": "exit 0; npm run spec --blur=2 --threshold=0.075",
+    "test": "npm run build",
     "dev": "next",
     "build": "npm run compile && npm run compile/pdf",
+    "prebuild": "npm run unit",
     "postbuild": "npm run spec",
     "compile": "next build && next export",
     "precompile": "rm -rf out ",
     "postcompile": "rm -rf out/404.html",
-    "compile/pdf": "ts-node-script cli/pdf-gen"
+    "compile/pdf": "ts-node-script cli/pdf-gen",
+    "release": "np",
+    "postrelease": "npm run publish",
+    "publish": "gh-pages --dist out --dotfiles --message \"$(git show-ref --hash --verify HEAD)\"",
+    "spec": "jest --config jest.config.json",
+    "spec@ci": "exit 0; npm run spec --blur=2 --threshold=0.075",
+    "unit": "exit 0"
   },
   "keywords": [
     "Andrii Kirmas",
@@ -34,7 +39,7 @@
   "author": {
     "name": "Andrii Kirmas",
     "email": "kirmas@phystech.edu",
-    "url": "https://github.com/askirmas"
+    "url": "https://linkedin.com/in/kirmas/"
   },
   "license": "MIT",
   "dependencies": {},
@@ -48,6 +53,7 @@
     "@types/react": "^16.14.5",
     "@types/react-dom": "^16.9.12",
     "ajv": "^7.2.3",
+    "gh-pages": "^3.1.0",
     "git-hooks-wrapper": "^0.7.1",
     "globby": "^11.0.3",
     "jest": "^26.6.3",
