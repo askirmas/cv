@@ -16,6 +16,7 @@ export type CssIdentifiersMap = {
   "article__title--external": string|undefined
   "article__title--range": string|undefined
   "cv": string|undefined
+  "cv__certifications": string|undefined
   "cv__chapter": string|undefined
   "cv__competences": string|undefined
   "cv__delimiter": string|undefined

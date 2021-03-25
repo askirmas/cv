@@ -73,7 +73,6 @@
     @include typography.typography("headline5");
     @extend %link-anchor;
     margin: {
-      top: #{$padding};
       bottom: #{$padding};
     };
   }
