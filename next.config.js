@@ -19,8 +19,9 @@ module.exports = {
     "importer": jsonImporter()
   },
   "exportPathMap": (_, {dev}) => {
-    const {homepage, author: {name}} = require("./package.json")
+    const {homepage, author: {name}, version} = require("./package.json")
     , replacements = {
+      version,
       name,
       homepage: dev ? "" : homepage
     }
@@ -49,7 +50,7 @@ module.exports = {
   }
 }
 
-function readJsonSync(jsonPath, {homepage, name} = {}) {
+function readJsonSync(jsonPath, {homepage, name, version} = {}) {
   return $parse(
     readFileSync(jsonPath),
     (_, v) => {

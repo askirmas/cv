@@ -1,6 +1,6 @@
 import { classBeming } from "react-classnaming"
 import type { ClassNamesProperty } from "react-classnaming"
-import type { CssIdentifiersMap } from "../styles2/index.scss"
+import type { CssIdentifiersMap } from "../styles/index.scss"
 import { forIn } from "../utils/assoc"
 import { ArticleContent } from "./ArticleContent"
 import { chapter, dataProps } from "../utils/props"
@@ -36,7 +36,6 @@ export default function CV({
               type,
               value,
               ...bem({
-                //@ts-expect-error
                 link: type === "phex" ? "phone" : type
               })}
             }/>

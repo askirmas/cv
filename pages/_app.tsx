@@ -1,10 +1,9 @@
 import App from 'next/app'
 import Head from 'next/head'
 
-import "../styles2/index.scss"
+import "../styles/index.scss"
 
-const {from: $from} = Array
-, hoverName = "_hover"
+const hoverName = "_hover"
 export default class MyApp extends App {
   hoverAgent({target: {dataset: {hover}}}: {target: HTMLElement}) {
     const previous = document.body.getElementsByClassName(hoverName)

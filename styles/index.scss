@@ -5,8 +5,8 @@
   @include typography.typography("body1");
 }
 
-@import "../styles/quarks"
-, "../styles/utils"
+@import "../styles-old/quarks"
+, "../styles-old/utils"
 , "next"
 , "templates"
 , "cv"
