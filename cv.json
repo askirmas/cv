@@ -415,6 +415,43 @@
           ]
         }
       }  
+    },
+    "certifications": {
+      "title": "Certifications",
+      "items": {
+        "freecodecamp-api": {
+          "title": "APIs and Microservices",
+          "locations": [
+            "freecodecamp"
+          ],
+          "href": "https://www.freecodecamp.org/certification/kirmas/apis-and-microservices",
+          "stack": [
+            "ExpressJs",
+            "MongoDB",
+            "Microservices"
+          ]
+        },
+        "freecodecamp-js": {
+          "title": "JavaScript Algorithms and Data Structures",
+          "href": "https://www.freecodecamp.org/certification/kirmas/javascript-algorithms-and-data-structures",
+          "stack": [
+            "ES6"
+          ],
+          "subjects": [
+            "Algorithms and Data structures"
+          ]
+        },
+        "codility-2020-palladium": {
+          "title": "Golden Award for the Palladium 2020 Challenge",
+          "href": "https://app.codility.com/cert/view/cert4N2KDY-EF36VP2Q9KF696XK/",
+          "stack": [
+            "JavaScript"
+          ],
+          "subjects": [
+            "Algorithms and Data structures"
+          ]
+        }
+      }
     }
   },
   "definitions": {
