@@ -1,4 +1,6 @@
 @at-root .cv {
+  $block: #{&};
+
   flex-grow: 1;
 
   padding: {
@@ -13,24 +15,18 @@
     x: hidden;
   }
 
-  &::before {
-    grid-area: topb;
-    order: -1000;
-    content: "";
-    
-    position: sticky;
-    top: 0;
+  @at-root {
+    @media only screen and (min-width: #{$desktop}) {
+      @at-root #{$block}::before {
+        grid-area: topb;
+        content: "";
+        
+        position: sticky;
+        top: 0;
 
-    height: #{$padding};
-    background-image: linear-gradient(#{$surface}, transparent);
+        height: #{$padding};
+        background-image: linear-gradient(#{$surface}, transparent);
 
-    // TODO #4
-    $me: #{&};
-    @at-root {
-      @media print {
-        @at-root #{$me} {
-          display: none;
-        }
       }
     }
   }
@@ -40,6 +36,7 @@
     top: 0;
     
     height: #{$padding};
+    width: 100vw;
   
     z-index: 1;
     
@@ -70,7 +67,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: #{$gap};
   }
 
   &__chapter {

@@ -1,11 +1,12 @@
 & {
-  column-gap: #{$padding-big};
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: row;
+  flex-wrap: wrap;
+
   @media print, (min-width: #{$desktop}) {
-    grid-template-columns: 1fr 1fr;
     display: grid;
+    column-gap: #{$padding-big};
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'topb topb'
       'links links'
@@ -18,12 +19,12 @@
     ;  
   }
   
-  &__links       { order: -8; grid-area: links; }
-  &__delimiter   { order: -7; grid-area: delimiter; }
-  &__objectives  { order: -6; grid-area: objectives; }
-  &__competences { order: -5; grid-area: competences; }
-  &__projects    { order: -4; grid-area: projects; }
-  &__experience  { order: -3; grid-area: experience; }
-  &__education   { order: -2; grid-area: education; }
-  &__languages   { order: -1; grid-area: languages; } 
+  &__links       { order: 1; grid-area: links; }
+  &__delimiter   { order: 2; grid-area: delimiter; }
+  &__objectives  { order: 3; grid-area: objectives; }
+  &__competences { order: 4; grid-area: competences; }
+  &__projects    { order: 5; grid-area: projects; }
+  &__experience  { order: 6; grid-area: experience; }
+  &__education   { order: 7; grid-area: education; }
+  &__languages   { order: 8; grid-area: languages; } 
 }
