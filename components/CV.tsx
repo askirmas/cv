@@ -19,7 +19,6 @@ export default function CV({
   return <>
     <header {...bem({header: true})}>
       <span {...bem({
-        //@ts-expect-error
         header__title: true
       })}>{title}</span>
       <span {...bem({header__description: true})}>{description}</span>
