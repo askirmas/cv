@@ -11,6 +11,8 @@ function dataProps<T extends Record<string, string|number>>(source: T) {
 
   for (const key in source) {
     const value = source[key]
+    if (value === undefined)
+      continue
     //@ts-expect-error
     $return[`data-${key}`]
     = typeof value === "string" ? value : `${value}`

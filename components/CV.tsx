@@ -53,7 +53,7 @@ export default function CV({
         <section key={section} {...bem({[`cv__${section}`]: true, article: true})}>
           <a {...bem({cv__chapter: true})} {...chapter(section)}>{title}</a>
 
-          { forIn(items, (key, {min, max, title, href, ...article}) =>
+          { forIn(items, (key, {min, max = "present", title, href, ...article}) =>
             <article key={key} {...bem({article: true})}>
               <a
                 {...bem({article__title: [href ? "external" : "anchor", min === undefined ? false : "range"]})}
