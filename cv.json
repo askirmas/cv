@@ -12,7 +12,8 @@
       "email": "kirmas@phystech.edu",
       "phex": {
         "en": "e2701c48e2",
-        "ru": "128ce03c64"
+        "ru": "128ce03c64",
+        "uk": "58a2d0028f"
       },
       "location": {
         "en": "🇮🇱 Netania",
@@ -137,6 +138,35 @@
         "ru": "Опыт работы"
       },
       "items": {
+        "wormsoft": {
+          "min": 2021,
+          "title": "Lead Back-End Engineer",
+          "locations": [{
+            "title": "Wormsoft Inc.",
+            "city": {
+              "en": "Moscow.Russia",
+              "ru": "Москва.РФ"
+            }
+          }],
+          "items": [
+            "Stabilize and optimize system",
+            "Share competences",
+            "Implemented scheduled tasks service and webpush notifications"
+          ],
+          "stack": [
+            "Node",
+            "TypeScript",
+            "JsonSchema",
+            "OpenAPI",
+            "PostgreSQL",
+            "Jest",
+            "bash",
+            "Docker",
+            "GitLab CI",
+            "typedi",
+            "typeorm"
+          ]
+        },
         "deutsche-bank": {
           "min": 2020, "max": 2021,
           "title": "Senior FrontEnd Engineer",
@@ -146,7 +176,20 @@
               "en": "Moscow.Russia",
               "ru": "Москва.РФ"
             }
-          }]
+          }],
+          "items": [
+            "Established and integrated unit and functional autotests to CI pipeline",
+            "Implemented object-oriented diff viewer"
+          ],
+          "stack": [
+            "React",
+            "TypeScript",
+            "Jest",
+            "Cypress",
+            "Next.js",
+            "Sass",
+            "Protobuf"
+          ]
         },
         "cloudwize": {
           "min": 2019, "max": 2020,
@@ -179,10 +222,11 @@
             "CSS3",
             "JS DOM",
             "Webpack",
-            "GitLab CI"        
+            "GitLab CI",
+            "Docker"
           ],
           "items": [
-            "Implemented IDE-like website",
+            "Implemented IDE-like graph builder web-tool",
             "Customers portal (full-stack)",
             "Created styling system for the company",
             "Built company’s internal infrastructure",
@@ -222,10 +266,11 @@
             "nginx"        
           ],
           "items": [
-            "Communicating with outsources, supports, consulting affiliates Support and fast solving common operational issues Continuous deployment",
-            "Software integrations with delegated configurations",
+            "Communications with outsourcers and supports, affiliates consultations. Fast solving internal operational issues",
+            "Built API integration system with delegated configurations",
             "Legacy code solving",
-            "Built websites and landing pages"        
+            "Built websites and landing pages",
+            "Establish Extreme programming ..., setup CI/CD pipelines"
           ]
         },
         "intetics": {
@@ -496,6 +541,8 @@
       },
       "JsonSchema": {"group": "contracts"},
       "TypeScript": {"group": "contracts"},
+      "OpenAPI": {"group": "contracts"},
+      "Protobuf": {"group": "contracts"},
       "RESTful": {"group": "contracts"},
       "C++": {"group": "oop"},
       "JavaScript": {"group": "oop"},
@@ -505,10 +552,13 @@
       "Jest": {"group": "test"},
       "MySQL": {"group": "db"},
       "MongoDB": {"group": "db"},
+      "PostgreSQL": {"group": "db"},
+      "typeorm": {"group": "db"},
       "Node": {"group": "cli"},
       "bash": {"group": "cli"},
       "git": {"group": "cli"},
       "ExpressJs": {"group": "server"},
+      "typedi": {"group": "server"},
       "nginx": {"group": "server"},
       "CSS3": {"group": "css"},
       "Sass": {"group": "css"},
@@ -527,7 +577,9 @@
       "OpenCV": {"group": "neural"},
       "OpenMPI": {"group": "parprog"},
       "C": {"group": "c"},
-      "Compilers": {"group": "trpl"}
+      "Compilers": {"group": "trpl"},
+      "GitLab CI": {"group": "devops"},
+      "Docker": {"group": "devops"}
     }
   }  
 }
